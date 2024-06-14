@@ -367,7 +367,6 @@ body.dark .switch::before {
 
 .sidebar .menu-links .submenu:hover .submenu-links,
 .sidebar .menu-links .submenu:focus-within .submenu-links {
-    /* left: 250px; */
     opacity: 1;
     pointer-events: auto;
 }
