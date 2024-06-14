@@ -58,7 +58,7 @@ body.dark {
 }
 
 .sidebar.close {
-    width: 88px;
+    width: 89px;
 }
 
 /* ===== Reusable code - Here ===== */
@@ -101,6 +101,20 @@ body.dark {
 
 .sidebar.close .text {
     opacity: 0;
+}
+
+.sidebar .text2 {
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text2 {
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
 }
 
 /* =========================== */
@@ -323,13 +337,8 @@ body.dark .switch::before {
     padding: 12px 60px;
 }
 
-body.dark .home .text {
-    color: var(--text-color2);
-}
-
 /* Estilos para o submenu */
 .sidebar .menu-links .submenu .submenu-links {
-    /* display: none; */
     position: absolute;
     left: 100%;
     top: 0;
@@ -340,21 +349,25 @@ body.dark .home .text {
     opacity: 0;
     pointer-events: none;
     height: 100%;
-    width: 100%;
+    width: 250px;
 
 
     display: flex;
-    flex-direction: column; /* Alinha os itens verticalmente */
-    justify-content: center; /* Centraliza verticalmente os itens */
-    align-items: center; /* Centraliza horizontalmente os itens */
-    list-style: none; /* Remove os marcadores da lista */
-    padding: 14px; /* Remove o padding padrão */
-    margin: 0; /* Remove a margem padrão */
+    /* Alinha os itens verticalmente */
+    flex-direction: column;
+    /* Centraliza verticalmente os itens */
+    justify-content: center;
+    /* Centraliza horizontalmente os itens */
+    align-items: center;
+    /* Remove os marcadores da lista */
+    list-style: none;
+    padding: 14px;
+    margin: 0;
 }
 
 .sidebar .menu-links .submenu:hover .submenu-links,
 .sidebar .menu-links .submenu:focus-within .submenu-links {
-    left: 250px;
+    /* left: 250px; */
     opacity: 1;
     pointer-events: auto;
 }
@@ -372,12 +385,3 @@ body.dark .home .text {
     color: var(--text-color);
     padding: 20px;
 }
-
-/* .sidebar .submenu .submenu-links .nav-link a:hover {
-    background-color: var(--primary-color);
-    color: var(--sidebar-color);
-} */
-
-/* body.dark .sidebar .submenu .submenu-links .nav-link a:hover {
-    color: var(--text-color);
-} */
