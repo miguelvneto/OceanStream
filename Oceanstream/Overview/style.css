@@ -322,6 +322,7 @@ body.dark .switch::before {
     background-repeat: no-repeat; /* Evita que a imagem se repita */
     background-attachment: fixed; /* Faz com que a imagem fique fixa ao rolar a página */
     transition: var(--tran-05);
+    padding: 20px;
 }
 
 .sidebar.close ~ .home {
