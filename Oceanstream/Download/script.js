@@ -74,21 +74,13 @@ function toggleOptions(id) {
     options.classList.toggle('show');
 }
 
-function downloadData(format) {
-    // Implement your download logic here
-}
-
-function toggleOptions(id) {
-    const options = document.getElementById(id);
-    options.classList.toggle('show');
-}
-
 function toggleAll(id, checkbox) {
     const options = document.getElementById(id);
     const checkboxes = options.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach((cb) => {
         cb.checked = checkbox.checked;
     });
+    toggleOptions(id)
 }
 
 function downloadData(format) {

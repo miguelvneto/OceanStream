@@ -186,7 +186,7 @@
                     <input type="date" id="end-date" name="end-date" required>
                 </div>
                 <div class="form-group">
-                    <label for="equipments">Equipamentos:</label>
+                    <label for="equipments">Porto de Tubarão:</label>
                     <div id="equipments">
                         <div>
                             <label class="equipment-label" for="boia4" onclick="toggleOptions('boia4-options')">
@@ -194,44 +194,36 @@
                             </label>
                             <input type="checkbox" id="boia4" name="equipments" value="Boia 4" style="display:none;">
                             <div id="boia4-options" class="sub-options">
-                                <label class="bold">Corrente</label>
-                                <label><input type="checkbox" onclick="toggleSubOptions('boia4-fundo-options', this)"> Fundo (células de 1 à 9)</label>
-                                <div id="boia4-fundo-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Velocidade Fundo"> Velocidade em Subcamadas - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Velocidade Média Fundo"> Velocidade Média da Coluna d'Água - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Direção Fundo"> Direção em Subcamadas - graus (°)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Direção Média Fundo"> Direção Média da Coluna d'Água - graus (°)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Turbulência Fundo"> Turbulência - m/s</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Profundidade Fundo"> Profundidade - metros (m)</label>
+                                <!-- CORRENTE -->
+                                <div>
+                                    <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia4-corrente-options')">
+                                            <input type="checkbox" onclick="toggleAll('boia4-corrente-options', this)"> &gt; Corrente
+                                    </label>
+                                    <!-- <label class="bold"> -->
+                                        <!-- <input type="checkbox" onclick="toggleAll('boia4-corrente-options', this)"> Corrente -->
+                                    <!-- </label> -->
+                                    <div id="boia4-corrente-options" class="sub-options">
+                                        <label><input type="checkbox" name="boia4-magnitude" value="corrente fundo"> Corrente Fundo (células 1 à 9)</label>
+                                        <label><input type="checkbox" name="boia4-magnitude" value="corrente meio"> Corrente Meio (células 10 à 19)</label>
+                                        <label><input type="checkbox" name="boia4-magnitude" value="corrente superfície"> Corrente Superfície (células 20 à 29)</label>
+                                    </div>
                                 </div>
-                                <label><input type="checkbox" onclick="toggleSubOptions('boia4-meio-options', this)"> Meio (células de 10 à 19)</label>
-                                <div id="boia4-meio-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Velocidade Meio"> Velocidade em Subcamadas - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Velocidade Média Meio"> Velocidade Média da Coluna d'Água - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Direção Meio"> Direção em Subcamadas - graus (°)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Direção Média Meio"> Direção Média da Coluna d'Água - graus (°)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Turbulência Meio"> Turbulência - m/s</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Profundidade Meio"> Profundidade - metros (m)</label>
-                                </div>
-                                <label><input type="checkbox" onclick="toggleSubOptions('boia4-superficie-options', this)"> Superfície (células de 20 à 29)</label>
-                                <div id="boia4-superficie-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Velocidade Superfície"> Velocidade em Subcamadas - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Velocidade Média Superfície"> Velocidade Média da Coluna d'Água - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Direção Superfície"> Direção em Subcamadas - graus (°)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Direção Média Superfície"> Direção Média da Coluna d'Água - graus (°)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Turbulência Superfície"> Turbulência - m/s</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Profundidade Superfície"> Profundidade - metros (m)</label>
-                                </div>
-                                <label class="bold"><input type="checkbox" onclick="toggleAll('boia4-onda-options', this)"> Onda</label>
-                                <div id="boia4-onda-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
-                                    <label><input type="checkbox" name="boia4-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
+
+                                <!-- ONDA -->
+                                <div>
+                                    <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia4-onda-options')">
+                                        <input type="checkbox" onclick="toggleAll('boia4-onda-options', this)"> &gt; Ondas
+                                    </label>
+                                    <div id="boia4-onda-options" class="sub-options">
+                                        <label><input type="checkbox" name="boia4-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                        <label><input type="checkbox" name="boia4-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
+                                        <label><input type="checkbox" name="boia4-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
+                                        <label><input type="checkbox" name="boia4-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                                        <label><input type="checkbox" name="boia4-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
+                                        <label><input type="checkbox" name="boia4-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
+                                        <label><input type="checkbox" name="boia4-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
+                                        <label><input type="checkbox" name="boia4-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -241,44 +233,30 @@
                             </label>
                             <input type="checkbox" id="boia8" name="equipments" value="Boia 8" style="display:none;">
                             <div id="boia8-options" class="sub-options">
-                                <label class="bold">Corrente</label>
-                                <label><input type="checkbox" onclick="toggleSubOptions('boia8-fundo-options', this)"> Fundo (células de 1 à 9)</label>
-                                <div id="boia8-fundo-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Velocidade Fundo"> Velocidade em Subcamadas - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Velocidade Média Fundo"> Velocidade Média da Coluna d'Água - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Direção Fundo"> Direção em Subcamadas - graus (°)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Direção Média Fundo"> Direção Média da Coluna d'Água - graus (°)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Turbulência Fundo"> Turbulência - m/s</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Profundidade Fundo"> Profundidade - metros (m)</label>
+                                <div>
+                                    <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia8-corrente-options')">
+                                        <input type="checkbox" onclick="toggleAll('boia8-corrente-options', this)"> &gt; Corrente
+                                    </label>
+                                    <div id="boia8-corrente-options" class="sub-options">
+                                        <label><input type="checkbox" name="boia8-magnitude" value="corrente fundo"> Corrente Fundo (células 1 à 9)</label>
+                                        <label><input type="checkbox" name="boia8-magnitude" value="corrente meio"> Corrente Meio (células 10 à 19)</label>
+                                        <label><input type="checkbox" name="boia8-magnitude" value="corrente superfície"> Corrente Superfície (células 20 à 29)</label>
+                                    </div>
                                 </div>
-                                <label><input type="checkbox" onclick="toggleSubOptions('boia8-meio-options', this)"> Meio (células de 10 à 19)</label>
-                                <div id="boia8-meio-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Velocidade Meio"> Velocidade em Subcamadas - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Velocidade Média Meio"> Velocidade Média da Coluna d'Água - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Direção Meio"> Direção em Subcamadas - graus (°)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Direção Média Meio"> Direção Média da Coluna d'Água - graus (°)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Turbulência Meio"> Turbulência - m/s</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Profundidade Meio"> Profundidade - metros (m)</label>
-                                </div>
-                                <label><input type="checkbox" onclick="toggleSubOptions('boia8-superficie-options', this)"> Superfície (células de 20 à 29)</label>
-                                <div id="boia8-superficie-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Velocidade Superfície"> Velocidade em Subcamadas - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Velocidade Média Superfície"> Velocidade Média da Coluna d'Água - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Direção Superfície"> Direção em Subcamadas - graus (°)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Direção Média Superfície"> Direção Média da Coluna d'Água - graus (°)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Turbulência Superfície"> Turbulência - m/s</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Profundidade Superfície"> Profundidade - metros (m)</label>
-                                </div>
-                                <label class="bold"><input type="checkbox" onclick="toggleAll('boia8-onda-options', this)"> Onda</label>
-                                <div id="boia8-onda-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
-                                    <label><input type="checkbox" name="boia8-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
+                                <div>
+                                    <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia8-onda-options')">
+                                        <input type="checkbox" onclick="toggleAll('boia8-onda-options', this)"> &gt; Ondas
+                                    </label>
+                                    <div id="boia8-onda-options" class="sub-options">
+                                        <label><input type="checkbox" name="boia8-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                        <label><input type="checkbox" name="boia8-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
+                                        <label><input type="checkbox" name="boia8-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
+                                        <label><input type="checkbox" name="boia8-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                                        <label><input type="checkbox" name="boia8-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
+                                        <label><input type="checkbox" name="boia8-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
+                                        <label><input type="checkbox" name="boia8-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
+                                        <label><input type="checkbox" name="boia8-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -288,46 +266,39 @@
                             </label>
                             <input type="checkbox" id="boia10" name="equipments" value="Boia 10" style="display:none;">
                             <div id="boia10-options" class="sub-options">
-                                <label class="bold">Corrente</label>
-                                <label><input type="checkbox" onclick="toggleSubOptions('boia10-fundo-options', this)"> Fundo (células de 1 à 9)</label>
-                                <div id="boia10-fundo-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Velocidade Fundo"> Velocidade em Subcamadas - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Velocidade Média Fundo"> Velocidade Média da Coluna d'Água - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Direção Fundo"> Direção em Subcamadas - graus (°)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Direção Média Fundo"> Direção Média da Coluna d'Água - graus (°)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Turbulência Fundo"> Turbulência - m/s</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Profundidade Fundo"> Profundidade - metros (m)</label>
+                                <!-- CORRENTE -->
+                                <div>
+                                    <label class="equipment-label" for="boia10c" onclick="toggleOptions('boia10-corrente-options')">
+                                        <!-- <label class="bold"> -->
+                                            <input type="checkbox" onclick="toggleAll('boia10-corrente-options', this)"> &gt; Corrente
+                                        <!-- </label> -->
+                                    </label>
+                                    <!-- <input type="checkbox" id="boia10c" name="equipments" value="Boia 10 Corrente" style="display:none;"> -->
+                                    <div id="boia10-corrente-options" class="sub-options">
+                                        <label><input type="checkbox" name="boia10-magnitude" value="corrente fundo"> Corrente Fundo (células 1 à 9)</label>
+                                        <label><input type="checkbox" name="boia10-magnitude" value="corrente meio"> Corrente Meio (células 10 à 19)</label>
+                                        <label><input type="checkbox" name="boia10-magnitude" value="corrente superfície"> Corrente Superfície (células 20 à 29)</label>
+                                    </div>
                                 </div>
-                                <label><input type="checkbox" onclick="toggleSubOptions('boia10-meio-options', this)"> Meio (células de 10 à 19)</label>
-                                <div id="boia10-meio-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Velocidade Meio"> Velocidade em Subcamadas - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Velocidade Média Meio"> Velocidade Média da Coluna d'Água - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Direção Meio"> Direção em Subcamadas - graus (°)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Direção Média Meio"> Direção Média da Coluna d'Água - graus (°)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Turbulência Meio"> Turbulência - m/s</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Profundidade Meio"> Profundidade - metros (m)</label>
-                                </div>
-                                <label><input type="checkbox" onclick="toggleSubOptions('boia10-superficie-options', this)"> Superfície (células de 20 à 29)</label>
-                                <div id="boia10-superficie-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Velocidade Superfície"> Velocidade em Subcamadas - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Velocidade Média Superfície"> Velocidade Média da Coluna d'Água - metros por segundo (m/s)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Direção Superfície"> Direção em Subcamadas - graus (°)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Direção Média Superfície"> Direção Média da Coluna d'Água - graus (°)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Turbulência Superfície"> Turbulência - m/s</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Profundidade Superfície"> Profundidade - metros (m)</label>
-                                </div>
-                                <label class="bold"><input type="checkbox" onclick="toggleAll('boia10-onda-options', this)"> Onda</label>
-                                <div id="boia10-onda-options" class="sub-options">
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
-                                    <label><input type="checkbox" name="boia10-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
+
+                                <!-- ONDA -->
+                                <div>
+                                    <label class="equipment-label" for="boia10" onclick="toggleOptions('boia10-onda-options')">
+                                        <input type="checkbox" onclick="toggleAll('boia10-onda-options', this)"> &gt; Ondas
+                                    </label>
+                                    <div id="boia10-onda-options" class="sub-options">
+                                        <label><input type="checkbox" name="boia10-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                        <label><input type="checkbox" name="boia10-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
+                                        <label><input type="checkbox" name="boia10-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
+                                        <label><input type="checkbox" name="boia10-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                                        <label><input type="checkbox" name="boia10-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
+                                        <label><input type="checkbox" name="boia10-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
+                                        <label><input type="checkbox" name="boia10-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
+                                        <label><input type="checkbox" name="boia10-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                         <div>
                             <label class="equipment-label" for="ondografo-pii" onclick="toggleOptions('ondografo-pii-options')">
