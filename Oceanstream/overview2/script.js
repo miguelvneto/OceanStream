@@ -27,25 +27,50 @@ modeSwitch.addEventListener("click" , () =>{
 
 // -----------------------------------------------------------------------------------------
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Coordenadas do Porto de Tubarão, Vitória - ES
-    var tubaraoCoords = [-20.2867, -40.2548];
 
-    // Inicializar o mapa
-    var map = L.map('map').setView(tubaraoCoords, 13); // Coordenadas e nível de zoom
-
-    // Adicionar camada de tiles do OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // Adicionar um marcador no mapa
-    var marker = L.marker(tubaraoCoords).addTo(map)
-        .bindPopup('Porto de Tubarão.<br> Vitória - ES.')
-        .openPopup();
-});
 
 // --------------------------------------------------------------------------------------- icones
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Coordenadas do Porto de Tubarão, Vitória - ES
+//     var tubaraoCoords = [-20.2867, -40.2548];
+
+//     // Inicializar o mapa
+//     var map = L.map('map').setView(tubaraoCoords, 13); // Coordenadas e nível de zoom
+
+//     // Adicionar camada de tiles do OpenStreetMap
+//     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//     }).addTo(map);
+
+//     // Adicionar ícones personalizados
+//     var customIcon = L.icon({
+//         iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', // URL da imagem do ícone
+//         iconSize: [32, 32], // Tamanho do ícone
+//         iconAnchor: [16, 32], // Ponto de ancoragem do ícone (metade da largura e altura)
+//         popupAnchor: [0, -32] // Ponto de ancoragem do popup (metade da largura e altura)
+//     });
+
+//     // Adicionar marcadores com ícones personalizados
+//     var markers = [
+//         { coords: [-20.2867, -40.2548], info: 'Porto de Tubarão' },
+//         { coords: [-20.285, -40.252], info: 'Boia 04' },
+//         { coords: [-20.283, -40.256], info: 'Boia 08' },
+//         // Adicione mais marcadores conforme necessário
+//     ];
+
+//     markers.forEach(markerData => {
+//         var marker = L.marker(markerData.coords, { icon: customIcon }).addTo(map);
+//         marker.bindPopup(markerData.info);
+
+//         marker.on('mouseover', function (e) {
+//             this.openPopup();
+//         });
+//         marker.on('mouseout', function (e) {
+//             this.closePopup();
+//         });
+//     });
+// });
+
 document.addEventListener('DOMContentLoaded', () => {
     // Coordenadas do Porto de Tubarão, Vitória - ES
     var tubaraoCoords = [-20.2867, -40.2548];
@@ -58,28 +83,106 @@ document.addEventListener('DOMContentLoaded', () => {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Função para adicionar ícones personalizados
-    function addCustomMarker(coords, iconUrl, popupText) {
-        var customIcon = L.icon({
-            iconUrl: iconUrl,
-            iconSize: [38, 38], // tamanho do ícone
-            iconAnchor: [19, 38], // ponto do ícone que será ancorado ao marcador
-            popupAnchor: [0, -38] // ponto de ancoragem do popup em relação ao ícone
-        });
+    // Adicionar ícone personalizado
+    var customIcon = L.icon({
+        iconUrl: 'mapa-icone.png', // Caminho relativo do ícone
+        iconSize: [25, 50], // Tamanho do ícone
+        iconAnchor: [16, 32], // Ponto de ancoragem do ícone (metade da largura e altura)
+        popupAnchor: [0, -32] // Ponto de ancoragem do popup (metade da largura e altura)
+    });
 
-        var marker = L.marker(coords, {icon: customIcon}).addTo(map);
-        marker.bindPopup(popupText);
+    // Adicionar marcadores com ícones personalizados
+    var markers = [
+        { 
+            coords: [-20.328167, -40.242500], 
+            info: `<div style="display: flex; align-items: center;">
+                    <div>
+                        <b>Boia 04</b><br>
+                        Latitude: -20.328167<br>
+                        Longitude: -40.242500<br>
+                        ADCP - Nortek_awac_1MHz<br>
+                        Intervalo de atualização:<br>
+                        - Onda: 1 horas<br>
+                        - Corrente: 10 minutos
+                    </div>
+                    <div>
+                        <img src="Nortek_AWAC_1MHz.png" style="width: 100px; height: 100px; margin-left: 10px;">
+                    </div>
+                   </div>` 
+        },
+        { 
+            coords: [-20.308833, -40.248000], 
+            info: `<div style="display: flex; align-items: center;">
+                    <div>
+                        <b>Boia 08</b><br>
+                        Latitude: -20.308833<br>
+                        Longitude: -40.248000<br>
+                        ADCP - Nortek_awac_1MHz<br>
+                        Intervalo de atualização:<br>
+                        - Onda: 1 horas<br>
+                        - Corrente: 10 minutos
+                    </div>
+                    <div>
+                        <img src="Nortek_AWAC_1MHz.png" style="width: 100px; height: 100px; margin-left: 10px;">
+                    </div>
+                   </div>` 
+        },
+        { 
+            coords: [-20.299833, -40.255000], 
+            info: `<div style="display: flex; align-items: center;">
+                    <div>
+                        <b>Boia 10</b><br>
+                        Latitude: -20.299833<br>
+                        Longitude: -40.255000<br>
+                        ADCP - Nortek_awac_1MHz<br>
+                        Intervalo de atualização:<br>
+                        - Onda: 1 horas<br>
+                        - Corrente: 10 minutos
+                    </div>
+                    <div>
+                        <img src="Nortek_AWAC_1MHz.png" style="width: 100px; height: 100px; margin-left: 10px;">
+                    </div>
+                   </div>` 
+        },
+        { 
+            coords: [-20.288333, -40.243333], 
+            info: `<div style="display: flex; align-items: center;">
+                    <div>
+                        <b>Marégrafo</b><br>
+                        Latitude: -23.000000<br>
+                        Longitude: -44.031667<br>
+                        Marégrafo - LevelTROLL500<br>
+                        Intervalo de atualização: 10 minutos
+                    </div>
+                    <div>
+                        <img src="LevelTROLL500.png" style="width: 100px; height: 100px; margin-left: 10px;">
+                    </div>
+                   </div>` 
+        }
+    ];
 
-        marker.on('mouseover', function(e) {
+    markers.forEach(markerData => {
+        var marker = L.marker(markerData.coords, { icon: customIcon }).addTo(map);
+        marker.bindPopup(markerData.info);
+
+        marker.on('mouseover', function (e) {
             this.openPopup();
         });
-        marker.on('mouseout', function(e) {
+        marker.on('mouseout', function (e) {
             this.closePopup();
         });
-    }
+    });
 
-    // Adicionar marcadores personalizados
-    addCustomMarker(tubaraoCoords, 'path/to/icon1.png', 'Informações sobre o ponto 1');
-    addCustomMarker([-20.2900, -40.2500], 'Oceanstream\overview2\Nortek_AWAC_1MHz.png', 'Informações sobre o ponto 2');
-    addCustomMarker([-20.2950, -40.2600], 'path/to/icon3.png', 'Informações sobre o ponto 3');
+    markers.forEach(markerData => {
+        var marker = L.marker(markerData.coords, { icon: customIcon }).addTo(map);
+        marker.bindPopup(markerData.info);
+
+        marker.on('mouseover', function (e) {
+            this.openPopup();
+        });
+        marker.on('mouseout', function (e) {
+            this.closePopup();
+        });
+    });
 });
+
