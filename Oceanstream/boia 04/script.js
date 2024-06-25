@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
+// document.addEventListener('DOMContentLoaded', (event) => {
+    const updateButton = document.getElementById('update-graph');
+        
+    updateButton.addEventListener('click', () => {
+        const startDate = document.getElementById('start-date').value;
+        const endDate = document.getElementById('end-date').value;
+    
+        console.log('Start Date:', startDate);
+        console.log('End Date:', endDate);
+    });
+    // });
     const body = document.querySelector('body'),
           sidebar = body.querySelector('nav'),
           toggle = body.querySelector(".toggle"),
