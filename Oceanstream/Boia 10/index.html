@@ -11,10 +11,10 @@
     <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- ===== Leaflet CSS ===== -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- ===== Chart.js CSS ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.css" />
     
-    <title>OceanStream</title> 
+    <title>OceanStream - Equipamento</title> 
 </head>
 <body>
     <nav class="sidebar close">
@@ -29,12 +29,11 @@
                 </div>
             </div>
 
-            <i class='bx bx-chevron-right toggle'></i>
+            <i class='bx bx-chevron-right toggle' onclick="toggleSidebar()"></i>
         </header>
 
         <div class="menu-bar">
             <div class="menu">
-
                 <li class="search-box">
                     <i class='bx bx-search icon'></i>
                     <input type="text" placeholder="Search...">
@@ -154,7 +153,7 @@
                     </div>
                     <span class="mode-text text">Dark mode</span>
 
-                    <div class="toggle-switch">
+                    <div class="toggle-switch" onclick="toggleDarkMode()">
                         <span class="switch"></span>
                     </div>
                 </li>
@@ -162,15 +161,60 @@
         </div>
     </nav>
 
-    <section class="home">
-        <div class="text">Porto de Tubarão</div>
-        <div class="form-container">
-            <div id="map" style="height: 500px;"></div>
+    <div class="maincontainer">
+        <div class="barralateral">
+            <!-- Placeholder para barra lateral -->
         </div>
-    </section>
+        <div class="site">
+            <div class="div_esquerda">
+                <div class="titulo">
+                    <h1>ADCP Boia-10</h1>
+                    <h2>AWAC 600kHz / Porto de Tubarão-ES</h2>
+                </div>
+                <br/>
+                <div class="chkgr">
+                    <h2>Gráficos</h2>
+                    <br/>
+                    <p>
+                        <label>
+                            <input type="checkbox" id="checkbox_velonda" />
+                            Grafico de Velocidade de Onda
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" id="checkbox_velvento" />
+                            Grafico de Velocidade do Vento
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" id="checkbox_3" />
+                            Grafico 3
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" id="checkbox_4" />
+                            Grafico 4
+                        </label>
+                    </p>
+                </div>
 
-    <!-- ===== Leaflet JS ===== -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+                <div id="metadata">
+                    <!-- Placeholder para metadados -->
+                </div>
+            </div>
+
+            <div class="div_direita">
+                <div class="graphs" id="graphs-container">
+                    <!-- Placeholder para gráficos -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

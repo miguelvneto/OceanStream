@@ -1,396 +1,396 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="style.css">
+        <!----======== CSS ======== -->
+        <link rel="stylesheet" href="style.css">
 
-    <!----===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
-    <title>OceanStream - Download</title>
-    <style>
-        .sub-options {
-            display: none;
-            padding-left: 20px;
-        }
-        .sub-options.show {
-            display: block;
-        }
-        .equipment-label {
-            cursor: pointer;
-        }
-        .sub-options label {
-            display: block;
-        }
-        .sub-options label.bold {
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="logo.png" alt="">
-                </span>
+        <!----===== Boxicons CSS ===== -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        
+        <title>OceanStream - Download</title>
+        <style>
+            .sub-options {
+                display: none;
+                padding-left: 20px;
+            }
+            .sub-options.show {
+                display: block;
+            }
+            .equipment-label {
+                cursor: pointer;
+            }
+            .sub-options label {
+                display: block;
+            }
+            .sub-options label.bold {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="sidebar close">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <img src="logo.png" alt="">
+                    </span>
 
-                <div class="text logo-text">
-                    <span class="name">OceanStream</span>
-                </div>
-            </div>
-
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
-
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Página inicial</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Gráficos</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Alertas</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link submenu">
-                        <a href="#">
-                            <i class='bx bx-wrench icon'></i>
-                            <span class="text nav-text">Equipamentos</span>
-                        </a>
-                        <!-- <nav class="sidebar2"> -->
-                          <ul class="submenu-links">
-                            <li class="nav-link">
-                                <a href="#">
-                                    <span class="text2 nav-text">Boia 04</span>
-                                </a>
-                            </li>
-                            <li class="nav-link">
-                                <a href="#">
-                                    <span class="text2 nav-text">Boia 08</span>
-                                </a>
-                            </li>
-                            <li class="nav-link">
-                                <a href="#">
-                                    <span class="text2 nav-text">Boia 10</span>
-                                </a>
-                            </li>
-                            <li class="nav-link">
-                                <a href="#">
-                                    <span class="text2 nav-text">Ondógrado-PII</span>
-                                </a>
-                            </li>
-                            <li class="nav-link">
-                                <a href="#">
-                                    <span class="text2 nav-text">Ondógrado-TGL</span>
-                                </a>
-                            </li>
-                            <li class="nav-link">
-                                <a href="#">
-                                    <span class="text2 nav-text">Ondógrado-TPD</span>
-                                </a>
-                            </li>
-                            <li class="nav-link">
-                                <a href="#">
-                                    <span class="text2 nav-text">Ondógrado-TPM</span>
-                                </a>
-                            </li>
-                            <li class="nav-link">
-                                <a href="#">
-                                    <span class="text2 nav-text">Marégrafo</span>
-                                </a>
-                            </li>
-                            <li class="nav-link">
-                                <a href="#">
-                                    <span class="text2 nav-text">Estação</span>
-                                </a>
-                            </li>
-                          </ul>
-                        <!-- </nav> -->
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="download.html">
-                            <i class='bx bx-download icon'></i>
-                            <span class="text nav-text">Download</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="registro_ocorrencias.html">
-                            <i class='bx bx-clipboard icon'></i>
-                            <span class="text nav-text">Ocorrências</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-cog icon'></i>
-                            <span class="text nav-text">Configuração</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li>
-                    <a href="#">
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
+                    <div class="text logo-text">
+                        <span class="name">OceanStream</span>
                     </div>
-                    <span class="mode-text text">Dark mode</span>
+                </div>
 
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-                
+                <i class='bx bx-chevron-right toggle'></i>
+            </header>
+
+            <div class="menu-bar">
+                <div class="menu">
+
+                    <li class="search-box">
+                        <i class='bx bx-search icon'></i>
+                        <input type="text" placeholder="Search...">
+                    </li>
+
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-home-alt icon'></i>
+                                <span class="text nav-text">Página inicial</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-bar-chart-alt-2 icon'></i>
+                                <span class="text nav-text">Gráficos</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-bell icon'></i>
+                                <span class="text nav-text">Alertas</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link submenu">
+                            <a href="#">
+                                <i class='bx bx-wrench icon'></i>
+                                <span class="text nav-text">Equipamentos</span>
+                            </a>
+                            <!-- <nav class="sidebar2"> -->
+                            <ul class="submenu-links">
+                                <li class="nav-link">
+                                    <a href="#">
+                                        <span class="text2 nav-text">Boia 04</span>
+                                    </a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="#">
+                                        <span class="text2 nav-text">Boia 08</span>
+                                    </a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="#">
+                                        <span class="text2 nav-text">Boia 10</span>
+                                    </a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="#">
+                                        <span class="text2 nav-text">Ondógrado-PII</span>
+                                    </a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="#">
+                                        <span class="text2 nav-text">Ondógrado-TGL</span>
+                                    </a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="#">
+                                        <span class="text2 nav-text">Ondógrado-TPD</span>
+                                    </a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="#">
+                                        <span class="text2 nav-text">Ondógrado-TPM</span>
+                                    </a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="#">
+                                        <span class="text2 nav-text">Marégrafo</span>
+                                    </a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="#">
+                                        <span class="text2 nav-text">Estação</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- </nav> -->
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="download.html">
+                                <i class='bx bx-download icon'></i>
+                                <span class="text nav-text">Download</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="registro_ocorrencias.html">
+                                <i class='bx bx-clipboard icon'></i>
+                                <span class="text nav-text">Ocorrências</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-cog icon'></i>
+                                <span class="text nav-text">Configuração</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bottom-content">
+                    <li>
+                        <a href="#">
+                            <i class='bx bx-log-out icon'></i>
+                            <span class="text nav-text">Logout</span>
+                        </a>
+                    </li>
+
+                    <li class="mode">
+                        <div class="sun-moon">
+                            <i class='bx bx-moon icon moon'></i>
+                            <i class='bx bx-sun icon sun'></i>
+                        </div>
+                        <span class="mode-text text">Dark mode</span>
+
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+                    
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <section class="home">
-        <div class="text">Download de Dados</div>
-        <div class="download-container">
-            <form id="download-form">
-                <div class="form-group">
-                    <label for="start-date">Data de Início:</label>
-                    <input type="date" id="start-date" name="start-date" required>
-                </div>
-                <div class="form-group">
-                    <label for="end-date">Data de Fim:</label>
-                    <input type="date" id="end-date" name="end-date" required>
-                </div>
-                <div class="form-group">
-                    <label for="equipments">Porto de Tubarão:</label>
-                    <div id="equipments">
-                        <div>
-                            <label class="equipment-label" for="boia4" onclick="toggleOptions('boia4-options')">
-                                <input type="checkbox" id="boia4-check" onclick="toggleAll('boia4-options', this)"> &gt; Boia 4
-                            </label>
-                            <input type="checkbox" id="boia4" name="equipments" value="Boia 4" style="display:none;">
-                            <div id="boia4-options" class="sub-options">
-                                <!-- CORRENTE -->
-                                <div>
-                                    <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia4-corrente-options')">
-                                            <input type="checkbox" onclick="toggleAll('boia4-corrente-options', this)"> &gt; Corrente
-                                    </label>
-                                    <!-- <label class="bold"> -->
-                                        <!-- <input type="checkbox" onclick="toggleAll('boia4-corrente-options', this)"> Corrente -->
-                                    <!-- </label> -->
-                                    <div id="boia4-corrente-options" class="sub-options">
-                                        <label><input type="checkbox" name="boia4-magnitude" value="corrente fundo"> Corrente Fundo (células 1 à 9)</label>
-                                        <label><input type="checkbox" name="boia4-magnitude" value="corrente meio"> Corrente Meio (células 10 à 19)</label>
-                                        <label><input type="checkbox" name="boia4-magnitude" value="corrente superfície"> Corrente Superfície (células 20 à 29)</label>
-                                    </div>
-                                </div>
-
-                                <!-- ONDA -->
-                                <div>
-                                    <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia4-onda-options')">
-                                        <input type="checkbox" onclick="toggleAll('boia4-onda-options', this)"> &gt; Ondas
-                                    </label>
-                                    <div id="boia4-onda-options" class="sub-options">
-                                        <label><input type="checkbox" name="boia4-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                        <label><input type="checkbox" name="boia4-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
-                                        <label><input type="checkbox" name="boia4-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
-                                        <label><input type="checkbox" name="boia4-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
-                                        <label><input type="checkbox" name="boia4-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
-                                        <label><input type="checkbox" name="boia4-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
-                                        <label><input type="checkbox" name="boia4-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
-                                        <label><input type="checkbox" name="boia4-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="equipment-label" for="boia8" onclick="toggleOptions('boia8-options')">
-                                <input type="checkbox" id="boia8-check" onclick="toggleAll('boia8-options', this)"> &gt; Boia 8
-                            </label>
-                            <input type="checkbox" id="boia8" name="equipments" value="Boia 8" style="display:none;">
-                            <div id="boia8-options" class="sub-options">
-                                <div>
-                                    <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia8-corrente-options')">
-                                        <input type="checkbox" onclick="toggleAll('boia8-corrente-options', this)"> &gt; Corrente
-                                    </label>
-                                    <div id="boia8-corrente-options" class="sub-options">
-                                        <label><input type="checkbox" name="boia8-magnitude" value="corrente fundo"> Corrente Fundo (células 1 à 9)</label>
-                                        <label><input type="checkbox" name="boia8-magnitude" value="corrente meio"> Corrente Meio (células 10 à 19)</label>
-                                        <label><input type="checkbox" name="boia8-magnitude" value="corrente superfície"> Corrente Superfície (células 20 à 29)</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia8-onda-options')">
-                                        <input type="checkbox" onclick="toggleAll('boia8-onda-options', this)"> &gt; Ondas
-                                    </label>
-                                    <div id="boia8-onda-options" class="sub-options">
-                                        <label><input type="checkbox" name="boia8-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                        <label><input type="checkbox" name="boia8-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
-                                        <label><input type="checkbox" name="boia8-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
-                                        <label><input type="checkbox" name="boia8-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
-                                        <label><input type="checkbox" name="boia8-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
-                                        <label><input type="checkbox" name="boia8-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
-                                        <label><input type="checkbox" name="boia8-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
-                                        <label><input type="checkbox" name="boia8-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="equipment-label" for="boia10" onclick="toggleOptions('boia10-options')">
-                                <input type="checkbox" id="boia10-check" onclick="toggleAll('boia10-options', this)"> &gt; Boia 10
-                            </label>
-                            <input type="checkbox" id="boia10" name="equipments" value="Boia 10" style="display:none;">
-                            <div id="boia10-options" class="sub-options">
-                                <!-- CORRENTE -->
-                                <div>
-                                    <label class="equipment-label" for="boia10c" onclick="toggleOptions('boia10-corrente-options')">
+        <section class="home">
+            <div class="text">Download de Dados</div>
+            <div class="download-container">
+                <form id="download-form">
+                    <div class="form-group">
+                        <label for="start-date">Data de Início:</label>
+                        <input type="date" id="start-date" name="start-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">Data de Fim:</label>
+                        <input type="date" id="end-date" name="end-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipments">Porto de Tubarão:</label>
+                        <div id="equipments">
+                            <div>
+                                <label class="equipment-label" for="boia4" onclick="toggleOptions('boia4-options')">
+                                    <input type="checkbox" id="boia4-check" onclick="toggleAll('boia4-options', this)"> &gt; Boia 4
+                                </label>
+                                <input type="checkbox" id="boia4" name="equipments" value="Boia 4" style="display:none;">
+                                <div id="boia4-options" class="sub-options">
+                                    <!-- CORRENTE -->
+                                    <div>
+                                        <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia4-corrente-options')">
+                                                <input type="checkbox" onclick="toggleAll('boia4-corrente-options', this)"> &gt; Corrente
+                                        </label>
                                         <!-- <label class="bold"> -->
-                                            <input type="checkbox" onclick="toggleAll('boia10-corrente-options', this)"> &gt; Corrente
+                                            <!-- <input type="checkbox" onclick="toggleAll('boia4-corrente-options', this)"> Corrente -->
                                         <!-- </label> -->
-                                    </label>
-                                    <!-- <input type="checkbox" id="boia10c" name="equipments" value="Boia 10 Corrente" style="display:none;"> -->
-                                    <div id="boia10-corrente-options" class="sub-options">
-                                        <label><input type="checkbox" name="boia10-magnitude" value="corrente fundo"> Corrente Fundo (células 1 à 9)</label>
-                                        <label><input type="checkbox" name="boia10-magnitude" value="corrente meio"> Corrente Meio (células 10 à 19)</label>
-                                        <label><input type="checkbox" name="boia10-magnitude" value="corrente superfície"> Corrente Superfície (células 20 à 29)</label>
+                                        <div id="boia4-corrente-options" class="sub-options">
+                                            <label><input type="checkbox" name="boia4-magnitude" value="corrente fundo"> Corrente Fundo (células 1 à 9)</label>
+                                            <label><input type="checkbox" name="boia4-magnitude" value="corrente meio"> Corrente Meio (células 10 à 19)</label>
+                                            <label><input type="checkbox" name="boia4-magnitude" value="corrente superfície"> Corrente Superfície (células 20 à 29)</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- ONDA -->
+                                    <div>
+                                        <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia4-onda-options')">
+                                            <input type="checkbox" onclick="toggleAll('boia4-onda-options', this)"> &gt; Ondas
+                                        </label>
+                                        <div id="boia4-onda-options" class="sub-options">
+                                            <label><input type="checkbox" name="boia4-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                            <label><input type="checkbox" name="boia4-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
+                                            <label><input type="checkbox" name="boia4-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
+                                            <label><input type="checkbox" name="boia4-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                                            <label><input type="checkbox" name="boia4-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
+                                            <label><input type="checkbox" name="boia4-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
+                                            <label><input type="checkbox" name="boia4-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
+                                            <label><input type="checkbox" name="boia4-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="equipment-label" for="boia8" onclick="toggleOptions('boia8-options')">
+                                    <input type="checkbox" id="boia8-check" onclick="toggleAll('boia8-options', this)"> &gt; Boia 8
+                                </label>
+                                <input type="checkbox" id="boia8" name="equipments" value="Boia 8" style="display:none;">
+                                <div id="boia8-options" class="sub-options">
+                                    <div>
+                                        <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia8-corrente-options')">
+                                            <input type="checkbox" onclick="toggleAll('boia8-corrente-options', this)"> &gt; Corrente
+                                        </label>
+                                        <div id="boia8-corrente-options" class="sub-options">
+                                            <label><input type="checkbox" name="boia8-magnitude" value="corrente fundo"> Corrente Fundo (células 1 à 9)</label>
+                                            <label><input type="checkbox" name="boia8-magnitude" value="corrente meio"> Corrente Meio (células 10 à 19)</label>
+                                            <label><input type="checkbox" name="boia8-magnitude" value="corrente superfície"> Corrente Superfície (células 20 à 29)</label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="equipment-label" for="boia4c" onclick="toggleOptions('boia8-onda-options')">
+                                            <input type="checkbox" onclick="toggleAll('boia8-onda-options', this)"> &gt; Ondas
+                                        </label>
+                                        <div id="boia8-onda-options" class="sub-options">
+                                            <label><input type="checkbox" name="boia8-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                            <label><input type="checkbox" name="boia8-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
+                                            <label><input type="checkbox" name="boia8-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
+                                            <label><input type="checkbox" name="boia8-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                                            <label><input type="checkbox" name="boia8-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
+                                            <label><input type="checkbox" name="boia8-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
+                                            <label><input type="checkbox" name="boia8-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
+                                            <label><input type="checkbox" name="boia8-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="equipment-label" for="boia10" onclick="toggleOptions('boia10-options')">
+                                    <input type="checkbox" id="boia10-check" onclick="toggleAll('boia10-options', this)"> &gt; Boia 10
+                                </label>
+                                <input type="checkbox" id="boia10" name="equipments" value="Boia 10" style="display:none;">
+                                <div id="boia10-options" class="sub-options">
+                                    <!-- CORRENTE -->
+                                    <div>
+                                        <label class="equipment-label" for="boia10c" onclick="toggleOptions('boia10-corrente-options')">
+                                            <!-- <label class="bold"> -->
+                                                <input type="checkbox" onclick="toggleAll('boia10-corrente-options', this)"> &gt; Corrente
+                                            <!-- </label> -->
+                                        </label>
+                                        <!-- <input type="checkbox" id="boia10c" name="equipments" value="Boia 10 Corrente" style="display:none;"> -->
+                                        <div id="boia10-corrente-options" class="sub-options">
+                                            <label><input type="checkbox" name="boia10-magnitude" value="corrente fundo"> Corrente Fundo (células 1 à 9)</label>
+                                            <label><input type="checkbox" name="boia10-magnitude" value="corrente meio"> Corrente Meio (células 10 à 19)</label>
+                                            <label><input type="checkbox" name="boia10-magnitude" value="corrente superfície"> Corrente Superfície (células 20 à 29)</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- ONDA -->
+                                    <div>
+                                        <label class="equipment-label" for="boia10" onclick="toggleOptions('boia10-onda-options')">
+                                            <input type="checkbox" onclick="toggleAll('boia10-onda-options', this)"> &gt; Ondas
+                                        </label>
+                                        <div id="boia10-onda-options" class="sub-options">
+                                            <label><input type="checkbox" name="boia10-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                            <label><input type="checkbox" name="boia10-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
+                                            <label><input type="checkbox" name="boia10-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
+                                            <label><input type="checkbox" name="boia10-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                                            <label><input type="checkbox" name="boia10-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
+                                            <label><input type="checkbox" name="boia10-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
+                                            <label><input type="checkbox" name="boia10-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
+                                            <label><input type="checkbox" name="boia10-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- ONDA -->
-                                <div>
-                                    <label class="equipment-label" for="boia10" onclick="toggleOptions('boia10-onda-options')">
-                                        <input type="checkbox" onclick="toggleAll('boia10-onda-options', this)"> &gt; Ondas
-                                    </label>
-                                    <div id="boia10-onda-options" class="sub-options">
-                                        <label><input type="checkbox" name="boia10-magnitude" value="Altura Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                        <label><input type="checkbox" name="boia10-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
-                                        <label><input type="checkbox" name="boia10-magnitude" value="Período Pico"> Período de Pico - segundos (s)</label>
-                                        <label><input type="checkbox" name="boia10-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
-                                        <label><input type="checkbox" name="boia10-magnitude" value="Direção Pico"> Direção de Pico - graus (°)</label>
-                                        <label><input type="checkbox" name="boia10-magnitude" value="Direção Média"> Direção Média - graus (°)</label>
-                                        <label><input type="checkbox" name="boia10-magnitude" value="Espalhamento Direcional"> Espalhamento Direcional</label>
-                                        <label><input type="checkbox" name="boia10-magnitude" value="Coeficientes Fourier"> Coeficientes de Fourier</label>
-                                    </div>
+                            </div>
+                            <div>
+                                <label class="equipment-label" for="ondografo-pii" onclick="toggleOptions('ondografo-pii-options')">
+                                    <input type="checkbox" id="ondografo-pii-check" onclick="toggleAll('ondografo-pii-options', this)"> &gt; Ondógrafo - Píer II
+                                </label>
+                                <input type="checkbox" id="ondografo-pii" name="equipments" value="Ondógrafo - PII" style="display:none;">
+                                <div id="ondografo-pii-options" class="sub-options">
+                                    <label><input type="checkbox" name="ondografo-pii-magnitude" value="Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                    <label><input type="checkbox" name="ondografo-pii-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
+                                    <label><input type="checkbox" name="ondografo-pii-magnitude" value="Período de Pico"> Período de Pico - segundos (s)</label>
+                                    <label><input type="checkbox" name="ondografo-pii-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
                                 </div>
                             </div>
-
-                        </div>
-                        <div>
-                            <label class="equipment-label" for="ondografo-pii" onclick="toggleOptions('ondografo-pii-options')">
-                                <input type="checkbox" id="ondografo-pii-check" onclick="toggleAll('ondografo-pii-options', this)"> &gt; Ondógrafo - PII
-                            </label>
-                            <input type="checkbox" id="ondografo-pii" name="equipments" value="Ondógrafo - PII" style="display:none;">
-                            <div id="ondografo-pii-options" class="sub-options">
-                                <label><input type="checkbox" name="ondografo-pii-magnitude" value="Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                <label><input type="checkbox" name="ondografo-pii-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
-                                <label><input type="checkbox" name="ondografo-pii-magnitude" value="Período de Pico"> Período de Pico - segundos (s)</label>
-                                <label><input type="checkbox" name="ondografo-pii-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                            <div>
+                                <label class="equipment-label" for="ondografo-tpm" onclick="toggleOptions('ondografo-tpm-options')">
+                                    <input type="checkbox" id="ondografo-tpm-check" onclick="toggleAll('ondografo-tpm-options', this)"> &gt; Ondógrafo - TPM
+                                </label>
+                                <input type="checkbox" id="ondografo-tpm" name="equipments" value="Ondógrafo - TPM" style="display:none;">
+                                <div id="ondografo-tpm-options" class="sub-options">
+                                    <label><input type="checkbox" name="ondografo-tpm-magnitude" value="Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                    <label><input type="checkbox" name="ondografo-tpm-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
+                                    <label><input type="checkbox" name="ondografo-tpm-magnitude" value="Período de Pico"> Período de Pico - segundos (s)</label>
+                                    <label><input type="checkbox" name="ondografo-tpm-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <label class="equipment-label" for="ondografo-tpm" onclick="toggleOptions('ondografo-tpm-options')">
-                                <input type="checkbox" id="ondografo-tpm-check" onclick="toggleAll('ondografo-tpm-options', this)"> &gt; Ondógrafo - TPM
-                            </label>
-                            <input type="checkbox" id="ondografo-tpm" name="equipments" value="Ondógrafo - TPM" style="display:none;">
-                            <div id="ondografo-tpm-options" class="sub-options">
-                                <label><input type="checkbox" name="ondografo-tpm-magnitude" value="Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                <label><input type="checkbox" name="ondografo-tpm-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
-                                <label><input type="checkbox" name="ondografo-tpm-magnitude" value="Período de Pico"> Período de Pico - segundos (s)</label>
-                                <label><input type="checkbox" name="ondografo-tpm-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                            <div>
+                                <label class="equipment-label" for="ondografo-tpd" onclick="toggleOptions('ondografo-tpd-options')">
+                                    <input type="checkbox" id="ondografo-tpd-check" onclick="toggleAll('ondografo-tpd-options', this)"> &gt; Ondógrafo - TPD
+                                </label>
+                                <input type="checkbox" id="ondografo-tpd" name="equipments" value="Ondógrafo - TPD" style="display:none;">
+                                <div id="ondografo-tpd-options" class="sub-options">
+                                    <label><input type="checkbox" name="ondografo-tpd-magnitude" value="Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                    <label><input type="checkbox" name="ondografo-tpd-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
+                                    <label><input type="checkbox" name="ondografo-tpd-magnitude" value="Período de Pico"> Período de Pico - segundos (s)</label>
+                                    <label><input type="checkbox" name="ondografo-tpd-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <label class="equipment-label" for="ondografo-tpd" onclick="toggleOptions('ondografo-tpd-options')">
-                                <input type="checkbox" id="ondografo-tpd-check" onclick="toggleAll('ondografo-tpd-options', this)"> &gt; Ondógrafo - TPD
-                            </label>
-                            <input type="checkbox" id="ondografo-tpd" name="equipments" value="Ondógrafo - TPD" style="display:none;">
-                            <div id="ondografo-tpd-options" class="sub-options">
-                                <label><input type="checkbox" name="ondografo-tpd-magnitude" value="Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                <label><input type="checkbox" name="ondografo-tpd-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
-                                <label><input type="checkbox" name="ondografo-tpd-magnitude" value="Período de Pico"> Período de Pico - segundos (s)</label>
-                                <label><input type="checkbox" name="ondografo-tpd-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                            <div>
+                                <label class="equipment-label" for="ondografo-tgl" onclick="toggleOptions('ondografo-tgl-options')">
+                                    <input type="checkbox" id="ondografo-tgl-check" onclick="toggleAll('ondografo-tgl-options', this)"> &gt; Ondógrafo - TGL
+                                </label>
+                                <input type="checkbox" id="ondografo-tgl" name="equipments" value="Ondógrafo - TGL" style="display:none;">
+                                <div id="ondografo-tgl-options" class="sub-options">
+                                    <label><input type="checkbox" name="ondografo-tgl-magnitude" value="Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                    <label><input type="checkbox" name="ondografo-tgl-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
+                                    <label><input type="checkbox" name="ondografo-tgl-magnitude" value="Período de Pico"> Período de Pico - segundos (s)</label>
+                                    <label><input type="checkbox" name="ondografo-tgl-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <label class="equipment-label" for="ondografo-tgl" onclick="toggleOptions('ondografo-tgl-options')">
-                                <input type="checkbox" id="ondografo-tgl-check" onclick="toggleAll('ondografo-tgl-options', this)"> &gt; Ondógrafo - TGL
-                            </label>
-                            <input type="checkbox" id="ondografo-tgl" name="equipments" value="Ondógrafo - TGL" style="display:none;">
-                            <div id="ondografo-tgl-options" class="sub-options">
-                                <label><input type="checkbox" name="ondografo-tgl-magnitude" value="Hm0"> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                <label><input type="checkbox" name="ondografo-tgl-magnitude" value="Altura Máxima"> Altura Máxima - metros (m)</label>
-                                <label><input type="checkbox" name="ondografo-tgl-magnitude" value="Período de Pico"> Período de Pico - segundos (s)</label>
-                                <label><input type="checkbox" name="ondografo-tgl-magnitude" value="Período Médio"> Período Médio - segundos (s)</label>
+                            <div>
+                                <label class="equipment-label" for="maregrafo" onclick="toggleOptions('maregrafo-options')">
+                                    <input type="checkbox" id="maregrafo-check" onclick="toggleAll('maregrafo-options', this)"> &gt; Marégrafo
+                                </label>
+                                <input type="checkbox" id="maregrafo" name="equipments" value="Marégrafo" style="display:none;">
+                                <div id="maregrafo-options" class="sub-options">
+                                    <label><input type="checkbox" name="maregrafo-magnitude" value="Nível"> Nível - metros (m)</label>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <label class="equipment-label" for="maregrafo" onclick="toggleOptions('maregrafo-options')">
-                                <input type="checkbox" id="maregrafo-check" onclick="toggleAll('maregrafo-options', this)"> &gt; Marégrafo
-                            </label>
-                            <input type="checkbox" id="maregrafo" name="equipments" value="Marégrafo" style="display:none;">
-                            <div id="maregrafo-options" class="sub-options">
-                                <label><input type="checkbox" name="maregrafo-magnitude" value="Nível"> Nível - metros (m)</label>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="equipment-label" for="estacao-meteorologica" onclick="toggleOptions('estacao-meteorologica-options')">
-                                <input type="checkbox" id="estacao-meteorologica-check" onclick="toggleAll('estacao-meteorologica-options', this)"> &gt; Estação Meteorológica
-                            </label>
-                            <input type="checkbox" id="estacao-meteorologica" name="equipments" value="Estação Meteorológica" style="display:none;">
-                            <div id="estacao-meteorologica-options" class="sub-options">
-                                <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Intensidade Média"> Intensidade Média - knots (kt)</label>
-                                <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Intensidade de Rajada"> Intensidade de Rajada - knots (kt)</label>
-                                <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Direção"> Direção - graus (°)</label>
-                                <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Turbulência"> Turbulência - kt</label>
-                                <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Pressão"> Pressão - atmosferas (atm)</label>
-                                <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Temperatura"> Temperatura - graus Celsius (°C)</label>
-                                <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Umidade"> Umidade - porcentagem (%)</label>
-                                <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Precipitação"> Precipitação - milímetros (mm)</label>
+                            <div>
+                                <label class="equipment-label" for="estacao-meteorologica" onclick="toggleOptions('estacao-meteorologica-options')">
+                                    <input type="checkbox" id="estacao-meteorologica-check" onclick="toggleAll('estacao-meteorologica-options', this)"> &gt; Estação Meteorológica
+                                </label>
+                                <input type="checkbox" id="estacao-meteorologica" name="equipments" value="Estação Meteorológica" style="display:none;">
+                                <div id="estacao-meteorologica-options" class="sub-options">
+                                    <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Intensidade Média"> Intensidade Média - knots (kt)</label>
+                                    <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Intensidade de Rajada"> Intensidade de Rajada - knots (kt)</label>
+                                    <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Direção"> Direção - graus (°)</label>
+                                    <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Turbulência"> Turbulência - kt</label>
+                                    <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Pressão"> Pressão - atmosferas (atm)</label>
+                                    <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Temperatura"> Temperatura - graus Celsius (°C)</label>
+                                    <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Umidade"> Umidade - porcentagem (%)</label>
+                                    <label><input type="checkbox" name="estacao-meteorologica-magnitude" value="Precipitação"> Precipitação - milímetros (mm)</label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <button type="button" onclick="downloadData('txt')">Exportar como TXT</button>
-                    <button type="button" onclick="downloadData('xlsx')">Exportar como XLSX</button>
-                </div>
-            </form>
-        </div>
-    </section>
+                    <div class="form-group">
+                        <button type="button" onclick="downloadData('txt')">Exportar como TXT</button>
+                        <button type="button" onclick="downloadData('xlsx')">Exportar como XLSX</button>
+                    </div>
+                </form>
+            </div>
+        </section>
 
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 
-</body>
-</html>
+    </body>
+    </html>

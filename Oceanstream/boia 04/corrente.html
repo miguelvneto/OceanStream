@@ -11,8 +11,8 @@
     <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- ===== Leaflet CSS ===== -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- ===== Chart.js ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <title>OceanStream</title> 
 </head>
@@ -163,14 +163,26 @@
     </nav>
 
     <section class="home">
-        <div class="text">Porto de Tubarão</div>
+        <div class="text">Boia 04</div>
         <div class="form-container">
-            <div id="map" style="height: 500px;"></div>
+            <div class="chart-compass-wrapper">
+                <div class="chart-header">
+                    <h2>Corrente Fundo (Células 1 à 9)</h2>
+                    <div class="date-picker">
+                        <label for="start-date">Início:</label>
+                        <input type="date" id="start-date">
+                        <label for="end-date">Fim:</label>
+                        <input type="date" id="end-date">
+                        <button id="update-graph">Atualizar</button>
+                    </div>
+                </div>
+                <div class="chart-container" style="position: relative; height:40vh; width:70vw; margin: auto;">
+                    <canvas id="currentGraph"></canvas>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ===== Leaflet JS ===== -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,58 @@
+.div_scrollavel
+{
+    max-height: 650px;
+    overflow-y: auto;
+}
+
+.titulo{
+    background-color:rgba(70, 130, 180, 0.5);
+    text-align: center;
+}
+
+.maincontainer {
+    display: flex;
+    height: 100vh; /* Define altura da tela inteira */
+    width: 100vw;
+}
+
+.site {
+    width: 100%;
+    margin-left: 89px;
+    display: flex;
+    overflow: auto;
+}
+
+.div_esquerda {
+    width: 30%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc; /* Opcional: adiciona uma borda direita */
+
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.3); /* Fundo escuro com 50% de opacidade */
+    color: white; /* Ajusta a cor do texto para ser visível sobre o fundo escuro */
+    border-radius: 10px; /* Opcional: arredonda os cantos da div */
+    overflow: auto;
+}
+
+.div_direita {
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto; /* Habilita a rolagem se necessário */
+}
+
+.chkgr {
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.1); /* Fundo escuro com 50% de opacidade */
+    color: white; /* Ajusta a cor do texto para ser visível sobre o fundo escuro */
+    padding: 20px;
+    border-radius: 10px; /* Opcional: arredonda os cantos da div */
+}
+
+.parametro {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 5px;
+  }
