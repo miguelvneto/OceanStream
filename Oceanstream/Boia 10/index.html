@@ -11,10 +11,17 @@
     <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- ===== Chart.js CSS ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.css" />
-    
-    <title>OceanStream - Equipamento</title> 
+    <!-- ===== Leaflet CSS ===== -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+    <title>OceanStream - Equipamento</title>
+    <style>
+        
+    </style>
 </head>
 <body>
     <nav class="sidebar close">
@@ -162,10 +169,11 @@
     </nav>
 
     <div class="maincontainer">
-        <div class="barralateral">
-            <!-- Placeholder para barra lateral -->
-        </div>
+        <!-- <div class="barralateral">
+        </div> -->
         <div class="site">
+            <!-- <div class="div_esquerda"> -->
+    <!-- <section class="home"> -->
             <div class="div_esquerda">
                 <div class="titulo">
                     <h1>ADCP Boia-10</h1>
@@ -176,27 +184,27 @@
                     <h2>Gráficos</h2>
                     <br/>
                     <p>
-                        <label>
-                            <input type="checkbox" id="checkbox_velonda" />
+                        <label id="c1">
+                            <input type="checkbox" onchange="toggleOptions('g1')"/>
                             Grafico de Velocidade de Onda
                         </label>
                     </p>
                     <p>
-                        <label>
-                            <input type="checkbox" id="checkbox_velvento" />
-                            Grafico de Velocidade do Vento
+                        <label id="c2">
+                            <input type="checkbox" onchange="toggleOptions('g2')"/>
+                            Temperatura
                         </label>
                     </p>
                     <p>
-                        <label>
-                            <input type="checkbox" id="checkbox_3" />
-                            Grafico 3
+                        <label id="c3">
+                            <input type="checkbox" onchange="toggleOptions('g3')"/>
+                            Gráfico 3
                         </label>
                     </p>
                     <p>
-                        <label>
-                            <input type="checkbox" id="checkbox_4" />
-                            Grafico 4
+                        <label id="c4">
+                            <input type="checkbox" onchange="toggleOptions('g4')"/>
+                            Gráfico 4
                         </label>
                     </p>
                 </div>
@@ -208,13 +216,36 @@
 
             <div class="div_direita">
                 <div class="graphs" id="graphs-container">
-                    <!-- Placeholder para gráficos -->
+                    <div id="g1" class="grafico">
+                        <div class="image-container">
+                            <img src="bussola/fundo.png" class="background-image" />
+                            <img src="bussola/agulha.png" class="seta" style="transform: rotate(27deg);" />
+                            <img src="bussola/bussola.png" class="circulo" />
+                            <!-- <div class="direcao">27°</div> -->
+                            <!-- <div class="velocidade">5 kn</div> -->
+                        </div>
+                        <canvas class="graf_canvas" id="graf1" style="max-width:700px;max-height: 300px;"></canvas>
+                    </div>
+                    <div id="g2" class="grafico">
+                        <canvas class="graf_canvas" id="graf2" style="max-width:700px;max-height: 300px;"></canvas>
+                    </div>
+                    <div id="g3" class="grafico">
+                        <canvas class="graf_canvas" id="graf3" style="max-width:700px;max-height: 300px;"></canvas>
+                    </div>
+                    <div id="g4" class="grafico">
+                        <canvas class="graf_canvas" id="graf4" style="max-width:700px;max-height: 300px;"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        criarGrafico("graf1", ["2015-03-15T13:03:00Z", "2015-03-25T13:02:00Z", "2015-04-25T14:12:00Z"], [0.98, 1.13, 0.78], 'Altura de onda');
+        criarGrafico("graf2", ["2015-03-15T13:03:00Z", "2015-03-25T13:02:00Z", "2015-04-25T14:12:00Z"], [24, 22.35, 23], 'Temperatura');
+        criarGrafico("graf3", ["2015-03-15T13:03:00Z", "2015-03-25T13:02:00Z", "2015-04-25T14:12:00Z"], [0.98, 1.13, 0.78], 'Gráfico 3');
+        criarGrafico("graf4", ["2015-03-15T13:03:00Z", "2015-03-25T13:02:00Z", "2015-04-25T14:12:00Z"], [24, 22.35, 23], 'Gráfico 4');
+    </script>
 </body>
 </html>
