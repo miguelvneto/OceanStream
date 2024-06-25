@@ -164,20 +164,71 @@
 
     <section class="home">
         <div class="text">Boia 04</div>
-        <div class="form-container">
-            <div class="chart-compass-wrapper">
-                <div class="chart-header">
-                    <h2>Corrente Fundo (Células 1 à 9)</h2>
-                    <div class="date-picker">
-                        <label for="start-date">Início:</label>
-                        <input type="date" id="start-date">
-                        <label for="end-date">Fim:</label>
-                        <input type="date" id="end-date">
-                        <button id="update-graph">Atualizar</button>
+        <div class="charts-container">
+            <div class="form-container">
+                <div class="chart-compass-wrapper">
+                    <div class="chart-header">
+                        <div>
+                            <h2>Corrente Fundo</h2>
+                            <select id="current-cell-select">
+                                <option value="1">Selecione a Célula</option>
+                                <!-- Opções de 1 a 29 -->
+                                <script>
+                                    for (let i = 1; i <= 29; i++) {
+                                        document.write('<option value="' + i + '">' + i + '</option>');
+                                    }
+                                </script>
+                            </select>
+                            <div class="checkbox-container">
+                                <label><input type="checkbox" id="velocity-checkbox" checked> Velocidade (kt)</label>
+                                <label><input type="checkbox" id="direction-checkbox" checked> Direção (º)</label>
+                            </div>
+                        </div>
+                        <div class="date-picker">
+                            <label for="start-date">Início:</label>
+                            <input type="date" id="start-date">
+                            <label for="end-date">Fim:</label>
+                            <input type="date" id="end-date">
+                            <button id="update-graph">Atualizar</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="currentGraph"></canvas>
                     </div>
                 </div>
-                <div class="chart-container" style="position: relative; height:40vh; width:70vw; margin: auto;">
-                    <canvas id="currentGraph"></canvas>
+            </div>
+
+            <div class="form-container">
+                <div class="chart-compass-wrapper">
+                    <div class="chart-header">
+                        <div>
+                            <h2>Onda</h2>
+                            <select id="wave-cell-select">
+                                <option value="1">Selecione a Célula</option>
+                                <!-- Opções de 1 a 29 -->
+                                <script>
+                                    for (let i = 1; i <= 29; i++) {
+                                        document.write('<option value="' + i + '">' + i + '</option>');
+                                    }
+                                </script>
+                            </select>
+                            <div class="checkbox-container">
+                                <label><input type="checkbox" id="height-checkbox" checked> Altura (m)</label>
+                                <label><input type="checkbox" id="period-checkbox" checked> Período (s)</label>
+                                <label><input type="checkbox" id="wave-direction-checkbox" checked> Direção (º)</label>
+                            </div>
+                        </div>
+                        <div class="date-picker">
+                            <label for="wave-start-date">Início:</label>
+                            <input type="date" id="wave-start-date">
+                            <label for="wave-end-date">Fim:</label>
+                            <input type="date" id="wave-end-date">
+                            <button id="update-wave-graph">Atualizar</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="waveGraph"></canvas>
+                    </div>
                 </div>
             </div>
         </div>

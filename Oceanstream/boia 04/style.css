@@ -432,14 +432,11 @@ body.dark .home .text {
     z-index: 1; /* Certifique-se de que o gráfico tenha um z-index menor */
     position: relative; /* Adicione esta linha para permitir que o z-index funcione */
 }
-/* --------------------------------- bussola---------------------------------------------- */
-.compass-container {
-    position: relative;
-    width: 200px;
-    margin-left: 20px;
+
+.charts-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 20px;
 }
 
 .chart-compass-wrapper {
@@ -489,10 +486,16 @@ body.dark .home .text {
     background-color: var(--text-color);
 }
 
+.checkbox-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
 .chart-container {
     position: relative;
-    height: 40vh;
-    width: 70vw;
+    height: 60vh;
+    width: calc(100% - 20px);
     margin: auto;
 }
 
