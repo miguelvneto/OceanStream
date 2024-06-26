@@ -42,7 +42,7 @@ body.dark {
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
     --text-color: #ccc;
-    --text-color2: #fff;
+    --text-color2: #fff
 }
 
 /* ===== Sidebar ===== */
@@ -317,7 +317,6 @@ body.dark .switch::before {
     left: 250px;
     height: 100vh;
     width: calc(100% - 250px);
-    background-image: url('porto.png'); /* Caminho para a imagem de fundo */
     background-size: cover; /* Ajusta a imagem para cobrir toda a área */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita que a imagem se repita */
@@ -425,113 +424,83 @@ body.dark .home .text {
     z-index: 1; /* Certifique-se de que o contêiner do formulário tenha um z-index menor */
 }
 
-#map {
+.chart-container {
     width: 100%;
-    height: 500px; /* Altura do mapa */
-    margin-top: 20px; /* Espaço acima do mapa */
-    z-index: 1; /* Certifique-se de que o mapa tenha um z-index menor */
+    height: 500px; /* Altura do gráfico */
+    margin-top: 20px; /* Espaço acima do gráfico */
+    z-index: 1; /* Certifique-se de que o gráfico tenha um z-index menor */
     position: relative; /* Adicione esta linha para permitir que o z-index funcione */
 }
 
-.div_scrollavel {
-    max-height: 650px;
-    overflow-y: auto;
-}
-
-.titulo {
-    background-color: rgba(70, 130, 180, 0.5);
-    text-align: center;
-}
-
-.maincontainer {
+.charts-container {
     display: flex;
-    height: 100vh; /* Define altura da tela inteira */
-    width: 100vw;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.site {
+.chart-compass-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    margin-left: 89px;
-    display: flex;
-    overflow: auto;
+    margin-bottom: 10px;
 }
 
-.div_esquerda {
-    width: 30%;
-    padding: 20px;
-    box-sizing: border-box;
-    border-right: 1px solid #ccc; /* Opcional: adiciona uma borda direita */
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.3); /* Fundo escuro com 50% de opacidade */
-    color: white; /* Ajusta a cor do texto para ser visível sobre o fundo escuro */
-    border-radius: 10px; /* Opcional: arredonda os cantos da div */
-    overflow: auto;
+.chart-header h2 {
+    margin: 0;
 }
 
-.div_direita {
-    width: 70%;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow: auto; /* Habilita a rolagem se necessário */
-}
-
-.chkgr {
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.1); /* Fundo escuro com 50% de opacidade */
-    color: white; /* Ajusta a cor do texto para ser visível sobre o fundo escuro */
-    padding: 20px;
-    border-radius: 10px; /* Opcional: arredonda os cantos da div */
-}
-
-.parametro {
+.date-picker {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding-bottom: 5px;
 }
 
-/* Arquivo: src/App.css */
-.image-container {
-  position: relative;
-  width: fit-content; /* Ajusta ao tamanho da imagem de fundo */
-}
-  
-.background-image {
-  display: block;
-  /* Tamanho da imagem de fundo */
-  /* width: 500px; */
-  height: auto;
-}
-  
-.seta {
-  position: absolute;
-  /* Alinhamento vertical central */
-  top: 0%;
-  /* Alinhamento horizontal central */
-  left: 0%;
-  height: auto;
+.date-picker label {
+    margin: 0 5px;
 }
 
-.circulo {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-
-  height: auto;
+.date-picker input {
+    margin: 0 5px;
 }
 
-.direcao {
-  position: absolute;
-  top: 37%;
-  left: 39%;
-
-  color: black;  /* Cor do texto */
+.date-picker button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.velocidade {
-  position: absolute;
-  top: 52%;
-  left: 39%;
+.date-picker button:hover {
+    background-color: var(--text-color);
+}
 
-  color: black;  /* Cor do texto */
+.checkbox-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-container {
+    position: relative;
+    height: 60vh;
+    width: calc(100% - 20px);
+    margin: auto;
+}
+
+.info {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
 }

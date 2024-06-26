@@ -1,42 +1,4 @@
-/* App.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
-  background-color: var(--body-color);
-  transition: var(--tran-05);
-}
-
-body.dark {
-    --body-color: #18191a;
-    --sidebar-color: #242526;
-    --primary-color: #3a3b3c;
-    --primary-color-light: #3a3b3c;
-    --toggle-color: #fff;
-    --text-color: #ccc;
-    --text-color2: #fff; 
-}
-
-/* Adicione as outras variáveis e seletores conforme necessário */
-/* Sidebar.css */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 250px;
-    padding: 10px 14px;
-    background: var(--sidebar-color);
-    transition: var(--tran-05);
-    z-index: 100;
-  }
-  
-  /* Adicione os outros estilos da barra lateral conforme necessário */
-
-  /* Google Font Import - Poppins */
+/* Google Font Import - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 * {
     margin: 0;
@@ -53,7 +15,7 @@ body.dark {
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: #707070;
-    --text-color2:#04949C;
+    --text-color2: #04949C;
 
     /* ====== Transition ====== */
     --tran-03: all 0.2s ease;
@@ -80,6 +42,7 @@ body.dark {
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
     --text-color: #ccc;
+    --text-color2: #fff
 }
 
 /* ===== Sidebar ===== */
@@ -109,23 +72,23 @@ body.dark {
 }
 
 .sidebar header .image,
-.sidebar .icone {
+.sidebar .icon {
     min-width: 60px;
     border-radius: 6px;
 }
 
-.sidebar .icone {
+.sidebar .icon {
     min-width: 60px;
     border-radius: 6px;
-    /* height: 10%; */
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .sidebar .text,
-.sidebar .icone {
+.sidebar .icon {
     color: var(--text-color);
     transition: var(--tran-03);
 }
@@ -163,7 +126,6 @@ body.dark {
 .sidebar header .image-text {
     display: flex;
     align-items: center;
-    height: 70px;
 }
 
 .sidebar header .logo-text {
@@ -261,18 +223,18 @@ body.dark .sidebar header .toggle {
     background-color: var(--primary-color);
 }
 
-.sidebar li a:hover .icone,
+.sidebar li a:hover .icon,
 .sidebar li a:hover .text {
     color: var(--sidebar-color);
 }
 
-body.dark .sidebar li a:hover .icone,
+body.dark .sidebar li a:hover .icon,
 body.dark .sidebar li a:hover .text {
     color: var(--text-color);
 }
 
 .sidebar .menu-bar {
-    height: calc(100% - 85px);
+    height: calc(100% - 55px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -290,12 +252,8 @@ body.dark .sidebar li a:hover .text {
     transition: var(--tran-05);
 }
 
-.sidebar.close .sun-moon {
-    opacity: 0;
-}
-
 .menu-bar .mode .sun-moon {
-    height: 31px;
+    height: 50px;
     width: 60px;
 }
 
@@ -353,6 +311,37 @@ body.dark .switch::before {
     left: 20px;
 }
 
+.home {
+    position: absolute;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background-size: cover; /* Ajusta a imagem para cobrir toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-attachment: fixed; /* Faz com que a imagem fique fixa ao rolar a página */
+    transition: var(--tran-05);
+    padding: 20px;
+}
+
+.sidebar.close ~ .home {
+    left: 78px;
+    height: 100vh;
+    width: calc(100% - 78px);
+}
+
+.home .text {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color2);
+    padding: 12px 60px;
+}
+
+body.dark .home .text {
+    color: var(--text-color2);
+}
+
 /* Estilos para o submenu */
 .sidebar .menu-links .submenu .submenu-links {
     position: absolute;
@@ -367,6 +356,7 @@ body.dark .switch::before {
     height: 100%;
     width: 250px;
     overflow-y: auto;
+    z-index: 10; /* Aumente o z-index do submenu */
 
     display: flex;
     /* Alinha os itens verticalmente */
@@ -379,10 +369,6 @@ body.dark .switch::before {
     list-style: none;
     padding: 14px;
     margin: 0;
-}
-
-.sidebar .menu-links .submenu .submenu-links::-webkit-scrollbar {
-    display: none;
 }
 
 .sidebar .menu-links .submenu:hover .submenu-links,
@@ -403,4 +389,118 @@ body.dark .switch::before {
     transition: var(--tran-03);
     color: var(--text-color);
     padding: 20px;
+}
+
+/* Estilos para a tabela de alertas */
+.table-container {
+    margin-top: 20px;
+}
+
+#alertasTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#alertasTable th, #alertasTable td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#alertasTable th {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* Container de formulário */
+.form-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    position: relative; /* Adicione esta linha para permitir que o z-index funcione */
+    z-index: 1; /* Certifique-se de que o contêiner do formulário tenha um z-index menor */
+}
+
+.chart-container {
+    width: 100%;
+    height: 500px; /* Altura do gráfico */
+    margin-top: 20px; /* Espaço acima do gráfico */
+    z-index: 1; /* Certifique-se de que o gráfico tenha um z-index menor */
+    position: relative; /* Adicione esta linha para permitir que o z-index funcione */
+}
+
+.charts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chart-compass-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.chart-header h2 {
+    margin: 0;
+}
+
+.date-picker {
+    display: flex;
+    align-items: center;
+}
+
+.date-picker label {
+    margin: 0 5px;
+}
+
+.date-picker input {
+    margin: 0 5px;
+}
+
+.date-picker button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.date-picker button:hover {
+    background-color: var(--text-color);
+}
+
+.checkbox-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-container {
+    position: relative;
+    height: 60vh;
+    width: calc(100% - 20px);
+    margin: auto;
+}
+
+.info {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
 }
