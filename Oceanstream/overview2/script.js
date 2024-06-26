@@ -100,9 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <b>Boia 04</b><br>
                         Latitude: -20.328167<br>
                         Longitude: -40.242500<br>
-                        ADCP - Nortek_awac_1MHz<br>
+                        ADCP Marca Nortek Modelo AWAC 600 kHz<br>
                         Intervalo de atualização:<br>
-                        - Onda: 1 horas<br>
+                        - Onda: 1 hora<br>
                         - Corrente: 10 minutos
                     </div>
                     <div>
@@ -117,9 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <b>Boia 08</b><br>
                         Latitude: -20.308833<br>
                         Longitude: -40.248000<br>
-                        ADCP - Nortek_awac_1MHz<br>
+                        ADCP Marca Nortek Modelo AWAC 600 kHz<br>
                         Intervalo de atualização:<br>
-                        - Onda: 1 horas<br>
+                        - Onda: 1 hora<br>
                         - Corrente: 10 minutos
                     </div>
                     <div>
@@ -134,9 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <b>Boia 10</b><br>
                         Latitude: -20.299833<br>
                         Longitude: -40.255000<br>
-                        ADCP - Nortek_awac_1MHz<br>
+                        ADCP Marca Nortek Modelo AWAC 600 kHz<br>
                         Intervalo de atualização:<br>
-                        - Onda: 1 horas<br>
+                        - Onda: 1 hora<br>
                         - Corrente: 10 minutos
                     </div>
                     <div>
@@ -151,14 +151,92 @@ document.addEventListener('DOMContentLoaded', () => {
                         <b>Marégrafo</b><br>
                         Latitude: -23.000000<br>
                         Longitude: -44.031667<br>
-                        Marégrafo - LevelTROLL500<br>
+                        InSitu Modelo Level Troll 500<br>
                         Intervalo de atualização: 10 minutos
                     </div>
                     <div>
                         <img src="LevelTROLL500.png" style="width: 100px; height: 100px; margin-left: 10px;">
                     </div>
                    </div>` 
+        },
+        { 
+            coords: [-20.300846, -40.240460], 
+            info: `<div style="display: flex; align-items: center;">
+                    <div>
+                        <b>Estação Meteorológica</b><br>
+                        Latitude: -20.300846<br>
+                        Longitude: -40.240460<br>
+                        Hobo Modelo RX3000 com Sensores InSet <br>
+                        Intervalo de atualização: 10 minutos
+                    </div>
+                    <div>
+                        <img src="estacao-m.png" style="width: 100px; height: 150px; margin-left: 10px;">
+                    </div>
+                   </div>` 
+        },
+        { 
+            coords: [-20.293416, -40.247374], 
+            info: `<div style="display: flex; align-items: center;">
+                    <div>
+                        <b>Ondógrafo - TPD</b><br>
+                        Latitude: -20.293416<br>
+                        Longitude: -40.247374<br>
+                        Ondógrafo Marca VegaPuls Modelo C23<br>
+                        Intervalo de atualização: 30 minutos
+                    </div>
+                    <div>
+                        <img src="F-VEGAPULS-C23.png" style="width: 100px; height: 150px; margin-left: 10px;">
+                    </div>
+                   </div>` 
         }
+        ,
+        { 
+            coords: [-20.285927, -40.247399], 
+            info: `<div style="display: flex; align-items: center;">
+                    <div>
+                        <b>Ondógrafo - Píer II</b><br>
+                        Latitude: -20.285927<br>
+                        Longitude: -40.247399<br>
+                        Ondógrafo Marca VegaPuls Modelo C23<br>
+                        Intervalo de atualização: 30 minutos
+                    </div>
+                    <div>
+                        <img src="F-VEGAPULS-C23.png" style="width: 100px; height: 150px; margin-left: 10px;">
+                    </div>
+                   </div>` 
+        },
+        { 
+            coords: [-20.285315, -40.245574], 
+            info: `<div style="display: flex; align-items: center;">
+                    <div>
+                        <b>Ondógrafo - TGL</b><br>
+                        Latitude: -20.285927<br>
+                        Longitude: -40.247399<br>
+                        Ondógrafo Marca VegaPuls Modelo C23<br>
+                        Intervalo de atualização: 30 minutos
+                    </div>
+                    <div>
+                        <img src="F-VEGAPULS-C23.png" style="width: 100px; height: 150px; margin-left: 10px;">
+                    </div>
+                   </div>` 
+        },
+        { 
+            coords: [-20.297908, -40.235228], 
+            info: `<div style="display: flex; align-items: center;">
+                    <div>
+                        <b>Ondógrafo - TPM</b><br>
+                        Latitude: -20.297908<br>
+                        Longitude: -40.235228<br>
+                        Ondógrafo Marca VegaPuls Modelo C23<br>
+                        Intervalo de atualização: 30 minutos
+                    </div>
+                    <div>
+                        <img src="F-VEGAPULS-C23.png" style="width: 100px; height: 150px; margin-left: 10px;">
+                    </div>
+                   </div>` 
+        }
+        
+        
     ];
 
     markers.forEach(markerData => {
