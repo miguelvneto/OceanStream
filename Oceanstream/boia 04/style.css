@@ -317,7 +317,6 @@ body.dark .switch::before {
     left: 250px;
     height: 100vh;
     width: calc(100% - 250px);
-    background-image: url('porto.png'); /* Caminho para a imagem de fundo */
     background-size: cover; /* Ajusta a imagem para cobrir toda a área */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita que a imagem se repita */
