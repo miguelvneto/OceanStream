@@ -210,8 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
             info: `<div style="display: flex; align-items: center;">
                     <div>
                         <b>Ondógrafo - TGL</b><br>
-                        Latitude: -20.285927<br>
-                        Longitude: -40.247399<br>
+                        Latitude: -20.285315<br>
+                        Longitude: -40.245574<br>
                         Ondógrafo Marca VegaPuls Modelo C23<br>
                         Intervalo de atualização: 30 minutos
                     </div>
