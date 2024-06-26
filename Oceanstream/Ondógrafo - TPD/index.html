@@ -165,13 +165,20 @@
     </nav>
 
     <section class="home">
-        <div class="text">Marégrafo</div>
+        <div class="text">Ondógrafo - TPD</div>
         <div class="charts-container">
             <div class="form-container">
                 <div class="chart-compass-wrapper">
                     <div class="chart-header">
                         <div>
-                            <h2>Nível do mar (m) </h2>
+                            <!-- <h2>Corrente</h2> -->
+                            </select>
+                            <div class="checkbox-container">
+                                <label><input type="checkbox" id="velocity-checkbox" checked> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                <label><input type="checkbox" id="direction-checkbox" checked> Altura Máxima - metros (m)</label>
+                                <label><input type="checkbox" id="velocity-checkbox" checked> Período de Pico - segundos (s)</label>
+                                <label><input type="checkbox" id="direction-checkbox" checked> Período Médio - segundos (s)</label>
+                            </div>
                         </div>
                         <div class="date-picker">
                             <label for="start-date">Início:</label>
@@ -186,8 +193,6 @@
                     </div>
                 </div>
             </div>
-            <div class="bar-chart-container">
-                <canvas id="seaLevelBarChart"></canvas>
             </div>
         </div>
     </section>

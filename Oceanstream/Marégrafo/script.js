@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             labels: [], // Eixos X - timestamps
             datasets: [{
                 label: 'Nível do mar (m)',
-                backgroundColor: 'rgb(0, 99, 132)',
+                backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(0, 99, 132)',
                 data: [],
                 fill: false,
@@ -370,4 +370,3 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 });
-
