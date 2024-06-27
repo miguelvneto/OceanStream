@@ -1,5 +1,10 @@
 const pagLogin = '../Login/Index.html';
 
+function obterAccessToken() {
+    const accessToken = localStorage.getItem('accessToken');
+    return accessToken;
+}
+
 // FUNÇÃO LOGOUT
 function deleteTokenAndRedirect() {
     // Remover o accessToken do localStorage

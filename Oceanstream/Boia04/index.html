@@ -167,6 +167,7 @@
     <section class="home">
         <div class="text">Boia 04</div>
         <div class="charts-container">
+            <!-- CORRENTE -->
             <div class="form-container">
                 <div class="chart-compass-wrapper">
                     <div class="chart-header">
@@ -188,10 +189,10 @@
                         </div>
                         <div class="date-picker">
                             <label for="start-date">Início:</label>
-                            <input type="date" id="start-date">
+                            <input type="date" id="start-date" placeholder="2023-01-01">
                             <label for="end-date">Fim:</label>
-                            <input type="date" id="end-date">
-                            <button id="update-graph">Atualizar</button>
+                            <input type="date" id="end-date" placeholder="2024-01-01">
+                            <button id="update-graph" onclick="reqAPI('ADCP-Boia10_onda')">Atualizar</button>
                         </div>
                     </div>
                     <div class="chart-container">
@@ -200,6 +201,7 @@
                 </div>
             </div>
 
+            <!-- ONDA -->
             <div class="form-container">
                 <div class="chart-compass-wrapper">
                     <div class="chart-header">
