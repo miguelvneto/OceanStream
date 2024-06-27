@@ -15,7 +15,7 @@
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: #707070;
-    --text-color2:#04949C;
+    --text-color2:#fff;
 
     /* ====== Transition ====== */
     --tran-03: all 0.2s ease;
@@ -28,6 +28,7 @@ body {
     min-height: 100vh;
     background-color: var(--body-color);
     transition: var(--tran-05);
+    font-family: Arial, sans-serif;
 }
 
 ::selection {
@@ -42,7 +43,6 @@ body.dark {
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
     --text-color: #ccc;
-    --text-color2: #fff;
 }
 
 /* ===== Sidebar ===== */
@@ -110,13 +110,13 @@ body.dark {
     white-space: nowrap;
     opacity: 1;
 }
-
 .sidebar.close .text2 {
     font-size: 17px;
     font-weight: 500;
     white-space: nowrap;
     opacity: 1;
 }
+
 
 /* =========================== */
 .sidebar header {
@@ -339,6 +339,10 @@ body.dark .switch::before {
     padding: 12px 60px;
 }
 
+body.dark .home .text {
+    color: var(--text-color2);
+}
+
 /* Estilos para o submenu */
 .sidebar .menu-links .submenu .submenu-links {
     position: absolute;
@@ -391,88 +395,25 @@ body.dark .switch::before {
     padding: 20px;
 }
 
-/* --------------------------------------------------------- */
-.form-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="date"],
-.form-group input[type="time"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.form-group button {
-    padding: 10px 20px;
-    border: none;
+/* .sidebar .submenu .submenu-links .nav-link a:hover {
     background-color: var(--primary-color);
-    color: #ffffff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    color: var(--sidebar-color);
+} */
 
-.form-group button:hover {
-    background-color: #707070;
-}
+/* body.dark .sidebar .submenu .submenu-links .nav-link a:hover {
+    color: var(--text-color);
+} */
 
-.table-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-.table-header {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
-}
-
-.add-incident-btn {
-    padding: 10px 20px;
-    border: none;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.add-incident-btn:hover {
-    background-color: #707070;
-}
-
-#incident-table {
+table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
-
-#incident-table th, #incident-table td {
-    padding: 12px;
+th, td {
     border: 1px solid #ddd;
-    text-align: left;
+    padding: 8px;
 }
-
-#incident-table th {
-    background-color: var(--primary-color);
-    color: #ffffff;
+th {
+    background-color: #f2f2f2;
+    text-align: left;
 }

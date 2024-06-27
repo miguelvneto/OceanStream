@@ -42,7 +42,6 @@ body.dark {
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
     --text-color: #ccc;
-    --text-color2: #fff;
 }
 
 /* ===== Sidebar ===== */
@@ -433,31 +432,7 @@ body.dark .switch::before {
 }
 
 .table-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-}
-
-.table-header {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
-}
-
-.add-incident-btn {
-    padding: 10px 20px;
-    border: none;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.add-incident-btn:hover {
-    background-color: #707070;
 }
 
 #incident-table {

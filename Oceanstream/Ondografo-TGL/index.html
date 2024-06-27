@@ -5,11 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!----======== CSS ======== -->
+    <!-- ======== CSS ======== -->
     <link rel="stylesheet" href="style.css">
     
-    <!----===== Boxicons CSS ===== -->
+    <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ===== Chart.js ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     
     <title>OceanStream</title> 
 </head>
@@ -160,25 +165,35 @@
     </nav>
 
     <section class="home">
-        <div class="text">Registro de Ocorrências</div>
-        <div class="table-container">
-            <div class="table-header">
-                <button class="add-incident-btn" onclick="window.location.href='add_ocorrencia.html'">Adicionar Ocorrência</button>
+        <div class="text">Ondógrafo - TGL</div>
+        <div class="charts-container">
+            <div class="form-container">
+                <div class="chart-compass-wrapper">
+                    <div class="chart-header">
+                        <div>
+                            <!-- <h2>Corrente</h2> -->
+                            </select>
+                            <div class="checkbox-container">
+                                <label><input type="checkbox" id="velocity-checkbox" checked> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                <label><input type="checkbox" id="direction-checkbox" checked> Altura Máxima - metros (m)</label>
+                                <label><input type="checkbox" id="velocity-checkbox" checked> Período de Pico - segundos (s)</label>
+                                <label><input type="checkbox" id="direction-checkbox" checked> Período Médio - segundos (s)</label>
+                            </div>
+                        </div>
+                        <div class="date-picker">
+                            <label for="start-date">Início:</label>
+                            <input type="date" id="start-date">
+                            <label for="end-date">Fim:</label>
+                            <input type="date" id="end-date">
+                            <button id="update-graph">Atualizar</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="currentGraph"></canvas>
+                    </div>
+                </div>
             </div>
-            <table id="incident-table">
-                <thead>
-                    <tr>
-                        <th>Local</th>
-                        <th>Navio</th>
-                        <th>Ocorrência</th>
-                        <th>Data e Hora</th>
-                        <th>Autor</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Incidentes adicionados aqui -->
-                </tbody>
-            </table>
+            </div>
         </div>
     </section>
 

@@ -1,3 +1,5 @@
+const pagOverview='http://127.0.0.1:5500/Oceanstream/Overview/index.html';
+
 /**********************************************************/
 // INÍCIO CHECA JWT
 // Função para verificar se um token JWT é válido
@@ -27,7 +29,7 @@ function checkToken() {
     let accessToken = localStorage.getItem('accessToken');
 
     if (isTokenValid(accessToken)) {
-        window.location.href = 'http://127.0.0.1:5500/Oceanstream/Overview2/index.html';
+        window.location.href = pagOverview;
         return;
     } else if (accessToken) {
         localStorage.removeItem('accessToken');
@@ -36,7 +38,7 @@ function checkToken() {
     accessToken = getCookie('accessToken');
 
     if (isTokenValid(accessToken)) {
-        window.location.href = 'http://127.0.0.1:5500/Oceanstream/Overview2/index.html';
+        window.location.href = pagOverview;
         return;
     } else if (accessToken) {
         deleteCookie('accessToken');
@@ -85,7 +87,7 @@ document.getElementById('loginButton').addEventListener('click', async function(
         localStorage.setItem('accessToken', result.accessToken);
         document.cookie = `accessToken=${result.accessToken}; path=/`;
 
-        window.location.href = 'http://127.0.0.1:5500/Oceanstream/Overview2/index.html';
+        window.location.href = pagOverview;
     } catch (error) {
         console.error('Erro:', error);
         // alert('Erro ao realizar login. Por favor, tente novamente.');

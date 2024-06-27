@@ -11,7 +11,7 @@
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     
-    <title>OceanStream</title> 
+    <title>Adicionar Ocorrência</title> 
 </head>
 <body>
     <nav class="sidebar close">
@@ -160,25 +160,37 @@
     </nav>
 
     <section class="home">
-        <div class="text">Registro de Ocorrências</div>
-        <div class="table-container">
-            <div class="table-header">
-                <button class="add-incident-btn" onclick="window.location.href='add_ocorrencia.html'">Adicionar Ocorrência</button>
-            </div>
-            <table id="incident-table">
-                <thead>
-                    <tr>
-                        <th>Local</th>
-                        <th>Navio</th>
-                        <th>Ocorrência</th>
-                        <th>Data e Hora</th>
-                        <th>Autor</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Incidentes adicionados aqui -->
-                </tbody>
-            </table>
+        <div class="text">Adicionar Ocorrência</div>
+        <div class="form-container">
+            <form id="incident-form">
+                <div class="form-group">
+                    <label for="location">Local:</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="ship">Navio:</label>
+                    <input type="text" id="ship" name="ship" required>
+                </div>
+                <div class="form-group">
+                    <label for="incident">Ocorrência:</label>
+                    <input type="text" id="incident" name="incident" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Data:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Hora:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Autor:</label>
+                    <input type="text" id="author" name="author" value="Usuário Logado" readonly>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="addIncident()">Enviar</button>
+                </div>
+            </form>
         </div>
     </section>
 

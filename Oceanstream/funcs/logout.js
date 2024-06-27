@@ -1,3 +1,5 @@
+const pagLogin = '../Login/Index.html';
+
 // FUNÇÃO LOGOUT
 function deleteTokenAndRedirect() {
     // Remover o accessToken do localStorage
@@ -12,7 +14,7 @@ function deleteTokenAndRedirect() {
     deleteCookie('accessToken');
 
     // Redirecionar para a página de login
-    window.location.href = 'http://127.0.0.1:5500/Oceanstream/Login/Index.html';
+    window.location.href = pagLogin;
 }
 
 /**********************************************************/
@@ -56,7 +58,7 @@ function checkToken() {
         if (cookieToken) {
             deleteCookie('accessToken');
         }
-        window.location.href = 'http://127.0.0.1:5500/Oceanstream/Login/Index.html';
+        window.location.href = pagLogin;
     }
 }
 
