@@ -192,7 +192,7 @@
                             <input type="date" id="start-date" placeholder="2023-01-01">
                             <label for="end-date">Fim:</label>
                             <input type="date" id="end-date" placeholder="2024-01-01">
-                            <button id="update-graph" onclick="reqAPI('ADCP-Boia10_onda')">Atualizar</button>
+                            <button id="update-graph" onclick="reqAPI('ADCP-Boia04_corrente')">Atualizar</button>
                         </div>
                     </div>
                     <div class="chart-container">
@@ -207,15 +207,6 @@
                     <div class="chart-header">
                         <div>
                             <h2>Onda</h2>
-                            <select id="wave-cell-select">
-                                <option value="1">Selecione a Célula</option>
-                                <!-- Opções de 1 a 29 -->
-                                <script>
-                                    for (let i = 1; i <= 29; i++) {
-                                        document.write('<option value="' + i + '">' + i + '</option>');
-                                    }
-                                </script>
-                            </select>
                             <div class="checkbox-container">
                                 <label><input type="checkbox" id="height-checkbox" checked> Altura (m)</label>
                                 <label><input type="checkbox" id="period-checkbox" checked> Período (s)</label>
@@ -227,7 +218,7 @@
                             <input type="date" id="wave-start-date">
                             <label for="wave-end-date">Fim:</label>
                             <input type="date" id="wave-end-date">
-                            <button id="update-wave-graph">Atualizar</button>
+                            <button id="update-wave-graph" onclick="reqAPI('ADCP-Boia04_onda')">Atualizar</button>
                         </div>
                     </div>
                     <div class="chart-container">
@@ -239,6 +230,7 @@
     </section>
 
     <script src="../funcs/graficos/awac.js"></script>
+    <script src="../funcs/api.js"></script>
     <script src="../funcs/logout.js"></script>
     <script src="../funcs/sidebar.js"></script>
 </body>

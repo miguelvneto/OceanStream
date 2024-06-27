@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('update-graph').addEventListener('click', () => {
         const startDate = document.getElementById('start-date').value;
         const endDate = document.getElementById('end-date').value;
-        fetchData(startDate, endDate, currentGraph, seaLevelBarChart, 'current');
+        fetchData(startDate, endDate, currentGraph, 'current');
     });
 
     function fetchData(startDate, endDate, graph, type) {
