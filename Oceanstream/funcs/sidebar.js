@@ -10,17 +10,26 @@ toggle.addEventListener("click" , () =>{
     sidebar.classList.toggle("close");
 })
 
-// searchBtn.addEventListener("click" , () =>{
-//     sidebar.classList.remove("close");
-// })
-
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
-    if(body.classList.contains("dark")){
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifica o estado do "dark mode" na localStorage quando a página carrega
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add("dark");
         modeText.innerText = "Light mode";
-    }else{
+    } else {
+        body.classList.remove("dark");
         modeText.innerText = "Dark mode";
-        
     }
-})
+
+    // Adiciona o evento de click ao switch de modo
+    modeSwitch.addEventListener("click", () => {
+        body.classList.toggle("dark");
+
+        if (body.classList.contains("dark")) {
+            modeText.innerText = "Light mode";
+            localStorage.setItem('darkMode', 'enabled'); // Salva o estado "enabled" na localStorage
+        } else {
+            modeText.innerText = "Dark mode";
+            localStorage.setItem('darkMode', 'disabled'); // Salva o estado "disabled" na localStorage
+        }
+    });
+});
