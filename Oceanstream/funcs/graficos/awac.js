@@ -1,4 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // #######################################################################
+    // GERA DATA PLACEHOLDER
+    const today = new Date();
+    const amanha = new Date(today);
+    const ontem = new Date(today)
+    amanha.setDate(today.getDate() + 1);
+    ontem.setDate(today.getDate() - 1);
+
+    // Função para formatar a data no formato YYYY-MM-DD
+    function formatDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    document.getElementById('start-date').value = formatDate(ontem);
+    document.getElementById('end-date').value = formatDate(amanha);
+    document.getElementById('wave-start-date').value = formatDate(ontem);
+    document.getElementById('wave-end-date').value = formatDate(amanha);
+    // document.getElementById('wave-start-date').value = '2024-06-15';
+    // document.getElementById('wave-end-date').value = '2024-06-17';
+
+    document.getElementById('current-cell-select').value = '11';
+
+    // #######################################################################
+    // CRIA GRÁFICOS
     const ctxCurrent = document.getElementById('currentGraph').getContext('2d');
     const currentGraph = new Chart(ctxCurrent, {
         type: 'line',
@@ -35,8 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 xAxes: [{
                     type: 'time',
                     time: {
-                        unit: 'minute',
-                        stepSize: 10 // Define o intervalo de 10 minutos
+                        unit: 'hour',
+                        stepSize: 8,
+                        displayFormats: {hour: 'D/MM HH'}
                     },
                     display: true,
                     scaleLabel: {
@@ -47,9 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 yAxes: [{
                     display: true,
                     scaleLabel: {
-                        display: true,
-                        labelString: 'Valor'
-                    }
+                        // display: true,
+                        // labelString: 'Valor'
+                    },
+                    ticks: {beginAtZero: true}
                 }]
             }
         }
@@ -98,8 +127,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 xAxes: [{
                     type: 'time',
                     time: {
-                        unit: 'minute',
-                        stepSize: 10 // Define o intervalo de 10 minutos
+                        unit: 'hour',
+                        stepSize: 8,
+                        displayFormats: {hour: 'D/MM HH'}
                     },
                     display: true,
                     scaleLabel: {
@@ -110,24 +140,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 yAxes: [{
                     display: true,
                     scaleLabel: {
-                        display: true,
-                        labelString: 'Valor'
-                    }
+                        // display: true,
+                        // labelString: 'Valor'
+                    },
+                    ticks: {beginAtZero: true}
                 }]
             }
         }
     });
 
-    document.getElementById('update-graph').addEventListener('click', () => {
+    document.getElementById('update-graph').addEventListener('click', async (event) => {
+        const nome_tabela = event.target.name;
         const startDate = document.getElementById('start-date').value;
         const endDate = document.getElementById('end-date').value;
-        fetchData(startDate, endDate, currentGraph, 'current');
+
+        const dados = await organizaDadosParaGrafico_awacCorr(nome_tabela, startDate, endDate);
+        fetchData(currentGraph, 'current', dados);
     });
 
-    document.getElementById('update-wave-graph').addEventListener('click', () => {
+    document.getElementById('update-wave-graph').addEventListener('click', async (event) => {
+        const nome_tabela = event.target.name;
         const startDate = document.getElementById('wave-start-date').value;
         const endDate = document.getElementById('wave-end-date').value;
-        fetchData(startDate, endDate, waveGraph, 'wave');
+
+        const dados = await organizaDadosParaGrafico_awacOnda(nome_tabela, startDate, endDate);
+        fetchData(waveGraph, 'wave', dados);
     });
 
     document.getElementById('velocity-checkbox').addEventListener('change', function() {
@@ -155,43 +192,21 @@ document.addEventListener('DOMContentLoaded', function() {
         waveGraph.update();
     });
 
-    function fetchData(startDate, endDate, graph, type) {
-        // Simulate fetching data from the database
-        const labels = generateLabels(startDate, endDate);
-        const data1 = generateRandomData(labels.length);
-        const data2 = generateRandomData(labels.length);
-        const data3 = generateRandomData(labels.length);
+    function fetchData(graph, type, data) {
+        graph.data.labels = converterVetorParaFormatoISO(data[0]);
 
         if (type === 'current') {
-            graph.data.labels = labels;
-            graph.data.datasets[0].data = data1;
-            graph.data.datasets[1].data = data2;
+            const celula_selecionada = document.getElementById('current-cell-select').value
+            const indice_dir = celula_selecionada*2;
+            const indice_vel = indice_dir-1;
+            graph.data.datasets[0].data = data[indice_vel];
+            graph.data.datasets[1].data = data[indice_dir];
         } else if (type === 'wave') {
-            graph.data.labels = labels;
-            graph.data.datasets[0].data = data1;
-            graph.data.datasets[1].data = data2;
-            graph.data.datasets[2].data = data3;
+            graph.data.datasets[0].data = data[1];
+            graph.data.datasets[1].data = data[2];
+            graph.data.datasets[2].data = data[3];
         }
 
         graph.update();
     }
-
-    function generateLabels(startDate, endDate) {
-        const start = new Date(startDate);
-        const end = new Date(endDate);
-        const labels = [];
-        while (start <= end) {
-            labels.push(new Date(start).toISOString());
-            start.setMinutes(start.getMinutes() + 10);
-        }
-        return labels;
-    }
-
-    function generateRandomData(length) {
-        return Array.from({ length }, () => Math.floor(Math.random() * 100));
-    }
-
-    // Initial fetch to populate the graphs with some data
-    // fetchData('2021-01-01T00:00:00', '2021-01-01T01:00:00', currentGraph, 'current');
-    // fetchData('2021-01-01T00:00:00', '2021-01-01T01:00:00', waveGraph, 'wave');
 });
