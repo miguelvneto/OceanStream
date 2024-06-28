@@ -174,10 +174,10 @@
                             <!-- <h2>Corrente</h2> -->
                             </select>
                             <div class="checkbox-container">
-                                <label><input type="checkbox" id="velocity-checkbox" checked> Velocidade de vento (Kn)</label>
-                                <label><input type="checkbox" id="direction-checkbox" checked> Direção de vento (º)</label>
-                                <label><input type="checkbox" id="velocity-checkbox" checked> Rajada (Kn)</label>
-                                <label><input type="checkbox" id="direction-checkbox" checked> Precipitação (mm)</label>
+                                <label><input type="checkbox" id="vel-checkbox" checked> Velocidade de vento (Kn)</label>
+                                <label><input type="checkbox" id="dir-checkbox" checked> Direção de vento (º)</label>
+                                <label><input type="checkbox" id="gust-checkbox" checked> Rajada (Kn)</label>
+                                <label><input type="checkbox" id="rain-checkbox" checked> Precipitação (mm)</label>
                             </div>
                         </div>
                         <div class="date-picker">
@@ -185,7 +185,7 @@
                             <input type="date" id="start-date">
                             <label for="end-date">Fim:</label>
                             <input type="date" id="end-date">
-                            <button id="update-graph" onclick="reqAPI('TU_Estacao_Meteorologica')">Atualizar</button>
+                            <button id="update-graph" name="TU_Estacao_Meteorologica">Atualizar</button>
                         </div>
                     </div>
                     <div class="chart-container">
