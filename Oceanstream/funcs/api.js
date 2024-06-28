@@ -267,3 +267,33 @@ async function organizaDadosParaGrafico_estacao(nome_tabela, startDate, endDate)
     // fetchData(waveGraph, 'wave', );
     return [tmStamp, vento_vel, vento_dir, vento_rajada, chuva];
 }
+
+async function organizaDadosParaGrafico_ondografo(nome_tabela, startDate, endDate){
+    // extrai dados da api
+    await reqAPI(nome_tabela, startDate, endDate);
+    const tabelaJSON = sessionStorage.getItem(nome_tabela);
+    if (!tabelaJSON) {
+        console.error(`Nenhuma tabela encontrada na sessionStorage com a chave "${nome_tabela}"`);
+        return false;
+    }
+    // Converta a string JSON em um objeto JavaScript
+    const tabela = JSON.parse(tabelaJSON);
+
+    const tmStamp = [];
+    const hm0 = [];
+    const hmax = [];
+    const tz = [];
+    const tp_alisado = [];
+
+    // Supondo que a tabela é um array de objetos onde cada objeto representa uma linha
+    tabela.forEach(row => {
+        tmStamp.push(row.TmStamp);
+        hm0.push(row.hm0);
+        hmax.push(row.hmax);
+        tz.push(row.tz);
+        tp_alisado.push(row.tp_alisado);
+    });
+
+    // fetchData(waveGraph, 'wave', );
+    return [tmStamp, hm0, hmax, tz, tp_alisado];
+}

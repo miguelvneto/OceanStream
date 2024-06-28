@@ -174,10 +174,10 @@
                             <!-- <h2>Corrente</h2> -->
                             </select>
                             <div class="checkbox-container">
-                                <label><input type="checkbox" id="velocity-checkbox" checked> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                <label><input type="checkbox" id="direction-checkbox" checked> Altura Máxima - metros (m)</label>
-                                <label><input type="checkbox" id="velocity-checkbox" checked> Período de Pico - segundos (s)</label>
-                                <label><input type="checkbox" id="direction-checkbox" checked> Período Médio - segundos (s)</label>
+                                <label><input type="checkbox" id="hm0_alisado-checkbox" checked> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                <label><input type="checkbox" id="hmax-checkbox" checked> Altura Máxima - metros (m)</label>
+                                <label><input type="checkbox" id="tz-checkbox" checked> Período de Pico - segundos (s)</label>
+                                <label><input type="checkbox" id="tp_alisado-checkbox" checked> Período Médio - segundos (s)</label>
                             </div>
                         </div>
                         <div class="date-picker">
@@ -185,7 +185,7 @@
                             <input type="date" id="start-date">
                             <label for="end-date">Fim:</label>
                             <input type="date" id="end-date">
-                            <button id="update-graph" onclick="reqAPI('Ondografo-TPM_tab_parametros')">Atualizar</button>
+                            <button id="update-graph" name="Ondografo-TPM_tab_parametros">Atualizar</button>
                         </div>
                     </div>
                     <div class="chart-container">
