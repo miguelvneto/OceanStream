@@ -11,6 +11,8 @@
         <!----===== Boxicons CSS ===== -->
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
         
+        <script src="../funcs/api.js"></script>
+
         <title>OceanStream - Download</title>
         <style>
             .sub-options {
@@ -193,8 +195,11 @@
                         <label for="equipments">Porto de Tubarão:</label>
                         <div id="equipments">
                             <div>
-                                <label class="equipment-label" for="boia4" onclick="toggleOptions('boia4-options')">
-                                    <input type="checkbox" id="boia4-check" onclick="toggleAll('boia4-options', this)"> &gt; Boia 4
+                                <!-- COMENTADO SUBMENUS -->
+                                <!-- <label class="equipment-label" for="boia4" onclick="toggleOptions('boia4-options')">
+                                    <input type="checkbox" id="boia4-check" onclick="toggleAll('boia4-options', this)"> &gt; Boia 4 -->
+                                <label class="equipment-label" for="boia4">
+                                    <input type="checkbox" id="boia4-check"> &gt; Boia 4
                                 </label>
                                 <input type="checkbox" id="boia4" name="equipments" value="Boia 4" style="display:none;">
                                 <div id="boia4-options" class="sub-options">
@@ -232,8 +237,11 @@
                                 </div>
                             </div>
                             <div>
-                                <label class="equipment-label" for="boia8" onclick="toggleOptions('boia8-options')">
-                                    <input type="checkbox" id="boia8-check" onclick="toggleAll('boia8-options', this)"> &gt; Boia 8
+                                <!-- COMENTADO SUBMENUS -->
+                                <!-- <label class="equipment-label" for="boia8" onclick="toggleOptions('boia8-options')">
+                                    <input type="checkbox" id="boia8-check" onclick="toggleAll('boia8-options', this)"> &gt; Boia 8 -->
+                                <label class="equipment-label" for="boia8">
+                                    <input type="checkbox" id="boia8-check"> &gt; Boia 8
                                 </label>
                                 <input type="checkbox" id="boia8" name="equipments" value="Boia 8" style="display:none;">
                                 <div id="boia8-options" class="sub-options">
@@ -265,8 +273,11 @@
                                 </div>
                             </div>
                             <div>
-                                <label class="equipment-label" for="boia10" onclick="toggleOptions('boia10-options')">
-                                    <input type="checkbox" id="boia10-check" onclick="toggleAll('boia10-options', this)"> &gt; Boia 10
+                                <!-- COMENTADO SUBMENUS -->
+                                <!-- <label class="equipment-label" for="boia10" onclick="toggleOptions('boia10-options')">
+                                    <input type="checkbox" id="boia10-check" onclick="toggleAll('boia10-options', this)"> &gt; Boia 10 -->
+                                <label class="equipment-label" for="boia10">
+                                    <input type="checkbox" id="boia10-check"> &gt; Boia 10
                                 </label>
                                 <input type="checkbox" id="boia10" name="equipments" value="Boia 10" style="display:none;">
                                 <div id="boia10-options" class="sub-options">
@@ -305,8 +316,11 @@
 
                             </div>
                             <div>
-                                <label class="equipment-label" for="ondografo-pii" onclick="toggleOptions('ondografo-pii-options')">
-                                    <input type="checkbox" id="ondografo-pii-check" onclick="toggleAll('ondografo-pii-options', this)"> &gt; Ondógrafo - Píer II
+                                <!-- COMENTADO SUBMENUS -->
+                                <!-- <label class="equipment-label" for="ondografo-pii" onclick="toggleOptions('ondografo-pii-options')">
+                                    <input type="checkbox" id="ondografo-pii-check" onclick="toggleAll('ondografo-pii-options', this)"> &gt; Ondógrafo - Píer II -->
+                                <label class="equipment-label" for="ondografo-pii">
+                                    <input type="checkbox" id="ondografo-pii-check"> &gt; Ondógrafo - Píer II
                                 </label>
                                 <input type="checkbox" id="ondografo-pii" name="equipments" value="Ondógrafo - PII" style="display:none;">
                                 <div id="ondografo-pii-options" class="sub-options">
@@ -317,8 +331,11 @@
                                 </div>
                             </div>
                             <div>
-                                <label class="equipment-label" for="ondografo-tpm" onclick="toggleOptions('ondografo-tpm-options')">
-                                    <input type="checkbox" id="ondografo-tpm-check" onclick="toggleAll('ondografo-tpm-options', this)"> &gt; Ondógrafo - TPM
+                                <!-- COMENTADO SUBMENUS -->
+                                <!-- <label class="equipment-label" for="ondografo-tpm" onclick="toggleOptions('ondografo-tpm-options')">
+                                    <input type="checkbox" id="ondografo-tpm-check" onclick="toggleAll('ondografo-tpm-options', this)"> &gt; Ondógrafo - TPM -->
+                                <label class="equipment-label" for="ondografo-tpm">
+                                    <input type="checkbox" id="ondografo-tpm-check"> &gt; Ondógrafo - TPM
                                 </label>
                                 <input type="checkbox" id="ondografo-tpm" name="equipments" value="Ondógrafo - TPM" style="display:none;">
                                 <div id="ondografo-tpm-options" class="sub-options">
@@ -329,8 +346,11 @@
                                 </div>
                             </div>
                             <div>
-                                <label class="equipment-label" for="ondografo-tpd" onclick="toggleOptions('ondografo-tpd-options')">
-                                    <input type="checkbox" id="ondografo-tpd-check" onclick="toggleAll('ondografo-tpd-options', this)"> &gt; Ondógrafo - TPD
+                                <!-- COMENTADO SUBMENUS -->
+                                <!-- <label class="equipment-label" for="ondografo-tpd" onclick="toggleOptions('ondografo-tpd-options')">
+                                    <input type="checkbox" id="ondografo-tpd-check" onclick="toggleAll('ondografo-tpd-options', this)"> &gt; Ondógrafo - TPD -->
+                                <label class="equipment-label" for="ondografo-tpd">
+                                    <input type="checkbox" id="ondografo-tpd-check"> &gt; Ondógrafo - TPD
                                 </label>
                                 <input type="checkbox" id="ondografo-tpd" name="equipments" value="Ondógrafo - TPD" style="display:none;">
                                 <div id="ondografo-tpd-options" class="sub-options">
@@ -341,8 +361,11 @@
                                 </div>
                             </div>
                             <div>
-                                <label class="equipment-label" for="ondografo-tgl" onclick="toggleOptions('ondografo-tgl-options')">
-                                    <input type="checkbox" id="ondografo-tgl-check" onclick="toggleAll('ondografo-tgl-options', this)"> &gt; Ondógrafo - TGL
+                                <!-- COMENTADO SUBMENUS -->
+                                <!-- <label class="equipment-label" for="ondografo-tgl" onclick="toggleOptions('ondografo-tgl-options')">
+                                    <input type="checkbox" id="ondografo-tgl-check" onclick="toggleAll('ondografo-tgl-options', this)"> &gt; Ondógrafo - TGL -->
+                                <label class="equipment-label" for="ondografo-tgl">
+                                    <input type="checkbox" id="ondografo-tgl-check"> &gt; Ondógrafo - TGL
                                 </label>
                                 <input type="checkbox" id="ondografo-tgl" name="equipments" value="Ondógrafo - TGL" style="display:none;">
                                 <div id="ondografo-tgl-options" class="sub-options">
@@ -353,8 +376,11 @@
                                 </div>
                             </div>
                             <div>
-                                <label class="equipment-label" for="maregrafo" onclick="toggleOptions('maregrafo-options')">
-                                    <input type="checkbox" id="maregrafo-check" onclick="toggleAll('maregrafo-options', this)"> &gt; Marégrafo
+                                <!-- COMENTADO SUBMENUS -->
+                                <!-- <label class="equipment-label" for="maregrafo" onclick="toggleOptions('maregrafo-options')">
+                                    <input type="checkbox" id="maregrafo-check" onclick="toggleAll('maregrafo-options', this)"> &gt; Marégrafo -->
+                                <label class="equipment-label" for="maregrafo">
+                                    <input type="checkbox" id="maregrafo-check"> &gt; Marégrafo
                                 </label>
                                 <input type="checkbox" id="maregrafo" name="equipments" value="Marégrafo" style="display:none;">
                                 <div id="maregrafo-options" class="sub-options">
@@ -362,8 +388,11 @@
                                 </div>
                             </div>
                             <div>
-                                <label class="equipment-label" for="estacao-meteorologica" onclick="toggleOptions('estacao-meteorologica-options')">
-                                    <input type="checkbox" id="estacao-meteorologica-check" onclick="toggleAll('estacao-meteorologica-options', this)"> &gt; Estação Meteorológica
+                                <!-- COMENTADO SUBMENUS -->
+                                <!-- <label class="equipment-label" for="estacao-meteorologica" onclick="toggleOptions('estacao-meteorologica-options')">
+                                    <input type="checkbox" id="estacao-meteorologica-check" onclick="toggleAll('estacao-meteorologica-options', this)"> &gt; Estação Meteorológica -->
+                                <label class="equipment-label" for="estacao-meteorologica">
+                                    <input type="checkbox" id="estacao-meteorologica-check"> &gt; Estação Meteorológica
                                 </label>
                                 <input type="checkbox" id="estacao-meteorologica" name="equipments" value="Estação Meteorológica" style="display:none;">
                                 <div id="estacao-meteorologica-options" class="sub-options">
@@ -380,8 +409,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="button" onclick="downloadData('txt')">Exportar como TXT</button>
-                        <button type="button" onclick="downloadData('xlsx')">Exportar como XLSX</button>
+                        <button type="button" id="botao_csv">Exportar como CSV</button>
+                        <!-- <button type="button" id="botao_xlsx">Exportar como XLSX</button> -->
                     </div>
                 </form>
             </div>

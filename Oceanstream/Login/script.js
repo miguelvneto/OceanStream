@@ -1,4 +1,6 @@
-const prefix_api = 'http://environlink.ddns.net:1848';
+const logprefix_api = 'http://environlink.ddns.net:1848';
+// const logprefix_api = 'http://localhost:1848';
+
 const pagOverview='../Overview/index.html';
 
 /**********************************************************/
@@ -68,9 +70,9 @@ document.getElementById('loginButton').addEventListener('click', async function(
 
     try {
         // Faz a requisição POST
-        const uri = prefix_api+'/login';
+        const uri = logprefix_api+'/login';
         console.log(uri)
-        const response = await fetch(prefix_api+'/login', {
+        const response = await fetch(logprefix_api+'/login', {
             method: 'POST',
             headers: {
                'Content-Type': 'application/json'

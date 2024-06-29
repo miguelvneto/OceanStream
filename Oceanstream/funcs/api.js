@@ -1,4 +1,5 @@
 const prefix_api = 'http://environlink.ddns.net:1848';
+// const prefix_api = 'http://localhost:1848';
 
 function converterVetorParaFormatoISO(vetorOriginal) {
     const vetorFormatado = vetorOriginal.map(originalDateTime => {
