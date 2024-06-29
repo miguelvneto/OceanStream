@@ -296,6 +296,28 @@ async function organizaDadosParaGrafico_ondografo(nome_tabela, startDate, endDat
         tp_alisado.push(row.tp_alisado);
     });
 
-    // fetchData(waveGraph, 'wave', );
     return [tmStamp, hm0, hmax, tz, tp_alisado];
+}
+
+async function organizaDadosParaGrafico_maregrafo(nome_tabela, startDate, endDate){
+    // extrai dados da api
+    await reqAPI(nome_tabela, startDate, endDate);
+    const tabelaJSON = sessionStorage.getItem(nome_tabela);
+    if (!tabelaJSON) {
+        console.error(`Nenhuma tabela encontrada na sessionStorage com a chave "${nome_tabela}"`);
+        return false;
+    }
+    // Converta a string JSON em um objeto JavaScript
+    const tabela = JSON.parse(tabelaJSON);
+
+    const tmStamp = [];
+    const mare = [];
+
+    // Supondo que a tabela é um array de objetos onde cada objeto representa uma linha
+    tabela.forEach(row => {
+        tmStamp.push(row.TmStamp);
+        mare.push(row.Mare_Reduzida);
+    });
+
+    return [tmStamp, mare];
 }

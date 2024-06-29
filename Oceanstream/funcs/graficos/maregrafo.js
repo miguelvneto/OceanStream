@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const startDate = document.getElementById('start-date').value;
         const endDate = document.getElementById('end-date').value;
 
-        const dados = await organizaDadosParaGrafico_estacao(nome_tabela, startDate, endDate);
+        const dados = await organizaDadosParaGrafico_maregrafo(nome_tabela, startDate, endDate);
         
         fetchData(currentGraph, 'maregrafo', dados);
     });
