@@ -1,3 +1,5 @@
+const prefix_api = 'http://environlink.ddns.net:1848';
+
 function converterVetorParaFormatoISO(vetorOriginal) {
     const vetorFormatado = vetorOriginal.map(originalDateTime => {
         // Dividir a string original em data e hora
@@ -44,7 +46,7 @@ async function reqAPI(nome_tabela, startDate, endDate) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${obterAccessToken()}`
     },
-    url = 'http://localhost:1848/dados';
+    url = prefix_api + '/dados';
 
     const requestOptions = {
         method: 'POST',

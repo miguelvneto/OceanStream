@@ -1,4 +1,5 @@
-const pagOverview='http://127.0.0.1:5500/Oceanstream/Overview/index.html';
+const prefix_api = 'http://environlink.ddns.net:1848';
+const pagOverview='../Overview/index.html';
 
 /**********************************************************/
 // INÍCIO CHECA JWT
@@ -67,7 +68,9 @@ document.getElementById('loginButton').addEventListener('click', async function(
 
     try {
         // Faz a requisição POST
-        const response = await fetch('http://localhost:1848/login', {
+        const uri = prefix_api+'/login';
+        console.log(uri)
+        const response = await fetch(prefix_api+'/login', {
             method: 'POST',
             headers: {
                'Content-Type': 'application/json'
@@ -75,6 +78,7 @@ document.getElementById('loginButton').addEventListener('click', async function(
             body: corpo
         });
 
+        console.log('debug')
         // Verifica se a requisição foi bem-sucedida
         if (!response.ok) {
             throw new Error('Erro na requisição');
