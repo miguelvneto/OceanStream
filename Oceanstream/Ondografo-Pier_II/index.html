@@ -172,12 +172,13 @@
                     <div class="chart-header">
                         <div>
                             <!-- <h2>Corrente</h2> -->
+                            <p>Marque nos parâmetros abaixo, quais deseja visualizar.</p>
                             </select>
                             <div class="checkbox-container">
-                                <label><input type="checkbox" id="hm0_alisado-checkbox" checked> Altura Significativa de Onda (Hm0) - metros (m)</label>
-                                <label><input type="checkbox" id="hmax-checkbox" checked> Altura Máxima - metros (m)</label>
-                                <label><input type="checkbox" id="tz-checkbox" checked> Período de Pico - segundos (s)</label>
-                                <label><input type="checkbox" id="tp_alisado-checkbox" checked> Período Médio - segundos (s)</label>
+                                <!-- <label><input type="checkbox" id="hm0_alisado-checkbox" checked> Altura Significativa de Onda (Hm0) - metros (m)</label>
+                                <label><input type="checkbox" id="hmax-checkbox" checked> Altura Máxima (Hmax) - metros (m)</label>
+                                <label><input type="checkbox" id="tz-checkbox" checked> Período no Domínio do Tempo (Tz) - segundos (s)</label>
+                                <label><input type="checkbox" id="tp_alisado-checkbox" checked> Período no Domínio da Frequência (Tp_alisado) - segundos (s)</label> -->
                             </div>
                         </div>
                         <div class="date-picker">
@@ -197,7 +198,16 @@
         </div>
     </section>
 
-    <script src="../funcs/graficos/ondografo.js"></script>
+    <script src="../funcs/graficos/ondografo.js">
+        document.addEventListener('DOMContentLoaded', async function() {
+        const nome_tabela = "Ondografo-PII_tab_parametros";
+        const startDate = document.getElementById('start-date').value;
+        const endDate = document.getElementById('end-date').value;
+        const dados = organizaDadosParaGrafico_ondografo(nome_tabela, startDate, endDate);
+        fetchData(currentGraph, 'ondografo', dados);
+        }
+        )
+    </script>
     <script src="../funcs/api.js"></script>
     <script src="../funcs/logout.js"></script>
     <script src="../funcs/sidebar.js"></script>
