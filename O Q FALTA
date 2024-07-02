@@ -1,0 +1,31 @@
+LIBERAR ACESSO SOMENTE AOS ARQUIVOS ESCOLHIDOS
+BLOQUEAR NAVEGAÇAO ENTRE PASTAS
+VER SE TEM COMO USAR O MAPEAMENTO DE PAGINA DO REACT
+
+acesso mobile
+
+ondografo - parametros periodo & add (hmax)
+sidebar-mover alertas para em cima de ocorrencia
+
+alertas
+
+gráfico polar
+environlink metocean
+
+ocorrência
+addocorrencia - autor vai ser no modelo "{nome} ({email})"
+
+awac-add velocidade resultante
+
+?manutenção?
+separar gráficos
+checkboxes desmarcadas por padrão
+atualizar ao escolher celula
+hover no mapa, mostrar ultimo dado do equipamento
+>criar requisição na api para extrair ultima linha de cada dado
+>>ja temos essa requisição na outra api
+cor do grafico marégrafo
+
+? é possivel preencher o grafico sem precisar salvar os dados
+na memoria do navegador?
+tipo, como jogar direto da requisição pro grafico?

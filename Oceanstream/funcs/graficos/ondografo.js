@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     // #######################################################################
     // GERA DATA PLACEHOLDER
     const today = new Date();
@@ -31,26 +31,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 fill: false,
                 hidden: false,
             }, {
-                label: 'Altura Máxima - metros (m)',
+                label: 'Altura Máxima (Hmax) - metros (m)',
                 fill: false,
                 backgroundColor: 'rgb(54, 162, 235)',
                 borderColor: 'rgb(54, 162, 235)',
                 data: [],
-                hidden: false,
+                hidden: true,
             }, {
-                label: 'Período de Pico - segundos (s)',
+                label: 'Período no Domínio do Tempo (Tz) - segundos (s)',
                 fill: false,
                 backgroundColor: 'rgb(75, 192, 192)',
                 borderColor: 'rgb(75, 192, 192)',
                 data: [],
-                hidden: false,
+                hidden: true,
             }, {
-                label: 'Período Médio - segundos (s)',
+                label: 'Período no Domínio da Frequência (Tp_alisado) - segundos (s)',
                 fill: false,
                 backgroundColor: 'rgb(153, 102, 255)',
                 borderColor: 'rgb(153, 102, 255)',
                 data: [],
-                hidden: false,
+                hidden: true,
             }]
         },
         options: {
@@ -131,4 +131,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
         graph.update();
     }
+
+    // // CARREGAR GRÁFICO JUNTO COM A PÁGINA
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    let nome_tabela;
+
+    switch (window.location.pathname) {
+        case '/Oceanstream/Ondografo-Pier_II/index.html':
+            nome_tabela = 'Ondografo-PII_tab_parametros';
+            break;
+        case '/Oceanstream/Ondografo-TGL/index.html':
+            nome_tabela = 'Ondografo-TGL_tab_parametros';
+            break;
+        case '/Oceanstream/Ondografo-TPD/index.html':
+            nome_tabela = 'Ondografo-TPD_tab_parametros';
+            break;
+        case '/Oceanstream/Ondografo-TPM/index.html':
+            nome_tabela = 'Ondografo-TPM_tab_parametros';
+            break;
+        default:
+            nome_tabela = '';
+    }
+
+    const dados = await organizaDadosParaGrafico_ondografo(nome_tabela, startDate, endDate);
+    fetchData(currentGraph, 'ondografo', dados);
 });

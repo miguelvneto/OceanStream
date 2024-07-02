@@ -1,5 +1,7 @@
-const dlprefix_api = 'http://environlink.ddns.net:1848';
-// const dlprefix_api = 'http://localhost:1848';
+// const dlprefix_api = 'http://localhost:1848'; // localhost
+// const dlprefix_api = 'http://environlink.ddns.net:1848'; // ddns
+const dlprefix_api = 'https://oceanstream-8b3329b99e40.herokuapp.com'; // heroku
+
 const nome_arquivo = 'tabelas.zip';
 
 async function reqAPIdl(nomes_tabelas, startDate, endDate) {

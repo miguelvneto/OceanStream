@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     // #######################################################################
     // GERA DATA PLACEHOLDER
     const today = new Date();
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 backgroundColor: 'rgb(54, 162, 235)',
                 borderColor: 'rgb(54, 162, 235)',
                 data: [],
-                hidden: false,
+                hidden: true,
             }]
         },
         options: {
@@ -102,14 +102,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 backgroundColor: 'rgb(153, 102, 255)',
                 borderColor: 'rgb(153, 102, 255)',
                 data: [],
-                hidden: false,
+                hidden: true,
             }, {
                 label: 'Direção (°)',
                 fill: false,
                 backgroundColor: 'rgb(255, 159, 64)',
                 borderColor: 'rgb(255, 159, 64)',
                 data: [],
-                hidden: false,
+                hidden: true,
             }]
         },
         options: {
@@ -209,4 +209,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
         graph.update();
     }
+
+    // // CARREGAR GRÁFICO JUNTO COM A PÁGINA
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    // let nome_tabela;
+    let nome_tabela_corrente;
+    let nome_tabela_onda;
+    
+    switch (window.location.pathname) {
+        case '/Oceanstream/Boia04/index.html':
+            nome_tabela_corrente = 'ADCP-Boia04_corrente';
+            nome_tabela_onda = 'ADCP-Boia04_onda';
+            break;
+        case '/Oceanstream/Boia08/index.html':
+            nome_tabela_corrente = 'ADCP-Boia08_corrente';
+            nome_tabela_onda = 'ADCP-Boia08_onda';
+            break;
+        case '/Oceanstream/Boia10/index.html':
+            nome_tabela_corrente = 'ADCP-Boia10_corrente';
+            nome_tabela_onda = 'ADCP-Boia10_onda';
+            break;
+        default:
+            nome_tabela_corrente = '';
+            nome_tabela_onda = '';
+    }
+
+    const dadosC = await organizaDadosParaGrafico_awacCorr(nome_tabela_corrente, startDate, endDate);
+    const dadosO = await organizaDadosParaGrafico_awacOnda(nome_tabela_onda, startDate, endDate);
+    fetchData(currentGraph, 'current', dadosC);
+    fetchData(waveGraph, 'wave', dadosO);
 });

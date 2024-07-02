@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('author')) {
         document.getElementById('author').value = getLoggedInUser();
     }
-    loadIncidents();
+    // loadIncidents();
 });
 
 function getLoggedInUser() {
     // Simulação do usuário logado
-    return 'Usuário Logado';
+    return '';
 }
 
 function addIncident() {

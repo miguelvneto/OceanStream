@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     // #######################################################################
     // GERA DATA PLACEHOLDER
     const today = new Date();
@@ -87,4 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         graph.update();
     }
+
+    // // CARREGAR GRÁFICO JUNTO COM A PÁGINA
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    const nome_tabela = 'Maregrafo-TU_Maregrafo_Troll';
+
+    const dados = await organizaDadosParaGrafico_maregrafo(nome_tabela, startDate, endDate);
+    fetchData(currentGraph, 'maregrafo', dados);
+
 });

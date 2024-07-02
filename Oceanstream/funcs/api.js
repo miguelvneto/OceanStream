@@ -1,5 +1,6 @@
-const prefix_api = 'http://environlink.ddns.net:1848';
-// const prefix_api = 'http://localhost:1848';
+// const prefix_api = 'http://localhost:1848'; // localhost
+// const prefix_api = 'http://environlink.ddns.net:1848'; // ddns
+const prefix_api = 'https://oceanstream-8b3329b99e40.herokuapp.com'; // heroku
 
 function converterVetorParaFormatoISO(vetorOriginal) {
     const vetorFormatado = vetorOriginal.map(originalDateTime => {

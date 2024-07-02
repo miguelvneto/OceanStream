@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const alertas = [
-        { quando: '2024-06-20', onde: 'Porto A', resumo: 'Tempestade forte', detalhes: 'Detalhes da tempestade...' },
-        { quando: '2024-06-21', onde: 'Porto B', resumo: 'Maré alta', detalhes: 'Detalhes da maré alta...' },
+        // { quando: '2024-06-20', onde: 'Porto A', resumo: 'Tempestade forte', detalhes: 'Detalhes da tempestade...' },
+        // { quando: '2024-06-21', onde: 'Porto B', resumo: 'Maré alta', detalhes: 'Detalhes da maré alta...' },
     ];
 
     const tabela = document.getElementById('alertasTable').getElementsByTagName('tbody')[0];

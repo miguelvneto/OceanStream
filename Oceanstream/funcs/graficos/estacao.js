@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     // #######################################################################
     // GERA DATA PLACEHOLDER
     const today = new Date();
@@ -36,21 +36,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 backgroundColor: 'rgb(54, 162, 235)',
                 borderColor: 'rgb(54, 162, 235)',
                 data: [],
-                hidden: false,
+                hidden: true,
             }, {
                 label: 'Rajada (Kn)',
                 fill: false,
                 backgroundColor: 'rgb(75, 192, 192)',
                 borderColor: 'rgb(75, 192, 192)',
                 data: [],
-                hidden: false,
+                hidden: true,
             }, {
                 label: 'Precipitação (mm)',
                 fill: false,
                 backgroundColor: 'rgb(153, 102, 255)',
                 borderColor: 'rgb(153, 102, 255)',
                 data: [],
-                hidden: false,
+                hidden: true,
             }]
         },
         options: {
@@ -131,4 +131,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         graph.update();
     }
+
+    // // CARREGAR GRÁFICO JUNTO COM A PÁGINA
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    const nome_tabela = 'TU_Estacao_Meteorologica';
+
+    const dados = await organizaDadosParaGrafico_estacao(nome_tabela, startDate, endDate);
+    fetchData(currentGraph, 'estacao', dados);
 });

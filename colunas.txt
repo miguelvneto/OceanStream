@@ -1,0 +1,60 @@
+ - adcp
+-corrente
+{
+    ADCP-Boia04_corrente,
+    ADCP-Boia08_corrente,
+    ADCP-Boia10_corrente
+}
+TmStamp
+PNORS_Heading
+PNORS_Pitch
+PNORS_Roll
+vel{celula}
+dir{celula}
+
+-onda
+{
+    ADCP-Boia04_onda,
+    ADCP-Boia08_onda,
+    ADCP-Boia10_onda
+}
+TmStamp
+PNORW_Hm0
+PNORW_Tp
+PNORW_DirTp
+
+
+
+ - ondógrafo
+{
+    Ondografo-PII_tab_parametros,
+    Ondografo-TGL_tab_parametros,
+    Ondografo-TPD_tab_parametros,
+    Ondografo-TPM_tab_parametros
+}
+TmStamp
+hm0_alisado         Altura Significativa de Onda (Hm0) - metros (m)
+hmax                Altura Máxima - metros (m)
+tz                  Período Médio - segundos (s)
+                    Período de Pico - segundos (s)
+
+
+
+ - marégrafo
+{
+    Maregrafo-TU_Maregrafo_Troll
+}
+TmStamp
+Mare_Regua
+
+
+
+ - estação meteorológica
+{
+    TU_Estacao_Meteorologica
+}
+TmStamp
+Velocidade_Vento
+Direcao_Vento
+Rajada_Vento
+Chuva
