@@ -119,7 +119,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             graph.data.datasets[0].data = data[1];
             graph.data.datasets[1].data = data[2];
             graph.data.datasets[2].data = data[3];
-            graph.data.datasets[3].data = data[4];
         }
 
         graph.update();

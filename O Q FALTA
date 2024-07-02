@@ -2,25 +2,26 @@ LIBERAR ACESSO SOMENTE AOS ARQUIVOS ESCOLHIDOS
 BLOQUEAR NAVEGAÇAO ENTRE PASTAS
 VER SE TEM COMO USAR O MAPEAMENTO DE PAGINA DO REACT
 
-acesso mobile
+responsivo mobile
 
-ondografo - parametros periodo & add (hmax)
-sidebar-mover alertas para em cima de ocorrencia
+atualizar ao escolher celula
 
 alertas
-
-gráfico polar
-environlink metocean
-
 ocorrência
 addocorrencia - autor vai ser no modelo "{nome} ({email})"
 
+gráfico polar
+rebrand - environlink metocean
+
 awac-add velocidade resultante
 
+sidebar-mover alertas para em cima de ocorrencia
+
+
+APP
+
+
 ?manutenção?
-separar gráficos
-checkboxes desmarcadas por padrão
-atualizar ao escolher celula
 hover no mapa, mostrar ultimo dado do equipamento
 >criar requisição na api para extrair ultima linha de cada dado
 >>ja temos essa requisição na outra api

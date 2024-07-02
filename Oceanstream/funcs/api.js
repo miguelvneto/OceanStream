@@ -287,7 +287,6 @@ async function organizaDadosParaGrafico_ondografo(nome_tabela, startDate, endDat
     const hm0 = [];
     const hmax = [];
     const tz = [];
-    const tp_alisado = [];
 
     // Supondo que a tabela é um array de objetos onde cada objeto representa uma linha
     tabela.forEach(row => {
@@ -295,10 +294,9 @@ async function organizaDadosParaGrafico_ondografo(nome_tabela, startDate, endDat
         hm0.push(row.hm0);
         hmax.push(row.hmax);
         tz.push(row.tz);
-        tp_alisado.push(row.tp_alisado);
     });
 
-    return [tmStamp, hm0, hmax, tz, tp_alisado];
+    return [tmStamp, hm0, hmax, tz];
 }
 
 async function organizaDadosParaGrafico_maregrafo(nome_tabela, startDate, endDate){
