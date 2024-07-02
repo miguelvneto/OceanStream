@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', function() {
     // #######################################################################
     // GERA DATA PLACEHOLDER
     const today = new Date();
@@ -31,30 +31,30 @@ document.addEventListener('DOMContentLoaded', async function() {
                 fill: false,
                 hidden: false,
             }, {
-                label: 'Altura Máxima (Hmax) - metros (m)',
+                label: 'Altura Máxima - metros (m)',
                 fill: false,
                 backgroundColor: 'rgb(54, 162, 235)',
                 borderColor: 'rgb(54, 162, 235)',
                 data: [],
-                hidden: true,
+                hidden: false,
             }, {
-                label: 'Período no Domínio do Tempo (Tz) - segundos (s)',
+                label: 'Período de Pico - segundos (s)',
                 fill: false,
                 backgroundColor: 'rgb(75, 192, 192)',
                 borderColor: 'rgb(75, 192, 192)',
                 data: [],
-                hidden: true,
+                hidden: false,
             }, {
-                label: 'Período no Domínio da Frequência (Tp_alisado) - segundos (s)',
+                label: 'Período Médio - segundos (s)',
                 fill: false,
                 backgroundColor: 'rgb(153, 102, 255)',
                 borderColor: 'rgb(153, 102, 255)',
                 data: [],
-                hidden: true,
+                hidden: false,
             }]
         },
         options: {
-            // responsive: true,
+            responsive: true,
             maintainAspectRatio: false,
             tooltips: {
                 mode: 'index',
@@ -99,25 +99,25 @@ document.addEventListener('DOMContentLoaded', async function() {
         fetchData(currentGraph, 'ondografo', dados);
     });
 
-    // document.getElementById('hm0_alisado-checkbox').addEventListener('change', function() {
-    //     currentGraph.data.datasets[0].hidden = !this.checked;
-    //     currentGraph.update();
-    // });
+    document.getElementById('hm0_alisado-checkbox').addEventListener('change', function() {
+        currentGraph.data.datasets[0].hidden = !this.checked;
+        currentGraph.update();
+    });
 
-    // document.getElementById('hmax-checkbox').addEventListener('change', function() {
-    //     currentGraph.data.datasets[1].hidden = !this.checked;
-    //     currentGraph.update();
-    // });
+    document.getElementById('hmax-checkbox').addEventListener('change', function() {
+        currentGraph.data.datasets[1].hidden = !this.checked;
+        currentGraph.update();
+    });
 
-    // document.getElementById('tz-checkbox').addEventListener('change', function() {
-    //     currentGraph.data.datasets[2].hidden = !this.checked;
-    //     currentGraph.update();
-    // });
+    document.getElementById('tz-checkbox').addEventListener('change', function() {
+        currentGraph.data.datasets[2].hidden = !this.checked;
+        currentGraph.update();
+    });
 
-    // document.getElementById('tp_alisado-checkbox').addEventListener('change', function() {
-    //     currentGraph.data.datasets[3].hidden = !this.checked;
-    //     currentGraph.update();
-    // });
+    document.getElementById('tp_alisado-checkbox').addEventListener('change', function() {
+        currentGraph.data.datasets[3].hidden = !this.checked;
+        currentGraph.update();
+    });
 
     function fetchData(graph, type, data) {
         graph.data.labels = converterVetorParaFormatoISO(data[0]);
@@ -131,29 +131,4 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         graph.update();
     }
-
-    // // CARREGAR GRÁFICO JUNTO COM A PÁGINA
-    const startDate = document.getElementById('start-date').value;
-    const endDate = document.getElementById('end-date').value;
-    let nome_tabela;
-
-    switch (window.location.pathname) {
-        case '/Oceanstream/Ondografo-Pier_II/index.html':
-            nome_tabela = 'Ondografo-PII_tab_parametros';
-            break;
-        case '/Oceanstream/Ondografo-TGL/index.html':
-            nome_tabela = 'Ondografo-TGL_tab_parametros';
-            break;
-        case '/Oceanstream/Ondografo-TPD/index.html':
-            nome_tabela = 'Ondografo-TPD_tab_parametros';
-            break;
-        case '/Oceanstream/Ondografo-TPM/index.html':
-            nome_tabela = 'Ondografo-TPM_tab_parametros';
-            break;
-        default:
-            nome_tabela = '';
-    }
-
-    const dados = await organizaDadosParaGrafico_ondografo(nome_tabela, startDate, endDate);
-    fetchData(currentGraph, 'ondografo', dados);
 });
