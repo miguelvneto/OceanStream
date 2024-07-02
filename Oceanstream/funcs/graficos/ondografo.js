@@ -44,13 +44,6 @@ document.addEventListener('DOMContentLoaded', async function() {
                 borderColor: 'rgb(75, 192, 192)',
                 data: [],
                 hidden: true,
-            }, {
-                label: 'Período no Domínio da Frequência (Tp_alisado) - segundos (s)',
-                fill: false,
-                backgroundColor: 'rgb(153, 102, 255)',
-                borderColor: 'rgb(153, 102, 255)',
-                data: [],
-                hidden: true,
             }]
         },
         options: {
@@ -114,10 +107,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         currentGraph.update();
     });
 
-    document.getElementById('tp_alisado-checkbox').addEventListener('change', function() {
-        currentGraph.data.datasets[3].hidden = !this.checked;
-        currentGraph.update();
-    });
+    // document.getElementById('tp_alisado-checkbox').addEventListener('change', function() {
+    //     currentGraph.data.datasets[3].hidden = !this.checked;
+    //     currentGraph.update();
+    // });
 
     function fetchData(graph, type, data) {
         graph.data.labels = converterVetorParaFormatoISO(data[0]);
