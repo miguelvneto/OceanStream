@@ -213,20 +213,19 @@ document.addEventListener('DOMContentLoaded', async function() {
     // // CARREGAR GRÁFICO JUNTO COM A PÁGINA
     const startDate = document.getElementById('start-date').value;
     const endDate = document.getElementById('end-date').value;
-    // let nome_tabela;
     let nome_tabela_corrente;
     let nome_tabela_onda;
     
-    switch (window.location.pathname) {
-        case '/Oceanstream/Boia04/index.html':
+    switch (true) {
+        case window.location.pathname.includes('Boia04'):
             nome_tabela_corrente = 'ADCP-Boia04_corrente';
             nome_tabela_onda = 'ADCP-Boia04_onda';
             break;
-        case '/Oceanstream/Boia08/index.html':
+        case window.location.pathname.includes('Boia08'):
             nome_tabela_corrente = 'ADCP-Boia08_corrente';
             nome_tabela_onda = 'ADCP-Boia08_onda';
             break;
-        case '/Oceanstream/Boia10/index.html':
+        case window.location.pathname.includes('Boia10'):
             nome_tabela_corrente = 'ADCP-Boia10_corrente';
             nome_tabela_onda = 'ADCP-Boia10_onda';
             break;

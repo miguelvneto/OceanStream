@@ -79,7 +79,7 @@ async function organizaDadosParaGrafico_awacCorr(nome_tabela, startDate, endDate
         return false;
     }
     // Converta a string JSON em um objeto JavaScript
-    const tabela = JSON.parse(tabelaJSON);
+    const tabela = await JSON.parse(tabelaJSON);
 
     // TmStamp,vel1,dir1,vel2,dir2,vel3,dir3,vel4,dir4,vel5,dir5,vel6,dir6,vel7,dir7,vel8,dir8,vel9,dir9,vel10,dir10,vel11,dir11,vel12,dir12,vel13,dir13,vel14,dir14,vel15,dir15,vel16,dir16,vel17,dir17,vel18,dir18,vel19,dir19,vel20,dir20,vel21,dir21,vel22,dir22,vel23,dir23,vel24,dir24,vel25,dir25,vel26,dir26,vel27,dir27,vel28,dir28,vel29,dir29
     const tmStamp = [];
@@ -222,7 +222,7 @@ async function organizaDadosParaGrafico_awacOnda(nome_tabela, startDate, endDate
         return false;
     }
     // Converta a string JSON em um objeto JavaScript
-    const tabela = JSON.parse(tabelaJSON);
+    const tabela = await JSON.parse(tabelaJSON);
 
     // Inicialize arrays para armazenar os valores das colunas
     const tmStamp = [];
@@ -251,7 +251,7 @@ async function organizaDadosParaGrafico_estacao(nome_tabela, startDate, endDate)
         return false;
     }
     // Converta a string JSON em um objeto JavaScript
-    const tabela = JSON.parse(tabelaJSON);
+    const tabela = await JSON.parse(tabelaJSON);
 
     const tmStamp = [];
     const vento_vel = [];
@@ -281,7 +281,7 @@ async function organizaDadosParaGrafico_ondografo(nome_tabela, startDate, endDat
         return false;
     }
     // Converta a string JSON em um objeto JavaScript
-    const tabela = JSON.parse(tabelaJSON);
+    const tabela = await JSON.parse(tabelaJSON);
 
     const tmStamp = [];
     const hm0 = [];
@@ -310,7 +310,7 @@ async function organizaDadosParaGrafico_maregrafo(nome_tabela, startDate, endDat
         return false;
     }
     // Converta a string JSON em um objeto JavaScript
-    const tabela = JSON.parse(tabelaJSON);
+    const tabela = await JSON.parse(tabelaJSON);
 
     const tmStamp = [];
     const mare = [];

@@ -137,22 +137,40 @@ document.addEventListener('DOMContentLoaded', async function() {
     const endDate = document.getElementById('end-date').value;
     let nome_tabela;
 
-    switch (window.location.pathname) {
-        case '/Oceanstream/Ondografo-Pier_II/index.html':
+    switch (true) {
+        case window.location.pathname.includes('Pier_II'):
             nome_tabela = 'Ondografo-PII_tab_parametros';
             break;
-        case '/Oceanstream/Ondografo-TGL/index.html':
+        case window.location.pathname.includes('TGL'):
             nome_tabela = 'Ondografo-TGL_tab_parametros';
             break;
-        case '/Oceanstream/Ondografo-TPD/index.html':
-            nome_tabela = 'Ondografo-TPD_tab_parametros';
-            break;
-        case '/Oceanstream/Ondografo-TPM/index.html':
+        case window.location.pathname.includes('TPD'):
+                nome_tabela = 'Ondografo-TPD_tab_parametros';
+                break;
+        case window.location.pathname.includes('TPM'):
             nome_tabela = 'Ondografo-TPM_tab_parametros';
             break;
         default:
-            nome_tabela = '';
+            nome_tabela_corrente = '';
+            nome_tabela_onda = '';
     }
+
+    // switch (window.location.pathname) {
+    //     case '/Oceanstream/Ondografo-Pier_II/index.html':
+    //         nome_tabela = 'Ondografo-PII_tab_parametros';
+    //         break;
+    //     case '/Oceanstream/Ondografo-TGL/index.html':
+    //         nome_tabela = 'Ondografo-TGL_tab_parametros';
+    //         break;
+    //     case '/Oceanstream/Ondografo-TPD/index.html':
+    //         nome_tabela = 'Ondografo-TPD_tab_parametros';
+    //         break;
+    //     case '/Oceanstream/Ondografo-TPM/index.html':
+    //         nome_tabela = 'Ondografo-TPM_tab_parametros';
+    //         break;
+    //     default:
+    //         nome_tabela = '';
+    // }
 
     const dados = await organizaDadosParaGrafico_ondografo(nome_tabela, startDate, endDate);
     fetchData(currentGraph, 'ondografo', dados);
