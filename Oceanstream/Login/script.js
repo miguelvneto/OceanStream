@@ -2,7 +2,7 @@
 // const logprefix_api = 'http://environlink.ddns.net:1848'; // ddns
 const logprefix_api = 'https://oceanstream-8b3329b99e40.herokuapp.com'; // heroku
 
-const pagOverview='../Overview/index.html';
+const pagOverview='./Overview/index.html';
 
 /**********************************************************/
 // INÍCIO CHECA JWT

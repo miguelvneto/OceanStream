@@ -1,4 +1,4 @@
-const pagLogin = '../Login/Index.html';
+const pagLogin = '../index.html';
 
 function obterAccessToken() {
     const accessToken = localStorage.getItem('accessToken');

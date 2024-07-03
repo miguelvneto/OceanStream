@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="./Login/style.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>   
+
+    <title>OceanStream</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <form action="">
+            <h1>OceanStream</h1>      
+            <div class="input-box">
+                <input id="email" type="text" placeholder="Email" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input id="senha" type="Password" placeholder="Senha" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <!-- <div class="remember-forgot">
+                <label><input type="checkbox"> Lembre-me </label>
+                <a href="#">Esqueceu a senha?</a>
+            </div> -->
+
+            <button type="submit" class="btn" id="loginButton">Login</button>
+            
+            <div class="register-link">
+                <p>Não possui cadastro? <a href="#">Clique aqui</a></p>
+            </div>
+        </form>
+
+    </div>
+    
+    <!-- FORÇA OS SCRIPTS ESTAREM SEMPRE ATUALIZADOS -->
+    <script>
+        // Função para obter o timestamp atual
+        function getTimestamp() {
+            return new Date().getTime();
+        }
+
+        // Adicionando o timestamp aos scripts para evitar cache
+        const scripts = [
+            "./Login/script.js"
+        ];
+
+        scripts.forEach(script => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script + '?v=' + getTimestamp();
+            // document.head.appendChild(scriptElement);
+            scriptElement.async = false; // Garantir que os scripts sejam carregados na ordem correta
+            document.write(scriptElement.outerHTML); // Adiciona o script diretamente ao HTML
+        });
+    </script>
+      
+</body>
+</html>
