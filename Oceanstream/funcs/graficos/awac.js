@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     document.getElementById('update-graph').addEventListener('click', async (event) => {
         const nome_tabela = event.target.name;
+        console.log(nome_tabela_corrente);
         const startDate = document.getElementById('start-date').value;
         const endDate = document.getElementById('end-date').value;
 
@@ -165,6 +166,16 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         const dados = await organizaDadosParaGrafico_awacOnda(nome_tabela, startDate, endDate);
         fetchData(waveGraph, 'wave', dados);
+    });
+
+    document.getElementById('current-cell-select').addEventListener('change', async function() {
+        const tabelaJSON = sessionStorage.getItem(nome_tabela_corrente);
+        if (!tabelaJSON) {
+            console.error(`Nenhuma tabela encontrada na sessionStorage com a chave "${nome_tabela_corrente}"`);
+            return false;
+        }
+        const dados = await separaCelulas(tabelaJSON);
+        fetchData(currentGraph, 'current', dados);
     });
 
     document.getElementById('velocity-checkbox').addEventListener('change', function() {

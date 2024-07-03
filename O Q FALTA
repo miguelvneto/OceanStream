@@ -2,11 +2,14 @@ LIBERAR ACESSO SOMENTE AOS ARQUIVOS ESCOLHIDOS
 BLOQUEAR NAVEGAÇAO ENTRE PASTAS
 VER SE TEM COMO USAR O MAPEAMENTO DE PAGINA DO REACT
 
+alertas
+
+##################
+    #PETROBRAS#
+##################
+
 responsivo mobile
 
-atualizar ao escolher celula
-
-alertas
 ocorrência
 addocorrencia - autor vai ser no modelo "{nome} ({email})"
 
@@ -17,9 +20,9 @@ awac-add velocidade resultante
 
 sidebar-mover alertas para em cima de ocorrencia
 
-
-APP
-
+##################
+    #APP#
+##################
 
 ?manutenção?
 hover no mapa, mostrar ultimo dado do equipamento
