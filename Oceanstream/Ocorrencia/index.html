@@ -182,8 +182,27 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
-    <script src="../funcs/logout.js"></script>
-    <script src="../funcs/sidebar.js"></script>
+    <!-- FORÇA OS SCRIPTS ESTAREM SEMPRE ATUALIZADOS -->
+    <script>
+        // Função para obter o timestamp atual
+        function getTimestamp() {
+            return new Date().getTime();
+        }
+
+        // Adicionando o timestamp aos scripts para evitar cache
+        const scripts = [
+            "script.js",
+            "../funcs/logout.js",
+            "../funcs/sidebar.js"
+        ];
+
+        scripts.forEach(script => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script + '?v=' + getTimestamp();
+            // document.head.appendChild(scriptElement);
+            scriptElement.async = false; // Garantir que os scripts sejam carregados na ordem correta
+            document.write(scriptElement.outerHTML); // Adiciona o script diretamente ao HTML
+        });
+    </script>
 </body>
 </html>
