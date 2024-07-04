@@ -1,0 +1,7 @@
+/* Media query para empilhar os itens verticalmente quando a largura da viewport for menor que 950px */
+@media (max-width: 950px) {
+    .date-picker {
+        flex-direction: column; /* Alinha os itens em uma coluna */
+        gap: 3px;
+    }
+}
