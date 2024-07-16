@@ -39,6 +39,8 @@ async function reqAPI(nome_tabela, startDate, endDate) {
         console.log(endDate)
         return;
     }
+    endDate = endDate+' 23:59:59'
+    console.log(endDate);
     const corpo = JSON.stringify({
         tabela: nome_tabela,
         dt_inicial: startDate,
