@@ -40,7 +40,6 @@ async function reqAPI(nome_tabela, startDate, endDate) {
         return;
     }
     endDate = endDate+' 23:59:59'
-    console.log(endDate);
     const corpo = JSON.stringify({
         tabela: nome_tabela,
         dt_inicial: startDate,
@@ -200,7 +199,6 @@ async function separaCelulas(tabelaJSON){
         dir29.push(row.dir29 );
     });
 
-    // fetchData(waveGraph, 'wave', );
     return [
         tmStamp,vel1,dir1,vel2,dir2,vel3,dir3,vel4,dir4,vel5,dir5,vel6,dir6,vel7,dir7,vel8,dir8,vel9,dir9,vel10,dir10,
         vel11,dir11,vel12,dir12,vel13,dir13,vel14,dir14,vel15,dir15,vel16,dir16,vel17,dir17,vel18,dir18,vel19,dir19,vel20,dir20,
@@ -244,8 +242,47 @@ async function organizaDadosParaGrafico_awacOnda(nome_tabela, startDate, endDate
         dirTp.push(row.PNORW_DirTp);
     });
 
-    // fetchData(waveGraph, 'wave', );
     return [tmStamp, hm0, tp, dirTp];
+}
+
+async function organizaDadosParaGrafico_awacSensor(nome_tabela, startDate, endDate){
+    // extrai dados da api
+    await reqAPI(nome_tabela, startDate, endDate);
+    const tabelaJSON = sessionStorage.getItem(nome_tabela);
+    if (!tabelaJSON) {
+        console.error(`Nenhuma tabela encontrada na sessionStorage com a chave "${nome_tabela}"`);
+        return false;
+    }
+    // Converta a string JSON em um objeto JavaScript
+    const tabela = await JSON.parse(tabelaJSON);
+
+    // Inicialize arrays para armazenar os valores das colunas
+    const tmStamp = [];
+    const heading = [];
+    const pitch = [];
+    const roll = [];
+
+    // Supondo que a tabela é um array de objetos onde cada objeto representa uma linha
+    tabela.forEach(row => {
+        tmStamp.push(row.TmStamp);
+        heading.push(row.PNORS_Heading);
+        pitch.push(row.PNORS_Pitch);
+        roll.push(row.PNORS_Roll);
+    });
+
+    // correção norte magnético. utiliza-se +23 por padrão para "converter" o valor do heading
+    let headingCorrigido = heading.map(elemento => {
+        if (elemento === '') {
+            return 'nan';
+        }
+        let novoValor = elemento + 23;
+        if (novoValor >= 360) {
+            novoValor -= 360;
+        }
+        return novoValor;
+    });
+    let retorno = [ tmStamp, headingCorrigido, pitch, roll ];
+    return retorno;
 }
 
 async function organizaDadosParaGrafico_estacao(nome_tabela, startDate, endDate){

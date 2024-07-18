@@ -55,7 +55,6 @@ function checkToken() {
     if (isTokenValid(localStorageToken) || isTokenValid(cookieToken)) {
         return; // Se algum token válido foi encontrado, não faz nada
     } else {
-        // return;
         // Caso nenhum token válido seja encontrado, remove e redireciona para a página de lsogin
         if (localStorageToken) {
             localStorage.removeItem('accessToken');

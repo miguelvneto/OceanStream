@@ -185,7 +185,7 @@
                             </select>
                             <div class="checkbox-container">
                                 <label><input type="checkbox" id="velocity-checkbox" checked> Velocidade (kt)</label>
-                                <label><input type="checkbox" id="direction-checkbox"> Direção (º)</label>
+                                <label><input type="checkbox" id="direction-checkbox"> Direção (°)</label>
                             </div>
                         </div>
                         <div class="date-picker">
@@ -211,7 +211,7 @@
                             <div class="checkbox-container">
                                 <label><input type="checkbox" id="height-checkbox" checked> Altura (m)</label>
                                 <label><input type="checkbox" id="period-checkbox"> Período (s)</label>
-                                <label><input type="checkbox" id="wave-direction-checkbox"> Direção (º)</label>
+                                <label><input type="checkbox" id="wave-direction-checkbox"> Direção (°)</label>
                             </div>
                         </div>
                         <div class="date-picker">
@@ -227,6 +227,33 @@
                     </div>
                 </div>
             </div>
+
+            <!-- SENSOR -->
+            <div class="form-container">
+                <div class="chart-compass-wrapper">
+                    <div class="chart-header">
+                        <div>
+                            <h2>Inclinação do Equipamento</h2>
+                            <div class="checkbox-container">
+                                <label><input type="checkbox" id="heading-checkbox" checked> Heading (°)</label>
+                                <label><input type="checkbox" id="pitch-checkbox"> Pitch (°)</label>
+                                <label><input type="checkbox" id="roll-checkbox"> Roll (°)</label>
+                            </div>
+                        </div>
+                        <div class="date-picker">
+                            <label for="sensor-start-date">Início:</label>
+                            <input type="date" id="sensor-start-date" placeholder="2023-01-01">
+                            <label for="sensor-end-date">Fim:</label>
+                            <input type="date" id="sensor-end-date" placeholder="2024-01-01">
+                            <button id="update-sensor-graph" name="ADCP-Boia08_PNORS">Atualizar</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="sensorGraph"></canvas>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
