@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    // #######################################################################
     // GERA DATA PLACEHOLDER
     const hoje = new Date();
     const ontem = new Date(hoje)
-    // hoje.setDate(hoje.getDate());
     ontem.setDate(hoje.getDate() - 1);
 
     // Função para formatar a data no formato YYYY-MM-DD
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     document.getElementById('current-cell-select').value = '11';
 
-    // #######################################################################
     // CRIA GRÁFICOS
     const ctxCurrent = document.getElementById('currentGraph').getContext('2d');
     const currentGraph = new Chart(ctxCurrent, {
@@ -94,21 +91,21 @@ document.addEventListener('DOMContentLoaded', async function() {
                 borderColor: 'rgb(75, 192, 192)',
                 data: [],
                 fill: false,
-                hidden: false,
+                hidden: true,
             }, {
                 label: 'Pitch (°)',
                 fill: false,
                 backgroundColor: 'rgb(153, 102, 255)',
                 borderColor: 'rgb(153, 102, 255)',
                 data: [],
-                hidden: true,
+                hidden: false,
             }, {
                 label: 'Roll (°)',
                 fill: false,
                 backgroundColor: 'rgb(255, 159, 64)',
                 borderColor: 'rgb(255, 159, 64)',
                 data: [],
-                hidden: true,
+                hidden: false,
             }]
         },
         options: {

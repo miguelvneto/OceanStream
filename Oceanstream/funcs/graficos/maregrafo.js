@@ -1,11 +1,8 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    // #######################################################################
     // GERA DATA PLACEHOLDER
-    const today = new Date();
-    const amanha = new Date(today);
-    const ontem = new Date(today)
-    amanha.setDate(today.getDate() + 1);
-    ontem.setDate(today.getDate() - 1);
+    const hoje = new Date();
+    const ontem = new Date(hoje)
+    ontem.setDate(hoje.getDate() - 1);
 
     // Função para formatar a data no formato YYYY-MM-DD
     function formatDate(date) {
@@ -16,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     document.getElementById('start-date').value = formatDate(ontem);
-    document.getElementById('end-date').value = formatDate(amanha);
+    document.getElementById('end-date').value = formatDate(hoje);
 
     const ctxCurrent = document.getElementById('currentGraph').getContext('2d');
     const currentGraph = new Chart(ctxCurrent, {

@@ -59,11 +59,9 @@ function downloadBlob(blob, fileName) {
 document.addEventListener('DOMContentLoaded', function() {
     // #######################################################################
     // GERA DATA PLACEHOLDER
-    const today = new Date();
-    const amanha = new Date(today);
-    const ontem = new Date(today)
-    amanha.setDate(today.getDate() + 1);
-    ontem.setDate(today.getDate() - 31);
+    const hoje = new Date();
+    const ontem = new Date(hoje)
+    ontem.setDate(hoje.getDate() - 31);
 
     // Função para formatar a data no formato YYYY-MM-DD
     function formatDate(date) {
@@ -74,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.getElementById('start-date').value = formatDate(ontem);
-    document.getElementById('end-date').value = formatDate(amanha);
+    document.getElementById('end-date').value = formatDate(hoje);
 
     document.getElementById('botao_csv').addEventListener('click', async (event) => {
         downloadData('csv');
