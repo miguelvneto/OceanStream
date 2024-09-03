@@ -163,7 +163,20 @@
         <div class="text">Alertas</div>
         <div class="form-container">
             <div class="table-container">
-                <table id="alertasTable">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Equipamento</th>
+                            <th>Último Dado</th>
+                            <th>Tempo desde o Último Dado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- As linhas serão adicionadas dinamicamente aqui -->
+                    </tbody>
+                </table>
+                <!-- <table id="alertasTable">
                     <thead>
                         <tr>
                             <th>Quando</th>
@@ -173,9 +186,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- As linhas da tabela serão inseridas aqui pelo JavaScript -->
+
                     </tbody>
-                </table>
+                </table> -->
             </div>
         </div>
     </section>
@@ -189,6 +202,7 @@
 
         // Adicionando o timestamp aos scripts para evitar cache
         const scripts = [
+            "../funcs/api.js",
             "script.js",
             "../funcs/logout.js",
             "../funcs/sidebar.js"

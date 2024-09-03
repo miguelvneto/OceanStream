@@ -71,6 +71,33 @@ async function reqAPI(nome_tabela, startDate, endDate) {
     }
 }
 
+async function reqLastTS(){
+    head = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${obterAccessToken()}`
+    },
+    url = prefix_api + '/ultimosTs';
+
+    const requestOptions = {
+        method: 'GET',
+        headers: head
+    };
+
+    try {
+        const response = await fetch(url, requestOptions);
+
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ' + response.statusText);
+        }
+
+        const data = await response.json();
+        // sessionStorage.setItem("ultimoTs", JSON.stringify(data));
+        return JSON.stringify(data);
+    } catch (error) {
+        console.error('Erro:', error);
+    }
+}
+
 async function separaCelulas(tabelaJSON){
     // Converta a string JSON em um objeto JavaScript
     const tabela = await JSON.parse(tabelaJSON);
