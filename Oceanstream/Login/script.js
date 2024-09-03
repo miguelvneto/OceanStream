@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', checkToken);
 /**********************************************************/
 
 document.getElementById('loginButton').addEventListener('click', async function(event) {
+    const paragrafo = document.querySelector('.msg_pos p');
+    paragrafo.textContent = '\n';
     event.preventDefault(); // Evita o envio do formulário
 
     // Obtém os valores dos campos email e senha
@@ -71,8 +73,6 @@ document.getElementById('loginButton').addEventListener('click', async function(
 
     try {
         // Faz a requisição POST
-        const uri = logprefix_api+'/login';
-        console.log(uri)
         const response = await fetch(logprefix_api+'/login', {
             method: 'POST',
             headers: {
@@ -81,10 +81,12 @@ document.getElementById('loginButton').addEventListener('click', async function(
             body: corpo
         });
 
-        console.log('debug')
-        // Verifica se a requisição foi bem-sucedida
-        if (!response.ok) {
-            throw new Error('Erro na requisição');
+        if (response.status == 401){
+            paragrafo.textContent = 'Falha no login. Verifique suas credenciais e tente novamente.';
+            return;
+        } else if (!response.ok) {
+            paragrafo.textContent = 'Não foi possível conectar ao servidor no momento. Tente novamente em alguns instantes.';
+            return;
         }
 
         // Converte a resposta em JSON
@@ -96,7 +98,15 @@ document.getElementById('loginButton').addEventListener('click', async function(
 
         window.location.href = pagOverview;
     } catch (error) {
+        paragrafo.textContent = 'Não foi possível conectar ao servidor no momento. Tente novamente em alguns instantes.';
         console.error('Erro:', error);
-        // alert('Erro ao realizar login. Por favor, tente novamente.');
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const linkElement = document.querySelector('link[rel="stylesheet"]');
+    if (linkElement) {
+        // Adiciona um parâmetro dinâmico à URL (timestamp atual)
+        linkElement.href = linkElement.href + '?v=' + new Date().getTime();
     }
 });
