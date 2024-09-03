@@ -64,6 +64,13 @@ function preencherTabela(dados) {
 }
 
 document.addEventListener("DOMContentLoaded", async function() {
+    // Seleciona o elemento <link> que carrega o CSS
+    const linkElement = document.querySelector('link[rel="stylesheet"]');
+    if (linkElement) {
+        // Adiciona um parâmetro dinâmico à URL (timestamp atual)
+        linkElement.href = linkElement.href + '?v=' + new Date().getTime();
+    }
+
     const ultimoTs = JSON.parse(await reqLastTS());
 
     var dados = [
