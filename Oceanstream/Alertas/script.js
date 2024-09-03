@@ -1,7 +1,7 @@
 const pth_res = "../res"
-const pth_bom = pth_res + "/status_bom.png";
-const pth_neutro = pth_res + "/status_neutro.png";
-const pth_ruim = pth_res + "/status_alerta.png";
+const pth_bom = pth_res + "/status_bom.png" + '?v=' + new Date().getTime();
+const pth_neutro = pth_res + "/status_neutro.png" + '?v=' + new Date().getTime();
+const pth_ruim = pth_res + "/status_alerta.png" + '?v=' + new Date().getTime();
 
 function calcularTempoDesdeUltimoDado(dataString) {
     const dataUltimoDado = new Date(dataString);
