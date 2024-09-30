@@ -74,9 +74,9 @@ document.addEventListener("DOMContentLoaded", async function() {
     const ultimoTs = JSON.parse(await reqLastTS());
 
     var dados = [
-        { situacao: "", ultimoDado: "", nome: "ADCP - Boia 4",          ref: "Boia04_corrente" },
-        { situacao: "", ultimoDado: "", nome: "ADCP - Boia 8",          ref: "Boia08_corrente" },
-        { situacao: "", ultimoDado: "", nome: "ADCP - Boia 10",         ref: "Boia10_corrente" },
+        { situacao: "", ultimoDado: "", nome: "ADCP - Boia 4",          ref: "Boia04_PNORI" },
+        { situacao: "", ultimoDado: "", nome: "ADCP - Boia 8",          ref: "Boia08_PNORI" },
+        { situacao: "", ultimoDado: "", nome: "ADCP - Boia 10",         ref: "Boia10_PNORI" },
         { situacao: "", ultimoDado: "", nome: "Ondógrafo - Píer II",    ref: "PII" },
         { situacao: "", ultimoDado: "", nome: "Ondógrafo - TGL",        ref: "TGL" },
         { situacao: "", ultimoDado: "", nome: "Ondógrafo - TPD",        ref: "TPD" },
