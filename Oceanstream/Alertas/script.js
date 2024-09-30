@@ -43,9 +43,9 @@ function preencherTabela(dados) {
             celulaTempoDesdeUltimoDado.textContent = `${dias}d, ${horas}h e ${minutos}min`;
         }
 
-        if (intervalo_mins < 120){ // intervalo menor que 2 horas
+        if (intervalo_mins < 60){ // intervalo menor que 1 hora
             dado.situacao = "1";
-        } else if (intervalo_mins < 300) { // intervalo menor que 5 horas
+        } else if (intervalo_mins < 240) { // intervalo menor que 4 horas
             dado.situacao = "2";
         } else { // intervalo MAIOR que 4 horas
             dado.situacao = "3";
