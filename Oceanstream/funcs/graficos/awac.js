@@ -86,6 +86,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         data: {
             labels: [], // Eixos X - timestamps
             datasets: [{
+                label: 'Battery (V)',
+                backgroundColor: 'rgb(75, 192, 192)',
+                borderColor: 'rgb(75, 192, 192)',
+                data: [],
+                fill: false,
+                hidden: true,
+            },{
                 label: 'Heading (°)',
                 backgroundColor: 'rgb(75, 192, 192)',
                 borderColor: 'rgb(75, 192, 192)',
@@ -273,18 +280,23 @@ document.addEventListener('DOMContentLoaded', async function() {
         waveGraph.update();
     });
 
-    document.getElementById('heading-checkbox').addEventListener('change', function() {
+    document.getElementById('battery-checkbox').addEventListener('change', function() {
         sensorGraph.data.datasets[0].hidden = !this.checked;
         sensorGraph.update();
     });
 
-    document.getElementById('pitch-checkbox').addEventListener('change', function() {
+    document.getElementById('heading-checkbox').addEventListener('change', function() {
         sensorGraph.data.datasets[1].hidden = !this.checked;
         sensorGraph.update();
     });
 
-    document.getElementById('roll-checkbox').addEventListener('change', function() {
+    document.getElementById('pitch-checkbox').addEventListener('change', function() {
         sensorGraph.data.datasets[2].hidden = !this.checked;
+        sensorGraph.update();
+    });
+
+    document.getElementById('roll-checkbox').addEventListener('change', function() {
+        sensorGraph.data.datasets[3].hidden = !this.checked;
         sensorGraph.update();
     });
 
@@ -305,6 +317,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             graph.data.datasets[0].data = data[1];
             graph.data.datasets[1].data = data[2];
             graph.data.datasets[2].data = data[3];
+            graph.data.datasets[3].data = data[4];
         }
 
         graph.update();

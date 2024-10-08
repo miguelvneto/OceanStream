@@ -285,6 +285,7 @@ async function organizaDadosParaGrafico_awacSensor(nome_tabela, startDate, endDa
 
     // Inicialize arrays para armazenar os valores das colunas
     const tmStamp = [];
+    const battery = [];
     const heading = [];
     const pitch = [];
     const roll = [];
@@ -292,6 +293,7 @@ async function organizaDadosParaGrafico_awacSensor(nome_tabela, startDate, endDa
     // Supondo que a tabela é um array de objetos onde cada objeto representa uma linha
     tabela.forEach(row => {
         tmStamp.push(row.TmStamp);
+        battery.push(row.PNORS_Battery_Voltage)
         heading.push(row.PNORS_Heading);
         pitch.push(row.PNORS_Pitch);
         roll.push(row.PNORS_Roll);
@@ -308,7 +310,7 @@ async function organizaDadosParaGrafico_awacSensor(nome_tabela, startDate, endDa
         }
         return novoValor;
     });
-    let retorno = [ tmStamp, headingCorrigido, pitch, roll ];
+    let retorno = [ tmStamp, battery, headingCorrigido, pitch, roll ];
     return retorno;
 }
 
