@@ -14,7 +14,7 @@ async function reqAPIdl(nomes_tabelas, startDate, endDate) {
     const corpo = JSON.stringify({
         tabelas: nomes_tabelas,
         dt_inicial: startDate,
-        dt_final: endDate
+        dt_final: endDate+' 23:59:59'
     }),
     head = {
         'Content-Type': 'application/json',
