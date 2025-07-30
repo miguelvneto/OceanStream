@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ======== CSS ======== -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../funcs/graficos/responsivo.css">
+    
+    <!-- ===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ===== Chart.js ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    
+    <title>Marégrafo - Suape</title> 
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="../logo.png" alt="">
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">OceanStream</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+
+            <div class="bottom-content">
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <section class="home">
+        <div class="text">Marégrafo - Suape</div>
+        <div class="charts-container">
+            <div class="form-container">
+                <div class="chart-compass-wrapper">
+                    <div class="chart-header">
+                        <div>
+                        </div>
+                        <div class="date-picker">
+                            <label for="start-date">Início:</label>
+                            <input type="date" id="start-date" min="2025-02-15">
+                            <label for="end-date">Fim:</label>
+                            <input type="date" id="end-date">
+                            <button id="update-graph" name="Maregrafo-Recife_tab_elevacao">Atualizar</button>
+                            <button id="download-dados">Download</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="currentGraph"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORÇA OS SCRIPTS ESTAREM SEMPRE ATUALIZADOS -->
+    <script>
+        // Função para obter o timestamp atual
+        function getTimestamp() {
+            return new Date().getTime();
+        }
+
+        // Adicionando o timestamp aos scripts para evitar cache
+        const scripts = [
+            "../funcs/graficos/maregrafo_suape.js",
+            "../funcs/api_suape.js",
+            "../funcs/logout_suape.js",
+            "../funcs/sidebar.js"
+        ];
+
+        scripts.forEach(script => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script + '?v=' + getTimestamp();
+            // document.head.appendChild(scriptElement);
+            scriptElement.async = false; // Garantir que os scripts sejam carregados na ordem correta
+            document.write(scriptElement.outerHTML); // Adiciona o script diretamente ao HTML
+        });
+
+        // Validação da data inicial
+        document.getElementById('start-date').addEventListener('change', function() {
+            const startDate = new Date(this.value);
+            const minDate = new Date('2025-02-15');
+            
+            if (startDate < minDate) {
+                alert('O "start-date" não pode ser antes do dia 15/02/2025');
+                this.value = '2025-02-15';
+            }
+        });
+    </script>
+</body>
+</html>
