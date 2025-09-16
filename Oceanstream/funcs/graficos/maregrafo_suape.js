@@ -83,6 +83,7 @@ function convertJSONToCSV(jsonData) {
                 callbacks: {
                     title: function(tooltipItems, data) {
                         const date = new Date(tooltipItems[0].xLabel);
+                        date.setHours(date.getHours() + 3);
                         const year = date.getFullYear();
                         const month = String(date.getMonth() + 1).padStart(2, '0');
                         const day = String(date.getDate()).padStart(2, '0');
@@ -90,7 +91,6 @@ function convertJSONToCSV(jsonData) {
                         const minutes = String(date.getMinutes()).padStart(2, '0');
 
                         return `${day}/${month}/${year} - ${hours}:${minutes}`; // dd/mm/yyyy hh:mm
-                        // return `${year}/${month}/${day} ${hours}:${minutes}`; // yyyy/mm/dd hh:mm
                     }
                 }
             },
@@ -104,7 +104,12 @@ function convertJSONToCSV(jsonData) {
                     time: {
                         unit: 'hour',
                         stepSize: 8,
-                        displayFormats: {hour: 'D/MM HH'}
+                        displayFormats: {hour: 'D/MM - HH\\h'},
+                        parser: function(label) {
+                            const date = new Date(label);
+                            date.setHours(date.getHours() + 3);
+                            return date;
+                        }
                     },
                     display: true,
                     scaleLabel: {
