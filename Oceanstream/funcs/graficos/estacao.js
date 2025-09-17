@@ -21,21 +21,21 @@ document.addEventListener('DOMContentLoaded', async function() {
         data: {
             labels: [], // Eixos X - timestamps
             datasets: [{
-                label: 'Velocidade de vento (Kn)',
+                label: 'Velocidade de vento (m/s)',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [],
                 fill: false,
                 hidden: false,
             }, {
-                label: 'Direção de vento (º)',
+                label: 'Direção de vento (°)',
                 fill: false,
                 backgroundColor: 'rgb(54, 162, 235)',
                 borderColor: 'rgb(54, 162, 235)',
                 data: [],
                 hidden: true,
             }, {
-                label: 'Rajada (Kn)',
+                label: 'Rajada (m/s)',
                 fill: false,
                 backgroundColor: 'rgb(75, 192, 192)',
                 borderColor: 'rgb(75, 192, 192)',

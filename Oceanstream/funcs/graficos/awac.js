@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         data: {
             labels: [], // Eixos X - timestamps
             datasets: [{
-                label: 'Velocidade (Kt)',
+                label: 'Velocidade (m/s)',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [],
