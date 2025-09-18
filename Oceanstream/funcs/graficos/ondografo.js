@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 data: [],
                 hidden: true,
             }, {
-                label: 'Período no Domínio do Tempo (Tz) - segundos (s)',
+                label: 'Período no Domínio do Tempo (Tp) - segundos (s)',
                 fill: false,
                 backgroundColor: 'rgb(75, 192, 192)',
                 borderColor: 'rgb(75, 192, 192)',
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         currentGraph.update();
     });
 
-    document.getElementById('tz-checkbox').addEventListener('change', function() {
+    document.getElementById('tp-checkbox').addEventListener('change', function() {
         currentGraph.data.datasets[2].hidden = !this.checked;
         currentGraph.update();
     });
