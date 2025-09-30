@@ -35,10 +35,17 @@ document.addEventListener('DOMContentLoaded', async function() {
                 data: [],
                 hidden: true,
             }, {
-                label: 'Período no Domínio do Tempo (Tp) - segundos (s)',
+                label: 'Período (Tp) - segundos (s)',
                 fill: false,
                 backgroundColor: 'rgb(75, 192, 192)',
                 borderColor: 'rgb(75, 192, 192)',
+                data: [],
+                hidden: true,
+            }, {
+                label: 'Período Médio (Tz) - segundos (s)',
+                fill: false,
+                backgroundColor: 'rgba(75, 192, 120, 1)',
+                borderColor: 'rgba(75, 192, 120, 1)',
                 data: [],
                 hidden: true,
             }]
@@ -122,10 +129,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         currentGraph.update();
     });
 
-    // document.getElementById('tp_alisado-checkbox').addEventListener('change', function() {
-    //     currentGraph.data.datasets[3].hidden = !this.checked;
-    //     currentGraph.update();
-    // });
+    document.getElementById('tz-checkbox').addEventListener('change', function() {
+        currentGraph.data.datasets[3].hidden = !this.checked;
+        currentGraph.update();
+    });
 
     function fetchData(graph, type, data) {
         graph.data.labels = converterVetorParaFormatoISO(data[0]);
@@ -134,6 +141,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             graph.data.datasets[0].data = data[1];
             graph.data.datasets[1].data = data[2];
             graph.data.datasets[2].data = data[3];
+            graph.data.datasets[3].data = data[4];
         }
 
         graph.update();
