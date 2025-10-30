@@ -172,8 +172,6 @@
                 <div class="chart-compass-wrapper">
                     <div class="chart-header">
                         <div>
-                            <!-- <h2>Corrente</h2> -->
-                            </select>
                             <div class="checkbox-container">
                                 <label><input type="checkbox" id="vel-checkbox" checked> Velocidade de vento (m/s)</label>
                                 <label><input type="checkbox" id="dir-checkbox"> Direção de vento (°)</label>
@@ -194,6 +192,26 @@
                     </div>
                 </div>
             </div>
+
+            <!-- TABELA DE DADOS -->
+            <div class="form-container">
+                <h3>Tabela</h3>
+                <div class="table-container">
+                    <table id="dadosTabela">
+                        <thead>
+                            <tr>
+                                <th>Data/Hora</th>
+                                <th>Velocidade Vento (m/s)</th>
+                                <th>Direção Vento (°)</th>
+                                <th>Rajada (m/s)</th>
+                                <th>Precipitação (mm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Os dados serão preenchidos via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
@@ -217,7 +235,6 @@
         scripts.forEach(script => {
             const scriptElement = document.createElement('script');
             scriptElement.src = script + '?v=' + getTimestamp();
-            // document.head.appendChild(scriptElement);
             scriptElement.async = false; // Garantir que os scripts sejam carregados na ordem correta
             document.write(scriptElement.outerHTML); // Adiciona o script diretamente ao HTML
         });

@@ -504,3 +504,55 @@ body.dark .home .text {
     font-weight: bold;
     text-align: center;
 }
+
+/* Estilos para a tabela de dados */
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+#dadosTabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#dadosTabela th, #dadosTabela td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 14px;
+}
+
+#dadosTabela th {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+#dadosTabela tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#dadosTabela tr:hover {
+    background-color: #f1f1f1;
+}
+
+body.dark #dadosTabela th {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+body.dark #dadosTabela tr:nth-child(even) {
+    /* background-color: #2a2a2a; */
+    background-color: #bebebe;
+}
+
+body.dark #dadosTabela tr:hover {
+    background-color: #6e6e6e;
+}
+
+body.dark #dadosTabela th, 
+body.dark #dadosTabela td {
+    border-color: #444;
+}

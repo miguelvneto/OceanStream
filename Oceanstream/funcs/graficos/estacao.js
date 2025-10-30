@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         const dados = await organizaDadosParaGrafico_estacao(nome_tabela, startDate, endDate);
         
         fetchData(currentGraph, 'estacao', dados);
+        atualizarTabela(dados);
     });
 
     document.getElementById('vel-checkbox').addEventListener('change', function() {
@@ -147,11 +148,66 @@ document.addEventListener('DOMContentLoaded', async function() {
         graph.update();
     }
 
-    // // CARREGAR GRÁFICO JUNTO COM A PÁGINA
+    // Função para formatar valores numéricos
+    function formatarValor(valor) {
+        // Se for null, undefined, string vazia ou não for um número válido
+        if (valor === null || valor === undefined || valor === '' || isNaN(Number(valor))) {
+            return '-';
+        }
+        
+        // Converte para número e formata com 2 casas decimais
+        const numero = Number(valor);
+        return numero.toFixed(2);
+    }
+
+    // Função para atualizar a tabela com os dados
+    function atualizarTabela(dados) {
+        const tabelaBody = document.querySelector('#dadosTabela tbody');
+        tabelaBody.innerHTML = ''; // Limpa a tabela
+
+        const [timestamps, velocidades, direcoes, rajadas, precipitacoes] = dados;
+
+        // Verifica se há dados para exibir
+        if (timestamps.length === 0) {
+            const row = document.createElement('tr');
+            row.innerHTML = '<td colspan="5" style="text-align: center;">Nenhum dado disponível para o período selecionado</td>';
+            tabelaBody.appendChild(row);
+            return;
+        }
+
+        for (let i = 0; i < timestamps.length; i++) {
+            const row = document.createElement('tr');
+            
+            // Formata a data/hora
+            let dataFormatada = '-';
+            try {
+                const dataHora = new Date(timestamps[i]);
+                if (!isNaN(dataHora.getTime())) {
+                    dataHora.setHours(dataHora.getHours()); // Ajuste de fuso horário
+                    dataFormatada = dataHora.toLocaleString('pt-BR');
+                }
+            } catch (e) {
+                console.warn('Erro ao formatar data:', timestamps[i]);
+            }
+            
+            row.innerHTML = `
+                <td>${dataFormatada}</td>
+                <td>${formatarValor(velocidades[i])}</td>
+                <td>${formatarValor(direcoes[i])}</td>
+                <td>${formatarValor(rajadas[i])}</td>
+                <td>${formatarValor(precipitacoes[i])}</td>
+            `;
+            
+            tabelaBody.appendChild(row);
+        }
+    }
+
+    // CARREGAR GRÁFICO E TABELA JUNTO COM A PÁGINA
     const startDate = document.getElementById('start-date').value;
     const endDate = document.getElementById('end-date').value;
     const nome_tabela = 'TU_Estacao_Meteorologica';
 
     const dados = await organizaDadosParaGrafico_estacao(nome_tabela, startDate, endDate);
     fetchData(currentGraph, 'estacao', dados);
+    atualizarTabela(dados);
 });
