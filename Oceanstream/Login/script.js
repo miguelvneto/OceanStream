@@ -57,15 +57,19 @@ document.addEventListener('DOMContentLoaded', checkToken);
 document.getElementById('loginButton').addEventListener('click', async function(event) {
     const paragrafo = document.querySelector('.msg_pos p');
     paragrafo.textContent = '\n';
+    paragrafo.className = ''; // Remove classes de estilo anteriores
     event.preventDefault(); // Evita o envio do formulário
 
     // Obtém os valores dos campos email e senha
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
 
+    // Remove caracteres inválidos do email (espaços, quebras de linha, tabs)
+    const emailLimpo = email.replace(/[\s\t\n\r]/g, '');
+
     // Prepara o objeto de dados a ser enviado
     const data = {
-        email: email,
+        email: emailLimpo,
         senha: senha
     };
 
@@ -82,10 +86,12 @@ document.getElementById('loginButton').addEventListener('click', async function(
         });
 
         if (response.status == 401){
-            paragrafo.textContent = 'Falha no login. Verifique suas credenciais e tente novamente.';
+            paragrafo.textContent = 'Credenciais incorretas. Verifique seu email e senha.';
+            paragrafo.className = 'error-message'; // Adiciona classe para estilização
             return;
         } else if (!response.ok) {
             paragrafo.textContent = 'Não foi possível conectar ao servidor no momento. Tente novamente em alguns instantes.';
+            paragrafo.className = 'error-message'; // Adiciona classe para estilização
             return;
         }
 
@@ -99,6 +105,7 @@ document.getElementById('loginButton').addEventListener('click', async function(
         window.location.href = pagOverview;
     } catch (error) {
         paragrafo.textContent = 'Não foi possível conectar ao servidor no momento. Tente novamente em alguns instantes.';
+        paragrafo.className = 'error-message'; // Adiciona classe para estilização
         console.error('Erro:', error);
     }
 });
