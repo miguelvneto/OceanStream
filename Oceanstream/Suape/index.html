@@ -13,9 +13,11 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- ===== Chart.js ===== -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script> -->
+	<script src="../lib/moment.min.js"></script>
+	<script src="../lib/chart.min.js"></script>
     
     <title>Marégrafo - Suape</title> 
 </head>
@@ -63,12 +65,30 @@
                             <h3>Maregrafo Recife</h3>
                         </div>
                         <div class="date-picker">
-                            <label for="start-date-1">Início:</label>
-                            <input type="date" id="start-date-1" min="2025-02-15">
-                            <label for="end-date-1">Fim:</label>
-                            <input type="date" id="end-date-1">
-                            <button class="update-graph" data-tabela="Maregrafo-Recife_tab_elevacao">Atualizar</button>
-                            <button class="download-dados" data-tabela="Maregrafo-Recife_tab_elevacao">Download</button>
+                            <div class="time-control-group">
+                                <div>
+                                    <label for="start-date-1">Data Início:</label>
+                                    <input type="date" id="start-date-1" min="2025-02-15">
+                                </div>
+                                <div>
+                                    <label for="start-time-1">Hora Início:</label>
+                                    <input type="time" id="start-time-1" step="1">
+                                </div>
+                            </div>
+                            <div class="time-control-group">
+                                <div>
+                                    <label for="end-date-1">Data Fim:</label>
+                                    <input type="date" id="end-date-1">
+                                </div>
+                                <div>
+                                    <label for="end-time-1">Hora Fim:</label>
+                                    <input type="time" id="end-time-1" step="1">
+                                </div>
+                            </div>
+                            <div class="button-group">
+                                <button class="update-graph" data-tabela="Maregrafo-Recife_tab_elevacao">Atualizar</button>
+                                <button class="download-dados" data-tabela="Maregrafo-Recife_tab_elevacao">Download</button>
+                            </div>
                         </div>
                     </div>
                     <div class="chart-container">
@@ -85,12 +105,30 @@
                             <h3>Suape 2</h3>
                         </div>
                         <div class="date-picker">
-                            <label for="start-date-2">Início:</label>
-                            <input type="date" id="start-date-2" min="2025-02-15">
-                            <label for="end-date-2">Fim:</label>
-                            <input type="date" id="end-date-2">
-                            <button class="update-graph" data-tabela="SUAPE2_tab_elevacao">Atualizar</button>
-                            <button class="download-dados" data-tabela="SUAPE2_tab_elevacao">Download</button>
+                            <div class="time-control-group">
+                                <div>
+                                    <label for="start-date-2">Data Início:</label>
+                                    <input type="date" id="start-date-2" min="2025-02-15">
+                                </div>
+                                <div>
+                                    <label for="start-time-2">Hora Início:</label>
+                                    <input type="time" id="start-time-2" step="1">
+                                </div>
+                            </div>
+                            <div class="time-control-group">
+                                <div>
+                                    <label for="end-date-2">Data Fim:</label>
+                                    <input type="date" id="end-date-2">
+                                </div>
+                                <div>
+                                    <label for="end-time-2">Hora Fim:</label>
+                                    <input type="time" id="end-time-2" step="1">
+                                </div>
+                            </div>
+                            <div class="button-group">
+                                <button class="update-graph" data-tabela="SUAPE2_tab_elevacao">Atualizar</button>
+                                <button class="download-dados" data-tabela="SUAPE2_tab_elevacao">Download</button>
+                            </div>
                         </div>
                     </div>
                     <div class="chart-container">
@@ -100,6 +138,81 @@
             </div>
         </div>
     </section>
+
+    <!-- Adicione este estilo para organizar os controles de tempo -->
+    <style>
+        .time-control-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .time-control-group > div {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .date-picker {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .date-picker label {
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        
+        .date-picker input[type="date"],
+        .date-picker input[type="time"] {
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .date-picker button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .date-picker button:hover {
+            background-color: #45a049;
+        }
+        
+        .download-dados {
+            background-color: #2196F3 !important;
+        }
+        
+        .download-dados:hover {
+            background-color: #1976D2 !important;
+        }
+        
+        .chart-header {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .chart-header h3 {
+            margin: 0;
+            color: #333;
+            font-size: 18px;
+        }
+    </style>
 
     <!-- FORÇA OS SCRIPTS ESTAREM SEMPRE ATUALIZADOS -->
     <script>
@@ -119,23 +232,37 @@
         scripts.forEach(script => {
             const scriptElement = document.createElement('script');
             scriptElement.src = script + '?v=' + getTimestamp();
-            scriptElement.async = false; // Garantir que os scripts sejam carregados na ordem correta
-            document.write(scriptElement.outerHTML); // Adiciona o script diretamente ao HTML
+            scriptElement.async = false;
+            document.write(scriptElement.outerHTML);
         });
 
         // Validação da data inicial para ambos os inputs
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('[id^="start-date-"]').forEach(input => {
                 input.addEventListener('change', function() {
-                    const startDate = new Date(this.value);
-                    const minDate = new Date('2025-02-15');
+                    const startDate = new Date(this.value + 'T00:00:00');
+                    const minDate = new Date('2025-02-15T00:00:00');
                     
                     if (startDate < minDate) {
                         alert('A data inicial não pode ser antes do dia 15/02/2025');
                         this.value = '2025-02-15';
+                        // Reseta o horário também
+                        const idNum = this.id.split('-')[2];
+                        const timeInput = document.getElementById(`start-time-${idNum}`);
+                        if (timeInput) timeInput.value = '00:00';
                     }
                 });
             });
+            
+            // Configurar horários padrão
+            setTimeout(() => {
+                document.querySelectorAll('[id^="start-time-"]').forEach(input => {
+                    if (!input.value) input.value = '00:00';
+                });
+                document.querySelectorAll('[id^="end-time-"]').forEach(input => {
+                    if (!input.value) input.value = '23:59';
+                });
+            }, 100);
         });
     </script>
 </body>

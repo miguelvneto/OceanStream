@@ -33,14 +33,31 @@ function verificaFormatoData(str) {
     return regex.test(str);
 }
 
+// Adicione esta função para verificar o formato da data com hora
+function verificaFormatoDataComHora(str) {
+    // Expressão regular para verificar o formato YYYY-MM-DD HH:mm:ss
+    const regex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/;
+    return regex.test(str);
+}
+
 async function reqAPI(nome_tabela, startDate, endDate) {
-    if (!(verificaFormatoData(startDate) && verificaFormatoData(endDate))){
-        console.log('Favor selecionar datas válidas.')
+    // Se as datas não tiverem hora, adiciona automaticamente
+    if (verificaFormatoData(startDate)) {
+        startDate = startDate + ' 00:00:00';
+    }
+    
+    if (verificaFormatoData(endDate)) {
+        endDate = endDate + ' 23:59:59';
+    }
+    
+    // Verifica se agora tem o formato correto com hora
+    if (!(verificaFormatoDataComHora(startDate) && verificaFormatoDataComHora(endDate))){
+        console.log('Favor selecionar datas e horários válidos.')
         console.log(startDate)
         console.log(endDate)
         return;
     }
-    endDate = endDate+' 23:59:59'
+    
     const corpo = JSON.stringify({
         tabela: nome_tabela,
         dt_inicial: startDate,
@@ -71,10 +88,10 @@ async function reqAPI(nome_tabela, startDate, endDate) {
         sessionStorage.setItem(nome_tabela, JSON.stringify(data));
         sessionStorage.setItem(`${nome_tabela}_raw`, JSON.stringify(data));
         
-        return data; // Retorna os dados para possível uso imediato
+        return data;
     } catch (error) {
         console.error('Erro:', error);
-        throw error; // Propaga o erro para ser tratado por quem chama a função
+        throw error;
     }
 }
 
@@ -86,13 +103,11 @@ async function organizaDadosParaGrafico_maregrafo_suape(nome_tabela, startDate, 
         console.error(`Nenhuma tabela encontrada na sessionStorage com a chave "${nome_tabela}"`);
         return false;
     }
-    // Converta a string JSON em um objeto JavaScript
     const tabela = await JSON.parse(tabelaJSON);
 
     const tmStamp = [];
     const mare = [];
 
-    // Supondo que a tabela é um array de objetos onde cada objeto representa uma linha
     tabela.forEach(row => {
         tmStamp.push(row.TmStamp);
         mare.push(row.Cur_SE);
