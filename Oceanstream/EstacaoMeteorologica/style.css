@@ -24,7 +24,16 @@
     --tran-05: all 0.3s ease;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+        
 body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+
     min-height: 100vh;
     background-color: var(--body-color);
     transition: var(--tran-05);
@@ -555,4 +564,74 @@ body.dark #dadosTabela tr:hover {
 body.dark #dadosTabela th, 
 body.dark #dadosTabela td {
     border-color: #444;
+}
+
+
+
+.header, .footer {
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.footer {
+    border-top: 1px solid #dee2e6;
+    border-bottom: none;
+    margin-top: auto;
+}
+        
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: #fff;
+    position: relative;
+}
+
+.iframe-container {
+    flex: 1;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    padding-top: 0px; /* distância ao cabeçalho */
+}
+
+
+/* Ajuste para o iframe dentro do container */
+.iframe-container iframe {
+    border: none; /* Remove a borda do iframe já que o container tem borda */
+    border-radius: 0;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 500px; /* Altura mínima */
+    max-height: 100vh;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Estilo para o cabeçalho do iframe */
+.iframe-header {
+    background-color: var(--primary-color); /* Usa a cor primária do tema */
+    color: white;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 0;
+    text-align: center;
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+
+    z-index: 10;      /* garante que fique acima do iframe */
+    border-radius: 8px;
 }

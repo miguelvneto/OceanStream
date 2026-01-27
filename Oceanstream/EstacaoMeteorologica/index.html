@@ -173,6 +173,24 @@
     <section class="home">
         <div class="text">Estação Meteorológica</div>
         <div class="charts-container">
+            <!-- PAINEL HOBO -->
+            <main class="content">
+                <div class="iframe-header">
+                    EMET Tubarão
+                </div>
+                
+                <div class="iframe-container">
+                    <iframe 
+                        src="https://www.licor.cloud/dashboards/public/65bc9859-463e-4f7a-acb3-531aaf8db717/true"
+                        title="Dashboard Externo"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- <p>https://www.licor.cloud/dashboards/public/65bc9859-463e-4f7a-acb3-531aaf8db717/true</p> -->
+            </main>
+            <!-- GRÁFICO -->
             <div class="form-container">
                 <div class="chart-compass-wrapper">
                     <div class="chart-header">
@@ -200,7 +218,7 @@
 
             <!-- TABELA DE DADOS -->
             <div class="form-container">
-                <h3>Tabela</h3>
+                <!-- <h3>Tabela</h3> -->
                 <div class="table-container">
                     <table id="dadosTabela">
                         <thead>
@@ -233,7 +251,7 @@
         const scripts = [
             "../funcs/graficos/estacao.js",
             "../funcs/api.js",
-            "../funcs/logout.js",
+            // "../funcs/logout.js",
             "../funcs/sidebar.js"
         ];
 
