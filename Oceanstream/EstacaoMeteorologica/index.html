@@ -187,11 +187,11 @@
                         allowfullscreen>
                     </iframe>
                 </div>
-
-                <!-- <p>https://www.licor.cloud/dashboards/public/65bc9859-463e-4f7a-acb3-531aaf8db717/true</p> -->
             </main>
-            <!-- GRÁFICO -->
+            
+            <!-- GRÁFICO e TABELA NA MESMA SEÇÃO -->
             <div class="form-container">
+                <!-- GRÁFICO -->
                 <div class="chart-compass-wrapper">
                     <div class="chart-header">
                         <div>
@@ -214,26 +214,26 @@
                         <canvas id="currentGraph"></canvas>
                     </div>
                 </div>
-            </div>
-
-            <!-- TABELA DE DADOS -->
-            <div class="form-container">
-                <!-- <h3>Tabela</h3> -->
-                <div class="table-container">
-                    <table id="dadosTabela">
-                        <thead>
-                            <tr>
-                                <th>Data/Hora</th>
-                                <th>Velocidade Vento (m/s)</th>
-                                <th>Direção Vento (°)</th>
-                                <th>Rajada (m/s)</th>
-                                <th>Precipitação (mm)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Os dados serão preenchidos via JavaScript -->
-                        </tbody>
-                    </table>
+                
+                <!-- TABELA DE DADOS -->
+                <div class="table-section">
+                    <h3>Tabela de Dados</h3>
+                    <div class="table-container">
+                        <table id="dadosTabela">
+                            <thead>
+                                <tr>
+                                    <th>Data/Hora</th>
+                                    <th>Velocidade Vento (m/s)</th>
+                                    <th>Direção Vento (°)</th>
+                                    <th>Rajada (m/s)</th>
+                                    <th>Precipitação (mm)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Os dados serão preenchidos via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
