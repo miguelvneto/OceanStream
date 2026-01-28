@@ -191,6 +191,15 @@
             
             <!-- GRÁFICO e TABELA NA MESMA SEÇÃO -->
             <div class="form-container">
+                <div class="date-picker">
+                    <label for="start-date">Início:</label>
+                    <input type="date" id="start-date">
+                    <label for="end-date">Fim:</label>
+                    <input type="date" id="end-date">
+                    <button id="update-graph" name="TU_Estacao_Meteorologica">Atualizar</button>
+                    <!-- Botão para esconder/mostrar gráfico -->
+                    <button id="toggle-chart-btn" style="margin-left: 10px;">Esconder Gráfico</button>
+                </div>
                 <!-- GRÁFICO -->
                 <div class="chart-compass-wrapper">
                     <div class="chart-header">
@@ -201,13 +210,6 @@
                                 <label><input type="checkbox" id="gust-checkbox"> Rajada (m/s)</label>
                                 <label><input type="checkbox" id="rain-checkbox"> Precipitação (mm)</label>
                             </div>
-                        </div>
-                        <div class="date-picker">
-                            <label for="start-date">Início:</label>
-                            <input type="date" id="start-date">
-                            <label for="end-date">Fim:</label>
-                            <input type="date" id="end-date">
-                            <button id="update-graph" name="TU_Estacao_Meteorologica">Atualizar</button>
                         </div>
                     </div>
                     <div class="chart-container">
@@ -261,6 +263,43 @@
             scriptElement.async = false; // Garantir que os scripts sejam carregados na ordem correta
             document.write(scriptElement.outerHTML); // Adiciona o script diretamente ao HTML
         });
+    </script>
+
+    <script>
+        // Função para controlar visibilidade com persistência
+        function initializeChartVisibility() {
+            const toggleBtn = document.getElementById('toggle-chart-btn');
+            const chartWrapper = document.querySelector('.chart-compass-wrapper');
+            
+            // Verificar preferência salva
+            const isChartHidden = localStorage.getItem('chartHidden') === 'true';
+            
+            if (chartWrapper) {
+                // Aplicar estado salvo ou padrão (mostrar)
+                chartWrapper.style.display = isChartHidden ? 'none' : 'block';
+                
+                if (toggleBtn) {
+                    toggleBtn.textContent = isChartHidden ? 'Mostrar Gráfico' : 'Esconder Gráfico';
+                    
+                    toggleBtn.addEventListener('click', function() {
+                        const isCurrentlyHidden = chartWrapper.style.display === 'none';
+                        
+                        if (isCurrentlyHidden) {
+                            chartWrapper.style.display = 'block';
+                            toggleBtn.textContent = 'Esconder Gráfico';
+                            localStorage.setItem('chartHidden', 'false');
+                        } else {
+                            chartWrapper.style.display = 'none';
+                            toggleBtn.textContent = 'Mostrar Gráfico';
+                            localStorage.setItem('chartHidden', 'true');
+                        }
+                    });
+                }
+            }
+        }
+        
+        // Executar quando a página carregar
+        document.addEventListener('DOMContentLoaded', initializeChartVisibility);
     </script>
 </body>
 </html>
