@@ -161,46 +161,57 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     // Função para atualizar a tabela com os dados
-    function atualizarTabela(dados) {
-        const tabelaBody = document.querySelector('#dadosTabela tbody');
-        tabelaBody.innerHTML = ''; // Limpa a tabela
+function atualizarTabela(dados) {
+    const tabelaBody = document.querySelector('#dadosTabela tbody');
+    tabelaBody.innerHTML = '';
 
-        const [timestamps, velocidades, direcoes, rajadas, precipitacoes] = dados;
+    const [timestamps, velocidades, direcoes, rajadas, precipitacoes] = dados;
 
-        // Verifica se há dados para exibir
-        if (timestamps.length === 0) {
-            const row = document.createElement('tr');
-            row.innerHTML = '<td colspan="5" style="text-align: center;">Nenhum dado disponível para o período selecionado</td>';
-            tabelaBody.appendChild(row);
-            return;
-        }
-
-        for (let i = 0; i < timestamps.length; i++) {
-            const row = document.createElement('tr');
-            
-            // Formata a data/hora
-            let dataFormatada = '-';
-            try {
-                const dataHora = new Date(timestamps[i]);
-                if (!isNaN(dataHora.getTime())) {
-                    dataHora.setHours(dataHora.getHours()); // Ajuste de fuso horário
-                    dataFormatada = dataHora.toLocaleString('pt-BR');
-                }
-            } catch (e) {
-                console.warn('Erro ao formatar data:', timestamps[i]);
-            }
-            
-            row.innerHTML = `
-                <td>${dataFormatada}</td>
-                <td>${formatarValor(velocidades[i])}</td>
-                <td>${formatarValor(direcoes[i])}</td>
-                <td>${formatarValor(rajadas[i])}</td>
-                <td>${formatarValor(precipitacoes[i])}</td>
-            `;
-            
-            tabelaBody.appendChild(row);
-        }
+    if (timestamps.length === 0) {
+        const row = document.createElement('tr');
+        row.innerHTML = '<td colspan="5" style="text-align: center;">Nenhum dado disponível para o período selecionado</td>';
+        tabelaBody.appendChild(row);
+        return;
     }
+
+    // 🔹 Monta estrutura unificada
+    const linhas = timestamps.map((ts, i) => ({
+        timestamp: ts,
+        velocidade: velocidades[i],
+        direcao: direcoes[i],
+        rajada: rajadas[i],
+        precipitacao: precipitacoes[i]
+    }));
+
+    // 🔽 Ordena por data DESC (mais recente primeiro)
+    linhas.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+    // 🔁 Renderiza a tabela
+    linhas.forEach(item => {
+        let dataFormatada = '-';
+
+        try {
+            const dataHora = new Date(item.timestamp);
+            if (!isNaN(dataHora.getTime())) {
+                dataFormatada = dataHora.toLocaleString('pt-BR');
+            }
+        } catch (e) {
+            console.warn('Erro ao formatar data:', item.timestamp);
+        }
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${dataFormatada}</td>
+            <td>${formatarValor(item.velocidade)}</td>
+            <td>${formatarValor(item.direcao)}</td>
+            <td>${formatarValor(item.rajada)}</td>
+            <td>${formatarValor(item.precipitacao)}</td>
+        `;
+
+        tabelaBody.appendChild(row);
+    });
+}
+
 
     // CARREGAR GRÁFICO E TABELA JUNTO COM A PÁGINA
     const startDate = document.getElementById('start-date').value;
