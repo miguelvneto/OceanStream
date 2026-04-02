@@ -447,3 +447,40 @@ th {
 tr.manutencao {
     background-color: rgba(255, 193, 7, 0.1);
 }
+
+/* Estilo para permitir quebra de linha nas células da tabela */
+#dataTable td {
+    white-space: pre-line; /* Respeita quebras de linha (\n) */
+    vertical-align: top;   /* Alinha o conteúdo ao topo */
+}
+
+/* Opcional: aumenta um pouco a altura mínima das linhas para melhor visualização */
+#dataTable td {
+    padding: 12px 8px;
+}
+
+/* Centralizar todas as células da tabela */
+#dataTable th,
+#dataTable td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Manter o texto da coluna "Tempo desde o Último Dado" com alinhamento superior 
+   para melhor visualização das quebras de linha, mas ainda centralizado */
+#dataTable td:nth-child(4) {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Para a imagem de status, garantir que fique centralizada */
+#dataTable td:first-child {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.img_status {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}

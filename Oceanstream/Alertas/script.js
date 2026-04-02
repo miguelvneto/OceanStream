@@ -66,15 +66,13 @@ function getTextoManutencao(ref, intervalo_mins) {
         tempoTexto = `${dias}d, ${horas}h e ${minutos}min`;
     }
     
-    // Monta a string de manutenção
-    let manutencaoTexto = `${tempoTexto} 🔧 (Em Manutenção`;
+    // Monta a string de manutenção com quebra de linha
+    let manutencaoTexto = `${tempoTexto}\n🔧 Em Manutenção`;
     
-    // Adiciona a observação se disponível
+    // Adiciona a observação se disponível (em uma nova linha)
     if (observacao) {
-        manutencaoTexto += ` - ${observacao}`;
+        manutencaoTexto += `\n${observacao}`;
     }
-    
-    manutencaoTexto += `)`;
     
     return manutencaoTexto;
 }
