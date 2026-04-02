@@ -442,3 +442,8 @@ th {
     width: 50px; /* Ajuste conforme necessário */
     height: 50px; /* Ajuste conforme necessário */
 }
+
+/* Estilo opcional para linhas de equipamentos em manutenção */
+tr.manutencao {
+    background-color: rgba(255, 193, 7, 0.1);
+}
