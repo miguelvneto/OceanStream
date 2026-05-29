@@ -205,9 +205,9 @@
                     <div class="chart-header">
                         <div>
                             <div class="checkbox-container">
-                                <label><input type="checkbox" id="vel-checkbox" checked> Velocidade de vento (m/s)</label>
+                                <label><input type="checkbox" id="vel-checkbox" checked> Velocidade de vento (kn)</label>
                                 <label><input type="checkbox" id="dir-checkbox"> Direção de vento (°)</label>
-                                <label><input type="checkbox" id="gust-checkbox"> Rajada (m/s)</label>
+                                <label><input type="checkbox" id="gust-checkbox"> Rajada (kn)</label>
                                 <label><input type="checkbox" id="rain-checkbox"> Precipitação (mm)</label>
                             </div>
                         </div>
@@ -224,10 +224,13 @@
                         <table id="dadosTabela">
                             <thead>
                                 <tr>
-                                    <th>Data/Hora</th>
-                                    <th>Velocidade Vento (m/s)</th>
+                                    <th id="ordenar-data" style="cursor: pointer; user-select: none;">
+                                        Data/Hora 
+                                        <span id="ordenar-seta" class="seta-ordenacao">▼</span>
+                                    </th>
+                                    <th>Velocidade Vento (kn)</th>
                                     <th>Direção Vento (°)</th>
-                                    <th>Rajada (m/s)</th>
+                                    <th>Rajada (kn)</th>
                                     <th>Precipitação (mm)</th>
                                 </tr>
                             </thead>

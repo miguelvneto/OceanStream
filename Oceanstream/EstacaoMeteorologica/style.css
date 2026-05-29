@@ -635,3 +635,117 @@ iframe {
     z-index: 10;      /* garante que fique acima do iframe */
     border-radius: 8px;
 }
+
+/* Estilos para o controle de ordenação */
+.order-control {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.order-control label {
+    margin: 0;
+    color: #000000; /* Preto sólido */
+    font-weight: 500;
+}
+
+.order-control select {
+    cursor: pointer;
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+    border: 1px solid var(--toggle-color);
+    transition: var(--tran-03);
+}
+
+.order-control select:hover {
+    border-color: var(--primary-color);
+}
+
+body.dark .order-control select {
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+    border-color: var(--primary-color-light);
+}
+
+/* Reforçar a cor preta mesmo no modo escuro */
+body.dark .order-control label {
+    color: #000000;
+}
+
+/* Estilos para a seta de ordenação */
+#ordenar-data {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+#ordenar-data:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.seta-ordenacao {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+
+/* Modo escuro - hover */
+body.dark #ordenar-data:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== MELHORIAS DE PERFORMANCE E ACESSIBILIDADE ===== */
+
+/* Reduzir movimento para usuários que preferem */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Foco visível para acessibilidade */
+:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Scrollbar personalizada (opcional) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-color-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color);
+}
+
+/* Loading state para botões */
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Animações suaves */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.table-container {
+    animation: fadeIn 0.3s ease;
+}

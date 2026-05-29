@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', async function() {
+    // Variável global para armazenar os dados brutos e estado da ordenação
+    let dadosTabelaRaw = null;
+    let ordemAtual = 'desc'; // 'desc' para mais recente primeiro, 'asc' para mais antigo primeiro
+    
     // GERA DATA PLACEHOLDER
     const hoje = new Date();
     const ontem = new Date(hoje)
@@ -12,6 +16,55 @@ document.addEventListener('DOMContentLoaded', async function() {
         return `${year}-${month}-${day}`;
     }
 
+    // Função para converter m/s para nós (kn)
+    function msToKnots(valor) {
+        if (valor === null || valor === undefined || valor === '' || isNaN(Number(valor))) {
+            return null;
+        }
+        // 1 m/s = 1.94384 nós
+        return Number(valor) * 1.94384;
+    }
+
+    // Função para formatar valores numéricos (sem unidade)
+    function formatarValor(valor) {
+        // Se for null, undefined, string vazia ou não for um número válido
+        if (valor === null || valor === undefined || valor === '' || isNaN(Number(valor))) {
+            return '-';
+        }
+        
+        // Converte para número e formata com 2 casas decimais
+        const numero = Number(valor);
+        return numero.toFixed(2);
+    }
+
+    // Função para atualizar o ícone da seta
+    function atualizarSetaOrdenacao() {
+        const setaElement = document.getElementById('ordenar-seta');
+        if (setaElement) {
+            if (ordemAtual === 'desc') {
+                setaElement.innerHTML = '▼'; // Seta para baixo (decrescente)
+                setaElement.style.transform = 'scale(1)';
+            } else {
+                setaElement.innerHTML = '▲'; // Seta para cima (crescente)
+                setaElement.style.transform = 'scale(1)';
+            }
+        }
+    }
+
+    // Função para alternar a ordenação
+    function alternarOrdenacao() {
+        // Alterna entre 'desc' e 'asc'
+        ordemAtual = ordemAtual === 'desc' ? 'asc' : 'desc';
+        
+        // Atualiza o ícone da seta
+        atualizarSetaOrdenacao();
+        
+        // Re-renderiza a tabela com a nova ordenação
+        if (dadosTabelaRaw) {
+            renderizarTabelaComOrdenacao(dadosTabelaRaw, ordemAtual);
+        }
+    }
+
     document.getElementById('start-date').value = formatDate(ontem);
     document.getElementById('end-date').value = formatDate(hoje);
 
@@ -21,7 +74,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         data: {
             labels: [], // Eixos X - timestamps
             datasets: [{
-                label: 'Velocidade de vento (m/s)',
+                label: 'Velocidade de vento (kn)',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [],
@@ -35,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 data: [],
                 hidden: true,
             }, {
-                label: 'Rajada (m/s)',
+                label: 'Rajada (kn)',
                 fill: false,
                 backgroundColor: 'rgb(75, 192, 192)',
                 borderColor: 'rgb(75, 192, 192)',
@@ -67,6 +120,25 @@ document.addEventListener('DOMContentLoaded', async function() {
                         const minutes = String(date.getMinutes()).padStart(2, '0');
 
                         return `${day}/${month}/${year} - ${hours}:${minutes}`; // dd/mm/yyyy hh:mm
+                    },
+                    label: function(tooltipItem, data) {
+                        let label = data.datasets[tooltipItem.datasetIndex].label || '';
+                        let value = tooltipItem.yLabel;
+                        
+                        if (label.includes('Velocidade') || label.includes('Rajada')) {
+                            if (value !== null && !isNaN(value)) {
+                                return label + ': ' + Number(value).toFixed(2);
+                            }
+                        } else if (label.includes('Direção')) {
+                            if (value !== null && !isNaN(value)) {
+                                return label + ': ' + Number(value).toFixed(0);
+                            }
+                        } else if (label.includes('Precipitação')) {
+                            if (value !== null && !isNaN(value)) {
+                                return label + ': ' + Number(value).toFixed(2);
+                            }
+                        }
+                        return label + ': ' + value;
                     }
                 }
             },
@@ -96,8 +168,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                 yAxes: [{
                     display: true,
                     scaleLabel: {
-                        // display: true,
-                        // labelString: 'Valor'
+                        display: true,
+                        labelString: 'Valores'
                     }
                 }]
             }
@@ -114,6 +186,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         fetchData(currentGraph, 'estacao', dados);
         atualizarTabela(dados);
     });
+
+    // Adicionar evento de clique na coluna Data/Hora
+    const ordenarDataHeader = document.getElementById('ordenar-data');
+    if (ordenarDataHeader) {
+        ordenarDataHeader.addEventListener('click', alternarOrdenacao);
+    }
 
     document.getElementById('vel-checkbox').addEventListener('change', function() {
         currentGraph.data.datasets[0].hidden = !this.checked;
@@ -139,79 +217,97 @@ document.addEventListener('DOMContentLoaded', async function() {
         graph.data.labels = converterVetorParaFormatoISO(data[0]);
 
         if (type === 'estacao') {
-            graph.data.datasets[0].data = data[1];
+            // Converter velocidade de m/s para kn
+            const velocidadeConvertida = data[1].map(v => msToKnots(v));
+            // Direção permanece igual
+            // Converter rajada de m/s para kn
+            const rajadaConvertida = data[3].map(r => msToKnots(r));
+            // Precipitação permanece em mm
+            
+            graph.data.datasets[0].data = velocidadeConvertida;
             graph.data.datasets[1].data = data[2];
-            graph.data.datasets[2].data = data[3];
+            graph.data.datasets[2].data = rajadaConvertida;
             graph.data.datasets[3].data = data[4];
         }
 
         graph.update();
     }
 
-    // Função para formatar valores numéricos
-    function formatarValor(valor) {
-        // Se for null, undefined, string vazia ou não for um número válido
-        if (valor === null || valor === undefined || valor === '' || isNaN(Number(valor))) {
-            return '-';
+    // Função para renderizar a tabela com ordenação específica
+    function renderizarTabelaComOrdenacao(linhas, ordem) {
+        const tabelaBody = document.querySelector('#dadosTabela tbody');
+        tabelaBody.innerHTML = '';
+
+        if (linhas.length === 0) {
+            const row = document.createElement('tr');
+            row.innerHTML = '<td colspan="5" style="text-align: center;">Nenhum dado disponível para o período selecionado</td>';
+            tabelaBody.appendChild(row);
+            return;
         }
+
+        // Criar uma cópia do array para ordenar
+        const linhasOrdenadas = [...linhas];
         
-        // Converte para número e formata com 2 casas decimais
-        const numero = Number(valor);
-        return numero.toFixed(2);
-    }
-
-    // Função para atualizar a tabela com os dados
-function atualizarTabela(dados) {
-    const tabelaBody = document.querySelector('#dadosTabela tbody');
-    tabelaBody.innerHTML = '';
-
-    const [timestamps, velocidades, direcoes, rajadas, precipitacoes] = dados;
-
-    if (timestamps.length === 0) {
-        const row = document.createElement('tr');
-        row.innerHTML = '<td colspan="5" style="text-align: center;">Nenhum dado disponível para o período selecionado</td>';
-        tabelaBody.appendChild(row);
-        return;
-    }
-
-    // 🔹 Monta estrutura unificada
-    const linhas = timestamps.map((ts, i) => ({
-        timestamp: ts,
-        velocidade: velocidades[i],
-        direcao: direcoes[i],
-        rajada: rajadas[i],
-        precipitacao: precipitacoes[i]
-    }));
-
-    // 🔽 Ordena por data DESC (mais recente primeiro)
-    linhas.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-
-    // 🔁 Renderiza a tabela
-    linhas.forEach(item => {
-        let dataFormatada = '-';
-
-        try {
-            const dataHora = new Date(item.timestamp);
-            if (!isNaN(dataHora.getTime())) {
-                dataFormatada = dataHora.toLocaleString('pt-BR');
-            }
-        } catch (e) {
-            console.warn('Erro ao formatar data:', item.timestamp);
+        // Ordenar baseado na ordem selecionada
+        if (ordem === 'asc') {
+            // Crescente (mais antigo primeiro)
+            linhasOrdenadas.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+        } else {
+            // Decrescente (mais recente primeiro)
+            linhasOrdenadas.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
         }
 
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${dataFormatada}</td>
-            <td>${formatarValor(item.velocidade)}</td>
-            <td>${formatarValor(item.direcao)}</td>
-            <td>${formatarValor(item.rajada)}</td>
-            <td>${formatarValor(item.precipitacao)}</td>
-        `;
+        // Renderiza a tabela
+        linhasOrdenadas.forEach(item => {
+            let dataFormatada = '-';
 
-        tabelaBody.appendChild(row);
-    });
-}
+            try {
+                const dataHora = new Date(item.timestamp);
+                if (!isNaN(dataHora.getTime())) {
+                    dataFormatada = dataHora.toLocaleString('pt-BR');
+                }
+            } catch (e) {
+                console.warn('Erro ao formatar data:', item.timestamp);
+            }
 
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${dataFormatada}</td>
+                <td>${formatarValor(item.velocidade)}</td>
+                <td>${formatarValor(item.direcao)}</td>
+                <td>${formatarValor(item.rajada)}</td>
+                <td>${formatarValor(item.precipitacao)}</td>
+            `;
+
+            tabelaBody.appendChild(row);
+        });
+    }
+
+    // Função para atualizar a tabela com os dados (convertidos para nós, sem unidades no valor)
+    function atualizarTabela(dados) {
+        const [timestamps, velocidades, direcoes, rajadas, precipitacoes] = dados;
+
+        if (timestamps.length === 0) {
+            dadosTabelaRaw = [];
+            renderizarTabelaComOrdenacao([], ordemAtual);
+            return;
+        }
+
+        // Monta estrutura unificada com conversão para nós
+        const linhas = timestamps.map((ts, i) => ({
+            timestamp: ts,
+            velocidade: msToKnots(velocidades[i]),
+            direcao: direcoes[i],
+            rajada: msToKnots(rajadas[i]),
+            precipitacao: precipitacoes[i]
+        }));
+
+        // Armazenar os dados brutos para reordenação
+        dadosTabelaRaw = linhas;
+        
+        // Renderizar com a ordem atual
+        renderizarTabelaComOrdenacao(linhas, ordemAtual);
+    }
 
     // CARREGAR GRÁFICO E TABELA JUNTO COM A PÁGINA
     const startDate = document.getElementById('start-date').value;
@@ -221,4 +317,7 @@ function atualizarTabela(dados) {
     const dados = await organizaDadosParaGrafico_estacao(nome_tabela, startDate, endDate);
     fetchData(currentGraph, 'estacao', dados);
     atualizarTabela(dados);
+    
+    // Inicializar a seta com o estado padrão (decrescente)
+    atualizarSetaOrdenacao();
 });
