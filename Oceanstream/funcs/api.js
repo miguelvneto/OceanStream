@@ -2,6 +2,12 @@
 // const prefix_api = 'http://environlink.ddns.net:1848'; // ddns
 const prefix_api = 'https://oceanstream-8b3329b99e40.herokuapp.com'; // heroku
 
+// Função auxiliar para limpar valores
+const sanitize = (value) => {
+    if (value === 'Infinity') return null;
+    return value;
+};
+
 function converterVetorParaFormatoISO(vetorOriginal) {
     const vetorFormatado = vetorOriginal.map(originalDateTime => {
         // Dividir a string original em data e hora
@@ -364,10 +370,10 @@ async function organizaDadosParaGrafico_ondografo(nome_tabela, startDate, endDat
     // Supondo que a tabela é um array de objetos onde cada objeto representa uma linha
     tabela.forEach(row => {
         tmStamp.push(row.TmStamp);
-        hm0.push(row.hm0);
-        hmax.push(row.hmax);
-        tp.push(row.tp);
-        tz.push(row.tz);
+        hm0.push(sanitize(row.hm0));
+        hmax.push(sanitize(row.hmax));
+        tp.push(sanitize(row.tp));
+        tz.push(sanitize(row.tz));
     });
 
     return [tmStamp, hm0, hmax, tp, tz];
