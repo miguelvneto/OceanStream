@@ -34,13 +34,6 @@ function isTokenValid(token) {
     return payload.exp && payload.exp > currentTime;
 }
 
-// Função para obter um cookie pelo nome
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
-
 // Função para remover um cookie pelo nome
 function deleteCookie(name) {
     document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
@@ -49,10 +42,9 @@ function deleteCookie(name) {
 // Função para verificar a existência e validade do JWT no localStorage e cookies
 function checkToken() {
     let localStorageToken = localStorage.getItem('accessToken');
-    let cookieToken = getCookie('accessToken');
 
     // Verifica se existe pelo menos um token válido
-    if (isTokenValid(localStorageToken) || isTokenValid(cookieToken)) {
+    if (isTokenValid(localStorageToken)) {
         return; // Se algum token válido foi encontrado, não faz nada
     } else {
         // Caso nenhum token válido seja encontrado, remove e redireciona para a página de lsogin
@@ -63,6 +55,35 @@ function checkToken() {
             deleteCookie('accessToken');
         }
         window.location.href = pagLogin;
+    }
+}
+
+function obterAcessosJWT() {
+    const token = obterAccessToken();
+    if (!token) return null;
+
+    try {
+        const partes = token.split('.');
+        if (partes.length !== 3) return null;
+
+        const base64 = partes[1]
+            .replace(/-/g, '+')
+            .replace(/_/g, '/');
+
+        const bytes = Uint8Array.from(atob(base64), c =>
+            c.charCodeAt(0)
+        );
+
+        const payload = JSON.parse(
+            new TextDecoder().decode(bytes)
+        );
+
+        return typeof payload.acessos === 'string'
+            ? payload.acessos
+            : null;
+
+    } catch {
+        return null;
     }
 }
 

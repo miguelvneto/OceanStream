@@ -1,6 +1,8 @@
 // const prefix_api = 'http://localhost:1848'; // localhost
 // const prefix_api = 'http://environlink.ddns.net:1848'; // ddns
 const prefix_api = 'https://oceanstream-8b3329b99e40.herokuapp.com'; // heroku
+const acessos = obterAcessosJWT().split(';');
+// console.log('acessos: ', acessos);
 
 // Função auxiliar para limpar valores
 const sanitize = (value) => {
@@ -39,6 +41,12 @@ function verificaFormatoData(str) {
 }
 
 async function reqAPI(nome_tabela, startDate, endDate) {
+    // verificar se "nome_tabela" é iniciada por alguma das strings de "acessos".split(';')
+    if (!acessos.some(acesso => nome_tabela.startsWith(acesso))) {
+        console.log('Tabela não autorizada:'+ nome_tabela);
+        return;
+    }
+
     if (!(verificaFormatoData(startDate) && verificaFormatoData(endDate))){
         console.log('Favor selecionar datas válidas.')
         console.log(startDate)
