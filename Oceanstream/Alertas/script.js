@@ -15,7 +15,7 @@ const pth_manutencao = pth_res + "/status_manutencao.png" + '?v=' + new Date().g
 const EQUIPAMENTOS_EM_MANUTENCAO = [
     // "Boia04_PNORI",  // Boia 4
     // "Boia08_PNORI",  // Boia 8
-    "Boia10_PNORI"  // Boia 10
+    // "Boia10_PNORI"  // Boia 10
     // "PII",           // Ondógrafo Píer II
     // "TGL",           // Ondógrafo TGL
     // "TPD",           // Ondógrafo TPD
@@ -27,7 +27,7 @@ const EQUIPAMENTOS_EM_MANUTENCAO = [
 // Observação opcional para cada equipamento em manutenção
 // Será exibida junto com a informação de manutenção
 const OBSERVACAO_MANUTENCAO = {
-    "Boia10_PNORI": "Rodízio na Boia",
+    // "Boia10_PNORI": "Rodízio na Boia",
     // "Boia08_PNORI": "Calibração programada",
     // "Maregrafo": "Problema na transmissão de dados - Equipe técnica acionada",
 };
