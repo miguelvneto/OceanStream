@@ -2,56 +2,6 @@ const logprefix_api = prefix_api;
 
 const pagOverview='./Overview/index.html';
 
-/**********************************************************/
-// INÍCIO CHECA JWT
-// Função para verificar se um token JWT é válido
-function isTokenValid(token) {
-    if (!token) return false;
-
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    const currentTime = Math.floor(Date.now() / 1000);
-
-    return payload.exp && payload.exp > currentTime;
-}
-
-// Função para obter um cookie pelo nome
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
-
-// Função para remover um cookie pelo nome
-function deleteCookie(name) {
-    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
-}
-
-// Função para verificar a existência e validade do JWT no localStorage e cookies
-function checkToken() {
-    let accessToken = localStorage.getItem('accessToken');
-
-    if (isTokenValid(accessToken)) {
-        window.location.href = pagOverview;
-        return;
-    } else if (accessToken) {
-        localStorage.removeItem('accessToken');
-    }
-
-    accessToken = getCookie('accessToken');
-
-    if (isTokenValid(accessToken)) {
-        window.location.href = pagOverview;
-        return;
-    } else if (accessToken) {
-        deleteCookie('accessToken');
-    }
-}
-
-// Verificar o token antes de carregar a página
-document.addEventListener('DOMContentLoaded', checkToken);
-// FIM CHECA JWT
-/**********************************************************/
-
 document.getElementById('loginButton').addEventListener('click', async function(event) {
     const paragrafo = document.querySelector('.msg_pos p');
     paragrafo.textContent = '\n';
