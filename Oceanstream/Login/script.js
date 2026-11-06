@@ -1,6 +1,7 @@
 const logprefix_api = prefix_api;
 
 const pagOverview='./Overview/index.html';
+const pagLogin = './index.html';
 
 document.getElementById('loginButton').addEventListener('click', async function(event) {
     const paragrafo = document.querySelector('.msg_pos p');
@@ -48,7 +49,6 @@ document.getElementById('loginButton').addEventListener('click', async function(
 
         // Salva o accessToken no localStorage e como cookie
         localStorage.setItem('accessToken', result.accessToken);
-        document.cookie = `accessToken=${result.accessToken}; path=/`;
 
         window.location.href = pagOverview;
     } catch (error) {
