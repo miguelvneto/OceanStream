@@ -1,7 +1,6 @@
 const logprefix_api = prefix_api;
 
-const pagOverview='./Overview/index.html';
-const pagLogin = './index.html';
+const pagOverview='../Overview/';
 
 document.getElementById('loginButton').addEventListener('click', async function(event) {
     const paragrafo = document.querySelector('.msg_pos p');
