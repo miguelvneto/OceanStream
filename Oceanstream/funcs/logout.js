@@ -23,15 +23,31 @@ function deleteTokenAndRedirect() {
 }
 
 /**********************************************************/
-// INÍCIO CHECA JWT
+// INÍCIO JWT
 // Função para verificar se um token JWT é válido
 function isTokenValid(token) {
     if (!token) return false;
 
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    const currentTime = Math.floor(Date.now() / 1000);
+    try {
+        const partes = token.split('.');
+        if (partes.length !== 3) return false;
 
-    return payload.exp && payload.exp > currentTime;
+        const base64 = partes[1]
+            .replace(/-/g, '+')
+            .replace(/_/g, '/');
+
+        const payload = JSON.parse(atob(base64));
+        const currentTime = Math.floor(Date.now() / 1000);
+
+        return (
+            typeof payload.exp === 'number' &&
+            payload.exp > currentTime &&
+            typeof payload.acessos === 'string'
+        );
+
+    } catch {
+        return false;
+    }
 }
 
 // Função para remover um cookie pelo nome
@@ -50,9 +66,6 @@ function checkToken() {
         // Caso nenhum token válido seja encontrado, remove e redireciona para a página de lsogin
         if (localStorageToken) {
             localStorage.removeItem('accessToken');
-        }
-        if (cookieToken) {
-            deleteCookie('accessToken');
         }
         window.location.href = pagLogin;
     }
@@ -89,5 +102,5 @@ function obterAcessosJWT() {
 
 // Verificar o token antes de carregar a página
 document.addEventListener('DOMContentLoaded', checkToken);
-// FIM CHECA JWT
+// FIM JWT
 /**********************************************************/
